@@ -1,0 +1,30 @@
+:root {
+  /* Brand Colors */
+  --color-brand-primary: #005EB8;
+  --color-brand-secondary: #00A950;
+  --color-brand-dark: #0A1929;
+  --color-brand-accent: #0085CA;
+  --color-brand-gray: #4B5563;
+  --color-brand-metallic: #94A3B8;
+
+  /* Backgrounds */
+  --color-bg-main: #FFFFFF;
+  --color-bg-secondary: #F5F7FA;
+
+  /* Typography */
+  --font-sans: 'Satoshi', sans-serif;
+  --font-heading: 'Clash Display', sans-serif;
+  
+  /* Spacing & Radius */
+  --radius-base: 0.5rem;
+  --space-1: 0.25rem;
+}
+
+/* Dark Mode Overrides */
+.dark {
+  --color-bg-main: #0A1929;
+  --color-bg-secondary: #112540;
+  --color-brand-dark: #FFFFFF;
+  --color-brand-gray: #9CA3AF;
+  --color-brand-primary: #3B82F6; /* Lighter blue for dark mode */
+}

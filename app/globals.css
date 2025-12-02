@@ -1,0 +1,76 @@
+@import '../styles/theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-brand-dark bg-brand-bg-main font-sans antialiased scroll-smooth;
+  }
+}
+
+@layer components {
+
+  /* --- Layout & Spacing --- */
+  .container-std {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-std {
+    @apply py-20 sm:py-28;
+  }
+
+  /* --- Typography --- */
+  .h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-brand-dark leading-tight tracking-tight;
+  }
+
+  .h2 {
+    @apply text-3xl md:text-4xl font-bold font-heading text-brand-dark mb-6 leading-tight;
+  }
+
+  .h3 {
+    @apply text-2xl font-bold font-heading text-brand-dark mb-4;
+  }
+
+  .text-body {
+    @apply text-lg text-brand-gray leading-relaxed;
+  }
+
+  .text-eyebrow {
+    @apply text-brand-primary font-bold uppercase tracking-widest text-sm mb-4 block;
+  }
+
+  /* --- Buttons --- */
+  .btn-base {
+    @apply inline-flex items-center justify-center rounded-full font-bold transition-all duration-300 shadow-lg hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none px-8 py-3 text-lg;
+  }
+
+  .btn-primary {
+    @apply btn-base bg-brand-primary text-white hover:bg-brand-dark;
+  }
+
+  .btn-secondary {
+    @apply btn-base bg-white text-brand-dark border border-gray-200 hover:border-brand-primary hover:text-brand-primary;
+  }
+
+  .btn-dark {
+    @apply btn-base bg-brand-dark text-white hover:bg-brand-primary border border-slate-700;
+  }
+
+  /* --- Cards --- */
+  .card-std {
+    @apply bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-brand-primary/30 transition-all duration-300;
+  }
+
+  /* --- Links --- */
+  .link-std {
+    @apply text-brand-dark font-bold border-b-2 border-gray-200 hover:border-brand-primary hover:text-brand-primary pb-0.5 transition-all;
+  }
+
+  /* --- Form Inputs --- */
+  .input-std {
+    @apply w-full p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none text-brand-dark placeholder-gray-400;
+  }
+}
