@@ -6,6 +6,7 @@ import ServiceHero from '@/components/service_page/ServiceHero';
 import CoreCapabilities from '@/components/service_page/CoreCapabilities';
 import HowWeBuildIt from '@/components/service_page/HowWeBuildIt';
 import DeliveryModels from '@/components/service_page/DeliveryModels';
+import DeliveryModelsSection from '@/components/services_page/DeliveryModelsSection';
 import Consultancy from '@/components/service_page/Consultancy';
 import Partners from '@/components/sections/Partners';
 import CTA from '@/components/sections/CTA';
@@ -25,7 +26,9 @@ const ServicesPage: React.FC = () => {
     <div className="bg-brand-bg-main text-brand-dark font-sans">
       <ServiceHero />
       <StickyNav items={navItems} />
+      <Partners />
       <CoreCapabilities />
+      <DeliveryModelsSection />
       <HowWeBuildIt />
       <DeliveryModels />
       <Consultancy />

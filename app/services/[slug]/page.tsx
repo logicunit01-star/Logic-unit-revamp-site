@@ -108,7 +108,7 @@ const ServiceDetailPage: React.FC = () => {
             <div className="lg:col-span-4 sticky top-32">
               <span className="text-brand-primary font-bold uppercase tracking-widest text-sm mb-4 block">The Vision</span>
               <h2 className="text-4xl font-bold font-heading text-brand-dark mb-8 leading-tight">
-                Engineering the <br /> Future of <span className="text-brand-primary">{data.title.split(' ')[0]}</span>
+                Engineering the <br /> Future of <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">{data.title.split(' ')[0]}</span>
               </h2>
               <a href="#contact" className="inline-flex items-center text-brand-dark font-bold border-b-2 border-brand-dark hover:border-brand-primary hover:text-brand-primary transition-colors pb-1">
                 Speak to an Architect <ChevronRightIcon className="w-4 h-4 ml-2" />

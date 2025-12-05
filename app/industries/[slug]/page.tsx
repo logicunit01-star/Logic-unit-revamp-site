@@ -2,7 +2,11 @@
 
 import React from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { INDUSTRIES_PAGE_DATA } from '@/constants';
+import { INDUSTRIES_PAGE_DATA, toSlug } from '@/constants';
+import IndustryDetailHero from '@/components/industries_page/IndustryDetailHero';
+import IndustryChallenges from '@/components/industries_page/IndustryChallenges';
+import IndustryProcess from '@/components/industries_page/IndustryProcess';
+import ComplianceSection from '@/components/industries_page/ComplianceSection';
 import ContactForm from '@/components/sections/ContactForm';
 import Partners from '@/components/sections/Partners';
 import Stats from '@/components/sections/Stats';
@@ -11,6 +15,8 @@ import CaseStudies from '@/components/sections/CaseStudies';
 import Testimonials from '@/components/sections/Testimonials';
 import FAQ from '@/components/sections/FAQ';
 import CTA from '@/components/sections/CTA';
+import Allies from '@/components/sections/Allies';
+import Technologies from '@/components/sections/Technologies';
 
 const IndustryDetailPage: React.FC = () => {
   const params = useParams();
@@ -24,55 +30,52 @@ const IndustryDetailPage: React.FC = () => {
 
   return (
     <div className="bg-brand-bg-main text-brand-dark font-sans">
-      {/* Hero Section */}
-      <section className="bg-white pt-28 pb-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-brand-primary/5 to-transparent pointer-events-none" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-block mb-4 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-wider">
-              Industry Focus
-            </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-brand-dark leading-[1.1] mb-6 tracking-tight">
-              {industryData.name}
-            </h1>
-            <p className="text-xl text-brand-gray mb-8 leading-relaxed">
-              {industryData.description}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="bg-brand-dark text-white hover:bg-brand-primary px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:scale-105">
-                Get Started
-              </a>
-              <a href="#solutions" className="bg-white text-brand-dark border border-gray-200 hover:border-brand-primary hover:text-brand-primary px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
-                Explore Solutions
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <IndustryDetailHero
+        title={industryData.name}
+        description={industryData.description}
+      />
 
+      <ComplianceSection />
       <Stats />
-      <Partners />
+
+      {/* New Unique Section: Industry Challenges */}
+      {industryData.challenges && (
+        <IndustryChallenges
+          industryName={industryData.name}
+          challenges={industryData.challenges}
+        />
+      )}
 
       {/* Solutions Section */}
       {industryData.solutions && industryData.solutions.length > 0 && (
-        <section id="solutions" className="py-24 bg-brand-bg-secondary scroll-mt-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="solutions" className="py-24 bg-brand-bg-secondary scroll-mt-24 relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none opacity-5">
+            <div className="absolute right-0 top-0 w-1/2 h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+          </div>
+
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-3xl mb-16 text-center mx-auto">
               <span className="text-brand-primary font-bold uppercase tracking-widest text-sm mb-4 block">Solutions</span>
-              <h2 className="text-4xl font-bold font-heading text-brand-dark">Tailored for {industryData.name}</h2>
+              <h2 className="text-4xl font-bold font-heading text-brand-dark">Tailored for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">{industryData.name}</span></h2>
               <p className="mt-4 text-brand-gray text-lg">Comprehensive solutions designed specifically for your industry.</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {industryData.solutions.map((solution, index) => (
-                <div key={index} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-brand-primary/30 transition-all duration-300 group">
+                <div
+                  key={index}
+                  onClick={() => router.push(`/industries/${slug}/${toSlug(solution.name)}`)}
+                  className="group bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-brand-primary/10 transition-all duration-500 hover:border-brand-primary/30 relative overflow-hidden cursor-pointer"
+                >
+                  <div className="absolute top-0 left-0 w-1 h-full bg-brand-primary transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+
                   <div className="flex justify-between items-start mb-6">
-                    <div className="w-12 h-12 rounded-lg bg-brand-bg-secondary flex items-center justify-center text-brand-dark font-heading font-bold text-xl group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <div className="w-12 h-12 rounded-lg bg-brand-bg-secondary flex items-center justify-center text-brand-dark font-heading font-bold text-xl group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
                       0{index + 1}
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-brand-dark mb-2 group-hover:text-brand-primary transition-colors">{solution.name}</h3>
+                    <h3 className="text-xl font-bold font-heading text-brand-dark mb-3 group-hover:text-brand-primary transition-colors">{solution.name}</h3>
                     <div className="w-8 h-0.5 bg-gray-200 group-hover:bg-brand-secondary group-hover:w-12 transition-all duration-500"></div>
                   </div>
                 </div>
@@ -81,6 +84,16 @@ const IndustryDetailPage: React.FC = () => {
           </div>
         </section>
       )}
+
+      {/* New Unique Section: Process */}
+      {industryData.process && (
+        <IndustryProcess
+          industryName={industryData.name}
+          steps={industryData.process}
+        />
+      )}
+
+      <Partners />
 
       <WhyUs />
 
@@ -92,7 +105,9 @@ const IndustryDetailPage: React.FC = () => {
       />
 
       <CaseStudies />
+      <Allies />
       <Testimonials />
+      <Technologies />
 
       <div id="contact">
         <ContactForm />

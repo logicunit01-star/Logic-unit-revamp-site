@@ -12,11 +12,12 @@ const AllCaseStudies: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {allStudies.map((study, index) => (
                         <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden h-full border border-gray-200">
-                             <div className="bg-gray-200 aspect-video flex items-center justify-center">
-                                <img src={study.image} alt={study.title} className="w-full h-full object-cover"/>
+                            <div className="bg-gray-200 aspect-video flex items-center justify-center">
+                                <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
                             </div>
                             <div className="p-6">
-                                <p className="text-brand-dark/80">Flexible, customer-focused, and built to match your goals perfectly.</p>
+                                <h3 className="text-xl font-bold font-heading text-brand-dark mb-2">{study.title}</h3>
+                                <p className="text-brand-dark/80">{study.description}</p>
                             </div>
                         </div>
                     ))}

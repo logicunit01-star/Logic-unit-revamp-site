@@ -83,6 +83,21 @@ export const CASE_STUDIES = [
         title: 'AI-Driven Healthcare Analytics',
         description: 'Developed a predictive model for patient care that reduced readmission rates by 15% for a hospital network.',
         image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+        title: 'Omnichannel Retail Transformation',
+        description: 'Unified online and offline inventory systems for a major fashion retailer, increasing cross-channel sales by 40%.',
+        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+        title: 'Smart Factory IoT Integration',
+        description: 'Implemented a predictive maintenance system using IoT sensors for an automotive plant, reducing downtime by 25%.',
+        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+        title: 'PropTech Portfolio Management',
+        description: 'Built a centralized asset management platform for a real estate firm, automating tenant onboarding and lease tracking.',
+        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2070&auto=format&fit=crop'
     }
 ];
 
@@ -191,7 +206,35 @@ const generateIndustry = (slug: string, name: string, description: string, solut
     industrySlug: slug,
     description,
     solutions: solutions.map(s => ({ name: s })),
-    icon: '🏢' // Default icon
+    icon: '🏢', // Default icon
+    challenges: [
+        { title: `Legacy Systems in ${name}`, description: `Modernizing outdated ${name.toLowerCase()} infrastructure without disrupting critical operations.` },
+        { title: 'Data Security & Compliance', description: `Navigating complex regulatory landscapes and ensuring ${name.toLowerCase()} data privacy.` },
+        { title: 'Digital Customer Experience', description: `Meeting the rising expectations of digital-first users in the ${name.toLowerCase()} sector.` },
+        { title: 'Operational Efficiency', description: `Automating manual workflows to reduce costs and improve speed in ${name.toLowerCase()}.` }
+    ],
+    process: [
+        { title: 'Discovery & Audit', description: `We analyze your current ${name.toLowerCase()} infrastructure and identify gaps.` },
+        { title: 'Strategic Planning', description: `Designing a roadmap tailored to ${name.toLowerCase()} regulations and goals.` },
+        { title: 'Agile Development', description: `Building compliant, scalable solutions with iterative feedback.` },
+        { title: 'Deployment & Support', description: `Seamless launch and 24/7 support for mission-critical systems.` }
+    ],
+    trends: [
+        { title: `AI in ${name}`, description: `Leveraging artificial intelligence to automate complex ${name.toLowerCase()} tasks.` },
+        { title: 'Cloud Migration', description: `Moving on-premise ${name.toLowerCase()} systems to secure cloud environments.` },
+        { title: 'IoT Integration', description: `Connecting devices for real-time data in ${name.toLowerCase()}.` }
+    ],
+    techStack: [
+        { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' }
+    ],
+    impactMetrics: [
+        { value: '30%', label: 'Cost Reduction' },
+        { value: '2x', label: 'Faster Time-to-Market' },
+        { value: '99.9%', label: 'Uptime Reliability' }
+    ]
 });
 
 export const INDUSTRIES_PAGE_DATA = [

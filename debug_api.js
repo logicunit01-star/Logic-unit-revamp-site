@@ -1,6 +1,6 @@
 
 const fetch = require('node-fetch'); // Try require, if fails, rely on global fetch
-//sadasd
+
 async function debugApi() {
     const POPULATE = 'populate[cover][populate]=*&populate[author][populate]=*&populate[blocks][populate]=*';
     const URL = `http://localhost:1337/api/articles?${POPULATE}`;

@@ -31,10 +31,11 @@ const FeaturedCaseStudies: React.FC = () => {
                                     {CASE_STUDIES.slice(pageIndex * slidesPerPage, (pageIndex + 1) * slidesPerPage).map((study, studyIndex) => (
                                         <div key={studyIndex} className="bg-white rounded-lg shadow-lg overflow-hidden h-full border border-gray-200">
                                             <div className="bg-gray-200 aspect-video flex items-center justify-center">
-                                                <img src={study.image} alt={study.title} className="w-full h-full object-cover"/>
+                                                <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
                                             </div>
                                             <div className="p-6">
-                                                <p className="text-brand-dark/80">Flexible, customer-focused, and built to match your goals perfectly.</p>
+                                                <h3 className="text-xl font-bold font-heading text-brand-dark mb-2">{study.title}</h3>
+                                                <p className="text-brand-dark/80">{study.description}</p>
                                             </div>
                                         </div>
                                     ))}
@@ -42,7 +43,7 @@ const FeaturedCaseStudies: React.FC = () => {
                             ))}
                         </div>
                     </div>
-                    
+
                     <button onClick={prevPage} className="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition z-10">
                         <ChevronLeftIcon className="w-6 h-6 text-gray-700" />
                     </button>
