@@ -1,0 +1,21 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/case-studies/page": "/case-studies",
+  "/clients/page": "/clients",
+  "/about/page": "/about",
+  "/contact/page": "/contact",
+  "/industries/[slug]/page": "/industries/[slug]",
+  "/industries/[slug]/[solutionSlug]/page": "/industries/[slug]/[solutionSlug]",
+  "/industries/page": "/industries",
+  "/insights/[slug]/page": "/insights/[slug]",
+  "/page": "/",
+  "/services/[...slug]/page": "/services/[...slug]",
+  "/intelligence/page": "/intelligence",
+  "/services/[slug]/page": "/services/[slug]",
+  "/test/page": "/test",
+  "/services/page": "/services",
+  "/insights/page": "/insights",
+  "/privacy/page": "/privacy",
+  "/terms/page": "/terms",
+  "/sitemap/page": "/sitemap"
+}

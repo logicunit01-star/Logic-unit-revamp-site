@@ -27,7 +27,7 @@ const IndustryFeaturedInsights: React.FC<IndustryFeaturedInsightsProps> = ({ dat
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
                                 <h3 className="text-lg font-bold text-brand-primary mb-2 h-14 overflow-hidden">{post.title}</h3>
-                                <p className="text-brand-dark/80 flex-grow mb-4 text-sm h-20 overflow-hidden text-ellipsis">{post.seo_description}</p>
+                                <p className="text-brand-dark/80 flex-grow mb-4 text-sm h-20 overflow-hidden text-ellipsis">{post.postDescription}</p>
                                 <Link href={`/insights/${post.slug}`} className="font-semibold text-brand-accent group-hover:text-brand-secondary transition-colors self-start mt-auto">
                                     Keep Reading &rarr;
                                 </Link>
