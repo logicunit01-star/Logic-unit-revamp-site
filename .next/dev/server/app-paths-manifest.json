@@ -1,0 +1,11 @@
+{
+  "/about/page": "app/about/page.js",
+  "/case-studies/page": "app/case-studies/page.js",
+  "/industries/[slug]/[solutionSlug]/page": "app/industries/[slug]/[solutionSlug]/page.js",
+  "/industries/[slug]/page": "app/industries/[slug]/page.js",
+  "/industries/page": "app/industries/page.js",
+  "/insights/page": "app/insights/page.js",
+  "/intelligence/page": "app/intelligence/page.js",
+  "/page": "app/page.js",
+  "/services/[slug]/page": "app/services/[slug]/page.js"
+}

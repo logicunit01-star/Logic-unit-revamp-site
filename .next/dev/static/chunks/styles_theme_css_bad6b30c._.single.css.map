@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/styles/theme.css"],"sourcesContent":[":root {\r\n  /* Brand Colors */\r\n  --color-brand-primary: #005EB8;\r\n  --color-brand-secondary: #00A950;\r\n  --color-brand-dark: #0A1929;\r\n  --color-brand-accent: #0085CA;\r\n  --color-brand-gray: #4B5563;\r\n  --color-brand-metallic: #94A3B8;\r\n\r\n  /* Backgrounds */\r\n  --color-bg-main: #FFFFFF;\r\n  --color-bg-secondary: #F5F7FA;\r\n\r\n  /* Typography */\r\n  --font-sans: 'Satoshi', sans-serif;\r\n  --font-heading: 'Clash Display', sans-serif;\r\n  \r\n  /* Spacing & Radius */\r\n  --radius-base: 0.5rem;\r\n  --space-1: 0.25rem;\r\n}\r\n\r\n/* Dark Mode Overrides */\r\n.dark {\r\n  --color-bg-main: #0A1929;\r\n  --color-bg-secondary: #112540;\r\n  --color-brand-dark: #FFFFFF;\r\n  --color-brand-gray: #9CA3AF;\r\n  --color-brand-primary: #3B82F6; /* Lighter blue for dark mode */\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;AAuBA"}}]
+}

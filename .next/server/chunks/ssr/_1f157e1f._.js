@@ -1,0 +1,3 @@
+module.exports=[70864,a=>{a.n(a.i(33290))},2894,a=>{a.n(a.i(66188))},13718,a=>{a.n(a.i(85523))},18198,a=>{a.n(a.i(45518))},62212,a=>{a.n(a.i(66114))},76695,a=>{"use strict";var b=a.i(7997);function c(){return(0,b.jsx)("div",{className:"min-h-screen flex items-center justify-center",children:(0,b.jsxs)("div",{className:"text-center",children:[(0,b.jsx)("h1",{className:"text-4xl font-bold mb-4",children:"Test Page"}),(0,b.jsx)("p",{className:"text-xl",children:"If you can see this, Next.js is working!"})]})})}a.s(["default",()=>c])}];
+
+//# sourceMappingURL=_1f157e1f._.js.map

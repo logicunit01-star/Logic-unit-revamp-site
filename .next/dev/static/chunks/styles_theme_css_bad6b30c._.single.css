@@ -1,0 +1,25 @@
+/* [project]/styles/theme.css [app-client] (css) */
+:root {
+  --color-brand-primary: #005eb8;
+  --color-brand-secondary: #00a950;
+  --color-brand-dark: #0a1929;
+  --color-brand-accent: #0085ca;
+  --color-brand-gray: #4b5563;
+  --color-brand-metallic: #94a3b8;
+  --color-bg-main: #fff;
+  --color-bg-secondary: #f5f7fa;
+  --font-sans: "Satoshi", sans-serif;
+  --font-heading: "Clash Display", sans-serif;
+  --radius-base: .5rem;
+  --space-1: .25rem;
+}
+
+.dark {
+  --color-bg-main: #0a1929;
+  --color-bg-secondary: #112540;
+  --color-brand-dark: #fff;
+  --color-brand-gray: #9ca3af;
+  --color-brand-primary: #3b82f6;
+}
+
+/*# sourceMappingURL=styles_theme_css_bad6b30c._.single.css.map*/

@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,3184,t=>{"use strict";var e=t.i(18566),i=t.i(50568);async function c({params:t}){let{slug:c}=await t,a=c[c.length-1],n=(0,i.getServiceCanonicalPath)(a);(0,e.redirect)(n)}t.s(["default",()=>c])}]);
