@@ -1,6 +1,6 @@
 import { Post } from './cms';
 
-const STRAPI_URL = 'http://localhost:1337';
+const STRAPI_URL = 'https://backend.logic-unit.com';
 const API_URL = `${STRAPI_URL}/api/articles?populate=*`;
 
 // Generic Strapi type supporting BOTH wrapped and unwrapped responses
