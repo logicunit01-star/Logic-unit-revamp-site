@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import InputField from '../contact_form_field/InputField';
 
 interface FormData {
     fullName: string;
@@ -11,6 +10,15 @@ interface FormData {
     industry: string;
     projectType: string;
     description: string;
+}
+
+interface FormErrors {
+    fullName?: string;
+    companyName?: string;
+    businessEmail?: string;
+    phoneNumber?: string;
+    industry?: string;
+    projectType?: string;
 }
 
 const ContactForm: React.FC = () => {
@@ -24,14 +32,134 @@ const ContactForm: React.FC = () => {
         description: ''
     });
 
+    const [errors, setErrors] = useState<FormErrors>({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [touched, setTouched] = useState<Record<string, boolean>>({});
+
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+
+        // Only allow numbers for phone field
+        if (name === 'phoneNumber') {
+            const numbersOnly = value.replace(/[^0-9]/g, '');
+            setFormData(prev => ({ ...prev, [name]: numbersOnly }));
+        } else {
+            setFormData(prev => ({ ...prev, [name]: value }));
+        }
+
+        // Clear error when user starts typing
+        if (errors[name as keyof FormErrors]) {
+            setErrors(prev => ({ ...prev, [name]: undefined }));
+        }
     };
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleBlur = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name } = e.target;
+        setTouched(prev => ({ ...prev, [name]: true }));
+        validateField(name, formData[name as keyof FormData]);
+    };
+
+    const validateField = (name: string, value: string) => {
+        let error = '';
+
+        switch (name) {
+            case 'fullName':
+                if (!value.trim()) error = 'Full name is required';
+                else if (value.trim().length < 2) error = 'Name must be at least 2 characters';
+                break;
+            case 'companyName':
+                if (!value.trim()) error = 'Company name is required';
+                break;
+            case 'email':
+                if (!value.trim()) error = 'Email is required';
+                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) error = 'Invalid email format';
+                break;
+            case 'businessEmail':
+                if (!value.trim()) error = 'Business email is required';
+                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) error = 'Invalid email format';
+                break;
+            case 'phoneNumber':
+                if (value && value.length < 10) error = 'Phone number must be at least 10 digits';
+                break;
+            case 'industry':
+                if (!value) error = 'Please select an industry';
+                break;
+            case 'projectType':
+                if (!value) error = 'Please select a project type';
+                break;
+        }
+
+        setErrors(prev => ({ ...prev, [name]: error }));
+        return error === '';
+    };
+
+    const validateForm = (): boolean => {
+        const newErrors: FormErrors = {};
+
+        if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
+        else if (formData.fullName.trim().length < 2) newErrors.fullName = 'Name must be at least 2 characters';
+
+        if (!formData.companyName.trim()) newErrors.companyName = 'Company name is required';
+
+        if (!formData.businessEmail.trim()) newErrors.businessEmail = 'Business email is required';
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.businessEmail)) {
+            newErrors.businessEmail = 'Invalid email format';
+        }
+
+        if (formData.phoneNumber && formData.phoneNumber.length < 10) {
+            newErrors.phoneNumber = 'Phone number must be at least 10 digits';
+        }
+
+        if (!formData.industry) newErrors.industry = 'Please select an industry';
+        if (!formData.projectType) newErrors.projectType = 'Please select a project type';
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        alert('Thank you for your submission. A strategy consultant will contact you shortly.');
+
+        if (!validateForm()) {
+            setTouched({
+                fullName: true,
+                companyName: true,
+                businessEmail: true,
+                phoneNumber: true,
+                industry: true,
+                projectType: true
+            });
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            setSubmitSuccess(true);
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                setFormData({
+                    fullName: '',
+                    companyName: '',
+                    businessEmail: '',
+                    phoneNumber: '',
+                    industry: '',
+                    projectType: '',
+                    description: ''
+                });
+                setSubmitSuccess(false);
+                setTouched({});
+            }, 3000);
+        } catch (error) {
+            alert('Something went wrong. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -44,7 +172,10 @@ const ContactForm: React.FC = () => {
                             Engagement
                         </h4>
                         <h2 className="text-4xl font-bold font-heading text-brand-dark mb-8 leading-tight">
-                            Start Your Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Transformation Today</span>
+                            Start Your Digital{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
+                                Transformation Today
+                            </span>
                         </h2>
                         <p className="text-lg text-brand-gray mb-8 leading-relaxed">
                             As a leading custom software development company, Logic-unit is ready to deliver strategic audits, full-scale platform builds, or AI roadmaps tailored to your business. Connect with us to engineer your solution.
@@ -63,95 +194,139 @@ const ContactForm: React.FC = () => {
                     </div>
 
                     {/* Form Column */}
-                    <div className="lg:col-span-7 bg-brand-bg-secondary p-8 md:p-12 rounded-xl border border-gray-100 shadow-2xl shadow-gray-200/50">
-                        <form onSubmit={handleSubmit} className="space-y-8">
+                    <div className="lg:col-span-7 bg-brand-bg-secondary p-6 sm:p-8 md:p-12 rounded-xl border border-gray-100 shadow-2xl shadow-gray-200/50">
+                        {submitSuccess && (
+                            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                                <p className="text-green-800 font-medium">
+                                    ✓ Thank you! A strategy consultant will contact you shortly.
+                                </p>
+                            </div>
+                        )}
+
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             {/* Row 1 */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <InputField
-                                    name="fullName"
-                                    label="Full Name"
-                                    value={formData.fullName}
-                                    onChange={handleChange}
-                                />
-                                <InputField
-                                    name="businessEmail"
-                                    label="Business Email"
-                                    type="email"
-                                    value={formData.businessEmail}
-                                    onChange={handleChange}
-                                />
+                                <div>
+                                    <input
+                                        type="text"
+                                        name="fullName"
+                                        value={formData.fullName}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        placeholder="Full Name *"
+                                        className={`block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 ${touched.fullName && errors.fullName ? 'border-red-500' : 'border-gray-300'
+                                            } focus:outline-none focus:ring-0 focus:border-brand-primary placeholder:text-gray-500`}
+                                    />
+                                    {touched.fullName && errors.fullName && (
+                                        <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>
+                                    )}
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        name="companyName"
+                                        value={formData.companyName}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        placeholder="Company / Organization *"
+                                        className={`block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 ${touched.companyName && errors.companyName ? 'border-red-500' : 'border-gray-300'
+                                            } focus:outline-none focus:ring-0 focus:border-brand-primary placeholder:text-gray-500`}
+                                    />
+                                    {touched.companyName && errors.companyName && (
+                                        <p className="mt-1 text-sm text-red-500">{errors.companyName}</p>
+                                    )}
+                                </div>
                             </div>
 
-                            {/* Row 2 */}
+                            {/* Row 2 - Email Fields */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <InputField
-                                    name="companyName"
-                                    label="Company / Organization"
-                                    value={formData.companyName}
-                                    onChange={handleChange}
-                                />
-                                <InputField
-                                    name="phoneNumber"
-                                    label="Phone Number (Optional)"
-                                    type="tel"
-                                    value={formData.phoneNumber}
-                                    onChange={handleChange}
-                                />
+                                <div>
+                                    <input
+                                        type="email"
+                                        name="businessEmail"
+                                        value={formData.businessEmail}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        placeholder="Business Email *"
+                                        className={`block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 ${touched.businessEmail && errors.businessEmail ? 'border-red-500' : 'border-gray-300'
+                                            } focus:outline-none focus:ring-0 focus:border-brand-primary placeholder:text-gray-500`}
+                                    />
+                                    {touched.businessEmail && errors.businessEmail && (
+                                        <p className="mt-1 text-sm text-red-500">{errors.businessEmail}</p>
+                                    )}
+                                </div>
                             </div>
 
-                            {/* Row 3: Floating Label Selects */}
+                            {/* Row 3 - Phone Number */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div className="relative">
+                                <div>
+                                    <input
+                                        type="tel"
+                                        name="phoneNumber"
+                                        value={formData.phoneNumber}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        placeholder="Phone Number (Optional)"
+                                        maxLength={15}
+                                        className={`block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 ${touched.phoneNumber && errors.phoneNumber ? 'border-red-500' : 'border-gray-300'
+                                            } focus:outline-none focus:ring-0 focus:border-brand-primary placeholder:text-gray-500`}
+                                    />
+                                    {touched.phoneNumber && errors.phoneNumber && (
+                                        <p className="mt-1 text-sm text-red-500">{errors.phoneNumber}</p>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Row 4: Select Fields */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
                                     <select
                                         id="industry"
                                         name="industry"
                                         value={formData.industry}
                                         onChange={handleChange}
-                                        className="block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary peer"
+                                        onBlur={handleBlur}
+                                        className={`block w-full px-0 py-3 bg-transparent border-b-2 ${touched.industry && errors.industry ? 'border-red-500' : 'border-gray-300'
+                                            } appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary ${formData.industry ? 'text-brand-dark' : 'text-gray-500'
+                                            }`}
                                     >
-                                        <option value="" disabled hidden>
-                                            Select Industry
+                                        <option value="" disabled>
+                                            Select Industry *
                                         </option>
-
                                         <option value="Healthcare">Healthcare</option>
                                         <option value="Financial Services">Financial Services</option>
                                         <option value="Retail & Logistics">Retail & Logistics</option>
                                         <option value="Energy & Manufacturing">Energy & Manufacturing</option>
                                         <option value="Other">Other</option>
                                     </select>
-
-                                    <label
-                                        htmlFor="industry"
-                                        className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-brand-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                    >
-                                        Select Industry
-                                    </label>
+                                    {touched.industry && errors.industry && (
+                                        <p className="mt-1 text-sm text-red-500">{errors.industry}</p>
+                                    )}
                                 </div>
 
-                                <div className="relative">
+                                <div>
                                     <select
                                         id="projectType"
                                         name="projectType"
                                         value={formData.projectType}
                                         onChange={handleChange}
-                                        className="peer block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary"
+                                        onBlur={handleBlur}
+                                        className={`block w-full px-0 py-3 bg-transparent border-b-2 ${touched.projectType && errors.projectType ? 'border-red-500' : 'border-gray-300'
+                                            } appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary ${formData.projectType ? 'text-brand-dark' : 'text-gray-500'
+                                            }`}
                                     >
-                                        <option value="" disabled hidden>
-                                            Select Project Type
+                                        <option value="" disabled>
+                                            Select Project Type *
                                         </option>
-
                                         <option value="Strategic Consulting">Strategic Consulting</option>
                                         <option value="Enterprise Development">Enterprise Development</option>
                                         <option value="AI & Automation">AI & Automation</option>
                                         <option value="Team Augmentation">Team Augmentation</option>
                                     </select>
-
-                                    <label
-                                        htmlFor="projectType"
-                                        className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-brand-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                    >
-                                        Engagement Type
-                                    </label>
+                                    {touched.projectType && errors.projectType && (
+                                        <p className="mt-1 text-sm text-red-500">{errors.projectType}</p>
+                                    )}
                                 </div>
                             </div>
 
@@ -160,12 +335,11 @@ const ContactForm: React.FC = () => {
                                 <textarea
                                     id="description"
                                     name="description"
-
                                     rows={3}
                                     onChange={handleChange}
                                     value={formData.description}
                                     placeholder="Project Brief or Key Objectives..."
-                                    className="block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary peer resize-none"
+                                    className="block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary peer resize-none placeholder:text-gray-500"
                                 />
                             </div>
 
@@ -173,9 +347,11 @@ const ContactForm: React.FC = () => {
                             <div className="pt-4">
                                 <button
                                     type="submit"
-                                    className="w-full md:w-auto bg-brand-dark text-white hover:bg-brand-primary px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                                    disabled={isSubmitting}
+                                    className={`w-full md:w-auto bg-brand-dark text-white hover:bg-brand-primary px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                                        }`}
                                 >
-                                    Submit Request
+                                    {isSubmitting ? 'Submitting...' : 'Submit Request'}
                                 </button>
                             </div>
                         </form>
