@@ -716,6 +716,10 @@ body {
   z-index: 99;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .order-1 {
   order: 1;
 }

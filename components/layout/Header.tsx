@@ -361,7 +361,7 @@ const Header: React.FC = () => {
                             <div className="p-4 border-b border-gray-200 flex items-center sticky top-0 bg-white z-10 shadow-sm">
                                 <button
                                     onClick={() => setActiveMobileMenu('main')}
-                                    className="p-2 -ml-2 text-brand-dark hover:text-brand-primary active:text-brand-primary transition-colors"
+                                    className="p-2 -ml-2 text-brand-dark hover:text-brand-primary active:text-brand-primary transition-colors z-50"
                                     aria-label="Go back"
                                 >
                                     <ChevronLeftIcon className="w-6 h-6" />
