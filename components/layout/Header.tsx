@@ -62,55 +62,59 @@ const Header: React.FC = () => {
 
     const renderMobileSubMenu = (link: typeof NAV_LINKS[0]) => {
         return (
-            <div className="px-2 pt-2 pb-20 space-y-1 sm:px-3">
+            <div className="px-4 pt-4 pb-20 space-y-6">
                 {link.megaContent?.main?.map(category => (
-                    <div key={category.title}>
+                    <div key={category.title} className="space-y-2">
                         {(category as any).path ? (
                             <Link
                                 href={(category as any).path}
-                                className="block font-bold text-brand-primary px-3 py-2 text-sm uppercase tracking-wider"
+                                className="block font-bold text-brand-primary px-3 py-3 text-sm uppercase tracking-wider bg-brand-primary/5 rounded-lg hover:bg-brand-primary/10 active:bg-brand-primary/15 transition-colors"
                             >
                                 {category.title}
                             </Link>
                         ) : (
-                            <h4 className="font-bold text-brand-dark/50 px-3 py-2 text-sm uppercase tracking-wider cursor-default">
+                            <h4 className="font-bold text-brand-dark/60 px-3 py-2 text-sm uppercase tracking-wider cursor-default">
                                 {category.title}
                             </h4>
                         )}
 
-                        {category.items.map(item => (
-                            (item as any).path ? (
-                                <Link
-                                    key={item.name}
-                                    href={(item as any).path}
-                                    className="block px-3 py-2 rounded-md text-base font-medium text-brand-dark/80 hover:bg-brand-secondary/5 hover:text-brand-secondary"
-                                >
-                                    {item.name}
-                                </Link>
-                            ) : (
-                                <span key={item.name} className="block px-3 py-2 rounded-md text-base font-medium text-brand-dark/60 cursor-default">{item.name}</span>
-                            )
-                        ))}
+                        <div className="space-y-1">
+                            {category.items.map(item => (
+                                (item as any).path ? (
+                                    <Link
+                                        key={item.name}
+                                        href={(item as any).path}
+                                        className="block px-4 py-3 rounded-lg text-base font-medium text-brand-dark/80 hover:bg-brand-secondary/5 hover:text-brand-secondary active:bg-brand-secondary/10 transition-colors"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                ) : (
+                                    <span key={item.name} className="block px-4 py-3 rounded-lg text-base font-medium text-brand-dark/40 cursor-default">{item.name}</span>
+                                )
+                            ))}
+                        </div>
                     </div>
                 ))}
                 {(link.megaContent as any)?.side && (
-                    <div>
+                    <div className="space-y-3 pt-4 border-t border-gray-200">
                         <h4 className="font-bold text-brand-primary px-3 py-2 text-sm uppercase tracking-wider">{(link.megaContent as any).side.title}</h4>
                         {((link.megaContent as any).side as any).items && ((link.megaContent as any).side as any).items.map((item: any) => (
-                            <Link key={item.name} href={item.href || '#'} className="block px-3 py-2 rounded-md text-base font-medium text-brand-dark/80 hover:bg-brand-secondary/5 hover:text-brand-secondary">{item.name}</Link>
+                            <Link key={item.name} href={item.href || '#'} className="block px-4 py-3 rounded-lg text-base font-medium text-brand-dark/80 hover:bg-brand-secondary/5 hover:text-brand-secondary active:bg-brand-secondary/10 transition-colors">{item.name}</Link>
                         ))}
                         {((link.megaContent as any).side as any).ctaBox && (
-                            <div className="px-3 py-4 mt-4 bg-gray-100 rounded-lg">
-                                <h5 className="font-bold text-brand-dark mb-1">{((link.megaContent as any).side as any).ctaBox.title}</h5>
-                                <p className="text-xs text-gray-500 mb-3">{((link.megaContent as any).side as any).ctaBox.description}</p>
-                                <Link href={((link.megaContent as any)!.side as any).ctaBox.href || '/contact'} className="text-brand-primary font-bold text-sm">{((link.megaContent as any).side as any).ctaBox.buttonText}</Link>
+                            <div className="px-3 py-4 mt-4 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 rounded-xl border border-brand-primary/10">
+                                <h5 className="font-bold text-brand-dark mb-2 text-base">{((link.megaContent as any).side as any).ctaBox.title}</h5>
+                                <p className="text-sm text-gray-600 mb-3 leading-relaxed">{((link.megaContent as any).side as any).ctaBox.description}</p>
+                                <Link href={((link.megaContent as any)!.side as any).ctaBox.href || '/contact'} className="inline-flex items-center gap-2 text-brand-primary font-bold text-sm hover:gap-3 transition-all">
+                                    {((link.megaContent as any).side as any).ctaBox.buttonText} <span>→</span>
+                                </Link>
                             </div>
                         )}
                     </div>
                 )}
                 {link.dropdownContent?.map(item => (
-                    <div key={item.name}>
-                        <Link href={item.href || '#'} className="block px-3 py-2 rounded-md text-base font-medium text-brand-dark hover:bg-brand-secondary/5 hover:text-brand-secondary transition-colors">{item.name}</Link>
+                    <div key={item.name} className="space-y-1">
+                        <Link href={item.href || '#'} className="block px-4 py-3 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-secondary/5 hover:text-brand-secondary active:bg-brand-secondary/10 transition-colors">{item.name}</Link>
                     </div>
                 ))}
             </div>
@@ -120,7 +124,7 @@ const Header: React.FC = () => {
     return (
         <header
             ref={headerRef}
-            className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled
+            className={`fixed top-0 w-full z-[100] transition-all duration-500 ${scrolled
                 ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 py-2'
                 : 'bg-white/80 backdrop-blur-sm border-b border-white/10 py-4'
                 }`}
@@ -189,6 +193,7 @@ const Header: React.FC = () => {
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             type="button"
                             className="text-brand-dark p-2 rounded-md hover:bg-gray-100 focus:outline-none"
+                            aria-label={isMenuOpen ? "Close menu" : "Open main menu"}
                         >
                             <span className="sr-only">Open main menu</span>
                             {isMenuOpen ? (
@@ -289,39 +294,82 @@ const Header: React.FC = () => {
                 )}
             </nav>
 
-            <div className={`lg:hidden fixed left-0 right-0 bottom-0 z-[999] transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} style={{ top: headerHeight ? `${headerHeight}px` : '80px' }}>
-                <div className={`absolute inset-0 bg-white shadow-lg overflow-hidden transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                    <div className={`absolute inset-0 transition-transform duration-300 ease-in-out ${activeMobileMenu === 'main' ? 'translate-x-0' : '-translate-x-full'} overflow-y-auto`}>
-                        <div className="p-4 space-y-2">
+            {/* Mobile Menu Overlay */}
+            {isMenuOpen && (
+                <div
+                    className="lg:hidden fixed inset-0 bg-black/20 z-[98] backdrop-blur-sm"
+                    style={{ top: `${headerHeight}px` }}
+                    onClick={() => setIsMenuOpen(false)}
+                />
+            )}
+
+            {/* Mobile Menu Panel */}
+            <div
+                className={`lg:hidden fixed left-0 right-0 bottom-0 z-[99] transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}
+                style={{
+                    top: `${headerHeight}px`,
+                    height: `calc(100vh - ${headerHeight}px)`
+                }}
+            >
+                <div className="relative h-full bg-white shadow-2xl overflow-hidden">
+                    {/* Main Menu */}
+                    <div
+                        className={`absolute inset-0 transition-transform duration-300 ease-in-out ${activeMobileMenu === 'main' ? 'translate-x-0' : '-translate-x-full'
+                            } overflow-y-auto`}
+                    >
+                        <div className="p-4 space-y-2 pb-24">
                             {NAV_LINKS.map((link) => (
                                 <Fragment key={link.name}>
                                     {link.isMega || link.dropdownContent ? (
-                                        <button onClick={() => handleMobileSubMenuOpen(link.name)} className="w-full flex justify-between items-center px-4 py-4 rounded-lg text-lg font-medium text-brand-dark hover:bg-gray-50 text-left">
+                                        <button
+                                            onClick={() => handleMobileSubMenuOpen(link.name)}
+                                            className="w-full flex justify-between items-center px-4 py-4 rounded-lg text-lg font-medium text-brand-dark hover:bg-gray-50 active:bg-gray-100 text-left transition-colors"
+                                        >
                                             <span>{link.name}</span>
                                             <ChevronRightIcon className="w-5 h-5 text-gray-400" />
                                         </button>
                                     ) : (
-                                        <Link href={link.href} className="block px-4 py-4 rounded-lg text-lg font-medium text-brand-dark hover:bg-gray-50">
+                                        <Link
+                                            href={link.href}
+                                            className="block px-4 py-4 rounded-lg text-lg font-medium text-brand-dark hover:bg-gray-50 active:bg-gray-100 transition-colors"
+                                        >
                                             {link.name}
                                         </Link>
                                     )}
                                 </Fragment>
                             ))}
-                            <div className="pt-6 mt-4 border-t border-gray-100 px-4">
-                                <Link href="/contact" className="block w-full text-center bg-brand-primary text-white hover:bg-brand-dark px-6 py-3 rounded-full font-bold transition-colors shadow-lg">
+                            <div className="pt-6 mt-4 border-t border-gray-100">
+                                <Link
+                                    href="/contact"
+                                    className="block w-full text-center bg-brand-primary text-white hover:bg-brand-dark active:bg-brand-dark/90 px-6 py-3 rounded-full font-bold transition-colors shadow-lg"
+                                >
                                     Get in Touch
                                 </Link>
                             </div>
                         </div>
                     </div>
+
+                    {/* Sub Menus */}
                     {NAV_LINKS.filter(l => l.isMega || l.dropdownContent).map(link => (
-                        <div key={`${link.name}-submenu`} className={`absolute inset-0 transition-transform duration-300 ease-in-out overflow-y-auto bg-white ${activeMobileMenu === link.name ? 'translate-x-0' : 'translate-x-full'}`}>
-                            <div className="p-4 border-b flex items-center sticky top-0 bg-white/95 backdrop-blur-sm z-10">
-                                <button onClick={() => setActiveMobileMenu('main')} className="p-2 -ml-2 text-brand-dark hover:text-brand-primary">
+                        <div
+                            key={`${link.name}-submenu`}
+                            className={`absolute inset-0 transition-transform duration-300 ease-in-out overflow-y-auto bg-white ${activeMobileMenu === link.name ? 'translate-x-0' : 'translate-x-full'
+                                }`}
+                        >
+                            {/* Sub Menu Header with Back Button */}
+                            <div className="p-4 border-b border-gray-200 flex items-center sticky top-0 bg-white z-10 shadow-sm">
+                                <button
+                                    onClick={() => setActiveMobileMenu('main')}
+                                    className="p-2 -ml-2 text-brand-dark hover:text-brand-primary active:text-brand-primary transition-colors"
+                                    aria-label="Go back"
+                                >
                                     <ChevronLeftIcon className="w-6 h-6" />
                                 </button>
-                                <h3 className="text-lg font-bold text-brand-dark text-center flex-grow -ml-8">{link.name}</h3>
+                                <h3 className="text-lg font-bold text-brand-dark flex-1 text-center -ml-10">{link.name}</h3>
                             </div>
+
+                            {/* Sub Menu Content */}
                             {renderMobileSubMenu(link)}
                         </div>
                     ))}
