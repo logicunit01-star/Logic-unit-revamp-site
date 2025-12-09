@@ -24,39 +24,52 @@ __turbopack_context__.s([
     "mapStrapiPostToPost",
     ()=>mapStrapiPostToPost
 ]);
-const STRAPI_URL = 'http://localhost:1337';
+const STRAPI_URL = 'https://backend.logic-unit.com';
 const API_URL = `${STRAPI_URL}/api/articles?populate=*`;
+const AUTH_TOKEN = 'ff6f080426c4a6cffbce2e0cb11d8beff8638180b0d17094e1166813f95291ee6ac515431620d047d922517743c3dbfc6b90600b492ce7130547e2ade343be2872a7b7a10cd43038df969628bd5722214da5ac5de0f51999bcb2536b0d952c4c886d0287ecf7ba5d0fec25f9b68126dd88973b986a61476dd8517fae63ea824d';
+const fetchOptions = {
+    headers: {
+        Authorization: `Bearer ${AUTH_TOKEN}`
+    }
+};
 const mapStrapiPostToPost = (strapiPost)=>{
     if (!strapiPost) {
         throw new Error("Invalid Strapi post structure");
     }
-    // SUPPORT BOTH STRUCTURES:
-    // 1) { id, attributes: { ... } }
-    // 2) { id, title, slug, ... }
     const attrs = strapiPost.attributes || strapiPost;
     if (!attrs) {
         throw new Error("Invalid Strapi post structure: missing attributes");
     }
-    // Handle cover image
+    // Handle cover image - Strapi v5 format (direct object) vs v4 format (data wrapper)
     let imageUrl = 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop';
-    const coverUrl = attrs.cover?.data?.attributes?.url;
-    if (coverUrl) {
-        imageUrl = coverUrl.startsWith('http') ? coverUrl : `${STRAPI_URL}${coverUrl}`;
+    if (attrs.cover) {
+        // Strapi v5 format: cover is a direct object with url property
+        if (attrs.cover.url) {
+            imageUrl = attrs.cover.url.startsWith('http') ? attrs.cover.url : `${STRAPI_URL}${attrs.cover.url}`;
+        } else if (attrs.cover.data?.attributes?.url) {
+            const coverUrl = attrs.cover.data.attributes.url;
+            imageUrl = coverUrl.startsWith('http') ? coverUrl : `${STRAPI_URL}${coverUrl}`;
+        }
     }
-    // Handle author avatar
+    // Handle avatar - similar logic
     let avatarUrl = 'https://logic-unit.com/wp-content/uploads/2019/06/cropped-logic-unit-logo.png';
-    const avatarAttr = attrs.author?.data?.attributes?.avatar?.data?.attributes?.url;
-    if (avatarAttr) {
-        avatarUrl = avatarAttr.startsWith('http') ? avatarAttr : `${STRAPI_URL}${avatarAttr}`;
+    if (attrs.author) {
+        // Strapi v5 format: direct nested object
+        if (attrs.author.avatar?.url) {
+            avatarUrl = attrs.author.avatar.url.startsWith('http') ? attrs.author.avatar.url : `${STRAPI_URL}${attrs.author.avatar.url}`;
+        } else if (attrs.author.data?.attributes?.avatar?.data?.attributes?.url) {
+            const avatarAttr = attrs.author.data.attributes.avatar.data.attributes.url;
+            avatarUrl = avatarAttr.startsWith('http') ? avatarAttr : `${STRAPI_URL}${avatarAttr}`;
+        }
     }
     return {
         slug: attrs.slug || '',
         title: attrs.title || 'Untitled',
-        postDescription: attrs.description || (attrs.content ? attrs.content.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...' : ''),
+        postDescription: attrs.postDescription || attrs.description || (attrs.content ? attrs.content.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...' : ''),
         excerpt: attrs.excerpt || '',
-        image: imageUrl,
+        cover: imageUrl,
         author: {
-            name: attrs.author?.data?.attributes?.name || 'Logic-Unit Team',
+            name: attrs.author?.data?.attributes?.name || attrs.author?.name || 'Logic-Unit Team',
             avatar: avatarUrl
         },
         date: attrs.publishedAt ? new Date(attrs.publishedAt).toLocaleDateString('en-US', {
@@ -65,9 +78,7 @@ const mapStrapiPostToPost = (strapiPost)=>{
             day: 'numeric'
         }) : '',
         category: (()=>{
-            // Debug: log the category structure
-            console.log('Category structure:', JSON.stringify(attrs.category, null, 2));
-            // Handle wrapped structure: { data: { id, documentId, attributes: { name } } }
+            // Strapi v4 format
             if (attrs.category?.data) {
                 return {
                     id: attrs.category.data.id || 0,
@@ -75,7 +86,7 @@ const mapStrapiPostToPost = (strapiPost)=>{
                     name: attrs.category.data.attributes?.name || 'Insights'
                 };
             }
-            // Handle unwrapped structure: { id, documentId, name }
+            // Strapi v5 format (direct object)
             if (attrs.category?.id) {
                 return {
                     id: attrs.category.id,
@@ -83,7 +94,6 @@ const mapStrapiPostToPost = (strapiPost)=>{
                     name: attrs.category.name || 'Insights'
                 };
             }
-            // Default fallback
             return {
                 id: 0,
                 documentId: '',
@@ -98,12 +108,12 @@ const fetchPosts = async ()=>{
     try {
         console.log('Fetching posts from:', API_URL);
         const res = await fetch(API_URL, {
+            ...fetchOptions,
             cache: 'no-store'
         });
         console.log('Response status:', res.status);
         if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status}`);
         const json = await res.json();
-        console.log('API Response data length:', json.data?.length);
         if (!Array.isArray(json.data)) {
             console.error("Invalid API response structure", json);
             return [];
@@ -116,7 +126,6 @@ const fetchPosts = async ()=>{
                 return null;
             }
         }).filter((p)=>p !== null);
-        console.log(`Returning ${mappedPosts.length} mapped posts`);
         return mappedPosts;
     } catch (error) {
         console.error("Error fetching posts:", error);
@@ -127,6 +136,7 @@ const fetchPostBySlug = async (slug)=>{
     try {
         const url = `${STRAPI_URL}/api/articles?filters[slug][$eq]=${slug}&populate=*`;
         const res = await fetch(url, {
+            ...fetchOptions,
             cache: 'no-store'
         });
         if (!res.ok) throw new Error(`Failed to fetch post: ${res.status}`);

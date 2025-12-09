@@ -71,7 +71,7 @@ const InsightsList: React.FC<InsightsListProps> = ({ initialPosts }) => {
                         {postsToShow.map((post) => (
                             <div key={post.slug} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group transition-transform duration-300 hover:-translate-y-2 border border-gray-100">
                                 <div className="relative h-48 overflow-hidden">
-                                    <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                    <img src={post.cover} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                                     <span className="absolute top-4 left-4 bg-brand-secondary text-white text-xs font-bold px-2 py-1 rounded shadow-sm">{post.category?.name}</span>
                                 </div>
                                 <div className="p-6 flex flex-col flex-grow">

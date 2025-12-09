@@ -6,7 +6,7 @@ export interface Post {
     title: string;
     postDescription: string;
     excerpt?: string;
-    image: string;
+    cover: string;
     author: {
         name: string;
         avatar: string;
@@ -27,7 +27,7 @@ const posts: Post[] = [
         slug: '2026-ai-everywhere',
         title: 'The Unseen Revolution: How AI Will Weave Itself into the Fabric of Our Lives by 2026',
         postDescription: 'Explore the profound and subtle ways AI will reshape our daily routines, workplaces, and societies by 2026.',
-        image: 'https://picsum.photos/seed/ai2026/800/450',
+        cover: 'https://picsum.photos/seed/ai2026/800/450',
         author: {
             name: 'Alex Johnson',
             avatar: 'https://picsum.photos/seed/author1/100'

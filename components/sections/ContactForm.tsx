@@ -4,7 +4,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 
 interface FormData {
     fullName: string;
-    companyName: string;
+    companyName: string; // internal state still uses companyName
     businessEmail: string;
     phoneNumber: string;
     industry: string;
@@ -40,7 +40,6 @@ const ContactForm: React.FC = () => {
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
 
-        // Only allow numbers for phone field
         if (name === 'phoneNumber') {
             const numbersOnly = value.replace(/[^0-9]/g, '');
             setFormData(prev => ({ ...prev, [name]: numbersOnly }));
@@ -48,7 +47,6 @@ const ContactForm: React.FC = () => {
             setFormData(prev => ({ ...prev, [name]: value }));
         }
 
-        // Clear error when user starts typing
         if (errors[name as keyof FormErrors]) {
             setErrors(prev => ({ ...prev, [name]: undefined }));
         }
@@ -70,10 +68,6 @@ const ContactForm: React.FC = () => {
                 break;
             case 'companyName':
                 if (!value.trim()) error = 'Company name is required';
-                break;
-            case 'email':
-                if (!value.trim()) error = 'Email is required';
-                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) error = 'Invalid email format';
                 break;
             case 'businessEmail':
                 if (!value.trim()) error = 'Business email is required';
@@ -136,12 +130,34 @@ const ContactForm: React.FC = () => {
         setIsSubmitting(true);
 
         try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // Prepare API payload with "data" wrapper
+            const payload = {
+                data: {
+                    fullName: formData.fullName,
+                    companyOrganization: formData.companyName, // key changed for API
+                    businessEmail: formData.businessEmail,
+                    phoneNumber: formData.phoneNumber,
+                    industry: formData.industry,
+                    projectType: formData.projectType,
+                    description: formData.description
+                }
+            };
+
+            const response = await fetch('https://backend.logic-unit.com/api/form-submissions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer fa0b3cdd402f181af1e4cb4b32f01541d42e4b18b2aca3800e449ca84f2a85e34e1dd026864b23175da8f9f3e44a4be2df3a5103c242ac0ce2e808c24539613b211266a285dc75f1100e640dccbc21e5a65522f9408a6f840ab9253d9f62574d4f8b2881f05f59087279e5d0bfd70af9a0934f820957c2b4d52bd22542cb8b38'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit form');
+            }
 
             setSubmitSuccess(true);
 
-            // Reset form after 3 seconds
             setTimeout(() => {
                 setFormData({
                     fullName: '',
@@ -156,6 +172,7 @@ const ContactForm: React.FC = () => {
                 setTouched({});
             }, 3000);
         } catch (error) {
+            console.error(error);
             alert('Something went wrong. Please try again.');
         } finally {
             setIsSubmitting(false);
@@ -239,7 +256,7 @@ const ContactForm: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Row 2 - Email Fields */}
+                            {/* Row 2 - Email */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div>
                                     <input
@@ -258,7 +275,7 @@ const ContactForm: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Row 3 - Phone Number */}
+                            {/* Row 3 - Phone */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div>
                                     <input
@@ -278,7 +295,7 @@ const ContactForm: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Row 4: Select Fields */}
+                            {/* Row 4 - Select */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div>
                                     <select

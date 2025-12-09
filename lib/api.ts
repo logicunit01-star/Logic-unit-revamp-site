@@ -5,6 +5,7 @@ const API_URL = `${STRAPI_URL}/api/articles?populate=*`;
 
 const AUTH_TOKEN = 'ff6f080426c4a6cffbce2e0cb11d8beff8638180b0d17094e1166813f95291ee6ac515431620d047d922517743c3dbfc6b90600b492ce7130547e2ade343be2872a7b7a10cd43038df969628bd5722214da5ac5de0f51999bcb2536b0d952c4c886d0287ecf7ba5d0fec25f9b68126dd88973b986a61476dd8517fae63ea824d';
 
+
 const fetchOptions = {
   headers: {
     Authorization: `Bearer ${AUTH_TOKEN}`,
@@ -29,40 +30,64 @@ export const mapStrapiPostToPost = (strapiPost: StrapiPost): Post => {
     throw new Error("Invalid Strapi post structure: missing attributes");
   }
 
+  // Handle cover image - Strapi v5 format (direct object) vs v4 format (data wrapper)
   let imageUrl = 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop';
-  const coverUrl = attrs.cover?.data?.attributes?.url;
-  if (coverUrl) {
-    imageUrl = coverUrl.startsWith('http') ? coverUrl : `${STRAPI_URL}${coverUrl}`;
+
+  if (attrs.cover) {
+    // Strapi v5 format: cover is a direct object with url property
+    if (attrs.cover.url) {
+      imageUrl = attrs.cover.url.startsWith('http')
+        ? attrs.cover.url
+        : `${STRAPI_URL}${attrs.cover.url}`;
+    }
+    // Strapi v4 format: cover.data.attributes.url
+    else if (attrs.cover.data?.attributes?.url) {
+      const coverUrl = attrs.cover.data.attributes.url;
+      imageUrl = coverUrl.startsWith('http') ? coverUrl : `${STRAPI_URL}${coverUrl}`;
+    }
   }
 
+  // Handle avatar - similar logic
   let avatarUrl = 'https://logic-unit.com/wp-content/uploads/2019/06/cropped-logic-unit-logo.png';
-  const avatarAttr = attrs.author?.data?.attributes?.avatar?.data?.attributes?.url;
-  if (avatarAttr) {
-    avatarUrl = avatarAttr.startsWith('http') ? avatarAttr : `${STRAPI_URL}${avatarAttr}`;
+
+  if (attrs.author) {
+    // Strapi v5 format: direct nested object
+    if (attrs.author.avatar?.url) {
+      avatarUrl = attrs.author.avatar.url.startsWith('http')
+        ? attrs.author.avatar.url
+        : `${STRAPI_URL}${attrs.author.avatar.url}`;
+    }
+    // Strapi v4 format: data wrapper
+    else if (attrs.author.data?.attributes?.avatar?.data?.attributes?.url) {
+      const avatarAttr = attrs.author.data.attributes.avatar.data.attributes.url;
+      avatarUrl = avatarAttr.startsWith('http') ? avatarAttr : `${STRAPI_URL}${avatarAttr}`;
+    }
   }
 
   return {
     slug: attrs.slug || '',
     title: attrs.title || 'Untitled',
     postDescription:
+      attrs.postDescription ||
       attrs.description ||
       (attrs.content
         ? attrs.content.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...'
         : ''),
     excerpt: attrs.excerpt || '',
-    image: imageUrl,
+    cover: imageUrl,
     author: {
-      name: attrs.author?.data?.attributes?.name || 'Logic-Unit Team',
+      name: attrs.author?.data?.attributes?.name || attrs.author?.name || 'Logic-Unit Team',
       avatar: avatarUrl,
     },
     date: attrs.publishedAt
       ? new Date(attrs.publishedAt).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
       : '',
     category: (() => {
+      // Strapi v4 format
       if (attrs.category?.data) {
         return {
           id: attrs.category.data.id || 0,
@@ -70,6 +95,7 @@ export const mapStrapiPostToPost = (strapiPost: StrapiPost): Post => {
           name: attrs.category.data.attributes?.name || 'Insights',
         };
       }
+      // Strapi v5 format (direct object)
       if (attrs.category?.id) {
         return {
           id: attrs.category.id,

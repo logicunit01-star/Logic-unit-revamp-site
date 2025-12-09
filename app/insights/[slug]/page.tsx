@@ -61,8 +61,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {/* Featured Image */}
-        {post.image && (
-          <img src={post.image} alt={post.title} className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-xl mb-12" />
+        {post.cover && (
+          <img src={post.cover} alt={post.title} className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-xl mb-12" />
         )}
 
         {/* Blocks (Dynamic Content) */}

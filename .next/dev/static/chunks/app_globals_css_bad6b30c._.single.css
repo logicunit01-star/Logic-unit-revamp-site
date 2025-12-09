@@ -680,6 +680,10 @@ body {
   z-index: 40;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .z-\[100\] {
   z-index: 100;
 }
@@ -690,10 +694,6 @@ body {
 
 .z-\[99\] {
   z-index: 99;
-}
-
-.z-50 {
-  z-index: 50;
 }
 
 .order-1 {
