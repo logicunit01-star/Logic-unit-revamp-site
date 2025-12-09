@@ -49,7 +49,7 @@ const Insights: React.FC = () => {
                             >
                                 <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3]">
                                     <img
-                                        src={post.image}
+                                        src={post.cover}
                                         alt={post.title}
                                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                                     />
