@@ -23,7 +23,7 @@ const IndustryFeaturedInsights: React.FC<IndustryFeaturedInsightsProps> = ({ dat
                     {data.map((post) => (
                         <div key={post.slug} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col group transition-transform duration-300 hover:-translate-y-1 border border-gray-200">
                             <div className="relative h-48">
-                                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                                <img src={post.cover} alt={post.title} className="w-full h-full object-cover" />
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
                                 <h3 className="text-lg font-bold text-brand-primary mb-2 h-14 overflow-hidden">{post.title}</h3>
@@ -36,7 +36,7 @@ const IndustryFeaturedInsights: React.FC<IndustryFeaturedInsightsProps> = ({ dat
                     ))}
                 </div>
                 <div className="text-center mt-12">
-                     <button 
+                    <button
                         onClick={() => router.push('/insights')}
                         className="bg-brand-primary text-white hover:bg-brand-accent px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:scale-105 border border-blue-900"
                     >

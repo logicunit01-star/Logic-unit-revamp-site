@@ -1,7 +1,6 @@
 import React from 'react';
 import { fetchPosts } from '@/lib/api';
 import CTA from '@/components/sections/CTA';
-import ContactForm from '@/components/sections/ContactForm';
 import InsightsList from '@/components/insights_page/InsightsList';
 
 export const dynamic = 'force-dynamic'; // Ensure fresh data on every request
