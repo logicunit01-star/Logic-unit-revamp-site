@@ -572,10 +572,9 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$componen
 "[project]/app/industries/page.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// app/industries/page.tsx (Server Component)
 __turbopack_context__.s([
     "default",
-    ()=>IndustriesPage,
+    ()=>__TURBOPACK__default__export__,
     "generateMetadata",
     ()=>generateMetadata
 ]);
@@ -601,45 +600,82 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Co
 ;
 ;
 ;
-// Server-side fetch function
-async function getIndustryData() {
+// API Constants
+const STRAPI_URL = 'https://backend.logic-unit.com';
+const INDUSTRY_API_URL = `${STRAPI_URL}/api/industry-pages?populate[industriesGrid][populate][subchildindustries]=*&populate[industryFaq]=*`;
+const AUTH_TOKEN = 'db7858d87261d71dd54774e392d95adababf24505e06545f889e7eb340ab8b78e1d62d82f24d64354c635a14ef20451d0fccb2bad707bbf2987b75d811980f1d65e130312d067d751076b08453c3ca09f033546a7f5746b36be728787cf2ebc695ba06fb42499e73d761788c03d6f417afbded4017be8965d98644e76846e331';
+const fetchOptions = {
+    headers: {
+        Authorization: `Bearer ${AUTH_TOKEN}`
+    },
+    cache: 'no-store'
+};
+// Map raw Strapi → clean usable object
+const mapIndustryPage = (item)=>{
+    const a = item; // no attributes wrapper in Strapi v5 if flat, checking usage... Step 53 code implied direct access.
+    return {
+        id: a.id,
+        tagline: a.industryheroTagline,
+        heading: a.industryheroHeading,
+        headingSpan: a.industryheroheadingSpan,
+        content: a.industryheroContent,
+        btnOne: a.industryherobtnone,
+        btnTwo: a.industryherobtnsnd,
+        sectorTagline: a.sectorTagline,
+        sectorHeading: a.sectorheading,
+        sectorHeadingSpan: a.sectorheadingSpan,
+        sectorHeadingContent: a.sectorheadingContent,
+        metaTitle: a.metaTitle,
+        metaDescription: a.metaDescription,
+        industries: a.industriesGrid?.map((ind)=>({
+                id: ind.id,
+                slug: ind.slug,
+                name: ind.industryName,
+                description: ind.industrydesrciption,
+                subIndustries: ind.subchildindustries?.map((child)=>({
+                        id: child.id,
+                        name: child.featuresubChild,
+                        slug: child.subchildSlug
+                    })) || []
+            })) || [],
+        faqs: a.industryFaq?.map((f)=>({
+                id: f.id,
+                question: f.question,
+                answer: f.answer
+            })) || []
+    };
+};
+const fetchIndustryPage = async ()=>{
     try {
-        const STRAPI_URL = 'https://backend.logic-unit.com';
-        const STRAPI_TOKEN = 'db7858d87261d71dd54774e392d95adababf24505e06545f889e7eb340ab8b78e1d62d82f24d64354c635a14ef20451d0fccb2bad707bbf2987b75d811980f1d65e130312d067d751076b08453c3ca09f033546a7f5746b36be728787cf2ebc695ba06fb42499e73d761788c03d6f417afbded4017be8965d98644e76846e331';
-        const url = `${STRAPI_URL}/api/industry-pages?populate[industriesGrid][populate][subchildindustries]=*&populate[industryFaq]=*`;
-        const response = await fetch(url, {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${STRAPI_TOKEN}`
-            },
-            cache: 'no-store'
-        });
-        if (!response.ok) {
-            console.error('Failed to fetch industry data', await response.text());
+        const res = await fetch(INDUSTRY_API_URL, fetchOptions);
+        if (!res.ok) {
+            console.error(`Failed to fetch industry page: ${res.status}`);
             return null;
         }
-        const data = await response.json();
-        return data.data && data.data.length > 0 ? data.data[0] : null;
+        const json = await res.json();
+        if (!json.data || json.data.length === 0) return null;
+        return mapIndustryPage(json.data[0]);
     } catch (err) {
-        console.error('Error fetching industry data:', err);
+        console.error("Industry Page Fetch Error:", err);
         return null;
     }
-}
+};
 async function generateMetadata() {
-    const industryData = await getIndustryData();
-    if (!industryData) {
+    const data = await fetchIndustryPage();
+    if (!data) {
         return {
-            title: 'Customized Solutions for Industries | Logic-Unit',
-            description: 'Discover tailored solutions for industries. We build customized solutions for industries that improve operations & boost efficiency, Contact Us.'
+            title: 'Industries | Logic-Unit',
+            description: 'Industries we serve.'
         };
     }
     return {
-        title: industryData.metaTitle,
-        description: industryData.metaDescription
+        title: data.metaTitle,
+        description: data.metaDescription
     };
 }
-async function IndustriesPage() {
-    const industryData = await getIndustryData();
+// Server Component
+const IndustriesPage = async ()=>{
+    const industryData = await fetchIndustryPage();
     if (!industryData) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "flex flex-col items-center justify-center min-h-screen",
@@ -649,110 +685,137 @@ async function IndustriesPage() {
                     children: "No data available"
                 }, void 0, false, {
                     fileName: "[project]/app/industries/page.tsx",
-                    lineNumber: 118,
+                    lineNumber: 148,
                     columnNumber: 9
-                }, this),
+                }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "text-sm text-gray-600 max-w-md text-center",
-                    children: "Could not fetch industry data. Please check the backend or try again later."
-                }, void 0, false, {
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "font-semibold mb-2",
+                            children: "Could not fetch industry data."
+                        }, void 0, false, {
+                            fileName: "[project]/app/industries/page.tsx",
+                            lineNumber: 150,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "mt-4 text-xs",
+                            children: "Please check the API configuration."
+                        }, void 0, false, {
+                            fileName: "[project]/app/industries/page.tsx",
+                            lineNumber: 151,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/app/industries/page.tsx",
-                    lineNumber: 119,
+                    lineNumber: 149,
                     columnNumber: 9
-                }, this)
+                }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/app/industries/page.tsx",
-            lineNumber: 117,
+            lineNumber: 147,
             columnNumber: 7
-        }, this);
+        }, ("TURBOPACK compile-time value", void 0));
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$industries_page$2f$IndustriesPageHero$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                tagline: industryData.industryheroTagline,
-                heading: industryData.industryheroHeading,
-                headingSpan: industryData.industryheroheadingSpan,
-                content: industryData.industryheroContent,
-                btnOne: industryData.industryherobtnone,
-                btnTwo: industryData.industryherobtnsnd
+                tagline: industryData.tagline,
+                heading: industryData.heading,
+                headingSpan: industryData.headingSpan,
+                content: industryData.content,
+                btnOne: industryData.btnOne,
+                btnTwo: industryData.btnTwo
             }, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 129,
+                lineNumber: 161,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Stats$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 138,
+                lineNumber: 170,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Partners$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 139,
+                lineNumber: 171,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$industries_page$2f$IndustriesGrid$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                 tagline: industryData.sectorTagline,
-                heading: industryData.sectorheading,
-                headingSpan: industryData.sectorheadingSpan,
-                content: industryData.sectorheadingContent,
-                industries: industryData.industriesGrid
+                heading: industryData.sectorHeading,
+                headingSpan: industryData.sectorHeadingSpan,
+                content: industryData.sectorHeadingContent,
+                industries: industryData.industries.map((ind)=>({
+                        slug: ind.slug,
+                        industryName: ind.name,
+                        industrydesrciption: ind.description,
+                        subchildindustries: ind.subIndustries.map((sub)=>({
+                                id: sub.id,
+                                featuresubChild: sub.name,
+                                subchildSlug: sub.slug
+                            }))
+                    }))
             }, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 142,
+                lineNumber: 173,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$WhyUs$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 150,
+                lineNumber: 190,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$CTA$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                 imageSrc: "https://logic-unit.com/wp-content/uploads/2019/07/about-us-1024x512.jpg",
                 title: "Ready to Transform Your Industry?",
                 subtitle: "Our team of experts is ready to listen. Schedule a consultation to discuss how we can turn your vision into reality.",
                 buttonText: "Schedule A Free Consultation",
-                onButtonClick: ()=>{}
+                href: "/contact"
             }, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 152,
+                lineNumber: 192,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$CaseStudies$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 160,
+                lineNumber: 200,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Testimonials$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 161,
+                lineNumber: 201,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$ContactForm$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 162,
+                lineNumber: 202,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$FAQ$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                faqs: industryData.industryFaq
+                faqs: industryData.faqs
             }, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 163,
+                lineNumber: 203,
                 columnNumber: 7
-            }, this),
+            }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$CTA$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                 title: "Let's Create Something Amazing Together",
                 subtitle: "Contact Logic-unit, a leading custom software development agency, for bespoke software development solutions today.",
                 buttonText: "Schedule A Free Consultation",
-                onButtonClick: ()=>{}
+                href: "/contact"
             }, void 0, false, {
                 fileName: "[project]/app/industries/page.tsx",
-                lineNumber: 165,
+                lineNumber: 207,
                 columnNumber: 7
-            }, this)
+            }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true);
-}
+};
+const __TURBOPACK__default__export__ = IndustriesPage;
 }),
 "[project]/app/industries/page.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
 
