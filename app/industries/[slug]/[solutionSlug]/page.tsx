@@ -117,7 +117,7 @@ const IndustrySolutionPage: React.FC = () => {
                 <ContactForm />
             </div>
 
-            <FAQ />
+            {/* <FAQ /> */}
         </div>
     );
 };
