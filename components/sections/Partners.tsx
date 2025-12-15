@@ -14,7 +14,6 @@ const Partners: React.FC = () => {
             </div>
 
             <div className="relative w-full group">
-                {/* Extended Gradient Masks for Premium Fade Effect */}
                 <div className="absolute left-0 top-0 h-full w-32 md:w-64 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
                 <div className="absolute right-0 top-0 h-full w-32 md:w-64 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
@@ -22,12 +21,12 @@ const Partners: React.FC = () => {
                     {extendedLogos.map((logo, index) => (
                         <div
                             key={`${logo.name}-${index}`}
-                            className="flex-shrink-0 mx-12 md:mx-16 flex items-center justify-center opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer group/logo"
+                            className="flex-shrink-0 mx-12 md:mx-16 flex items-center justify-center transition-all duration-500 cursor-pointer group/logo"
                         >
                             <img
                                 src={logo.url}
                                 alt={logo.name}
-                                className="h-40 md:h-40 w-auto object-contain transform group-hover/logo:scale-105 transition-transform duration-500"
+                                className="h-40 md:h-40 w-auto object-contain transform group-hover/logo:scale-105 transition-transform duration-500 !filter-none !grayscale-0 !opacity-100"
                             />
                         </div>
                     ))}

@@ -1,1 +1,8 @@
-{}
+{
+  "/about/page": "app/about/page.js",
+  "/industries/[slug]/[solutionSlug]/page": "app/industries/[slug]/[solutionSlug]/page.js",
+  "/industries/[slug]/page": "app/industries/[slug]/page.js",
+  "/industries/page": "app/industries/page.js",
+  "/intelligence/page": "app/intelligence/page.js",
+  "/page": "app/page.js"
+}

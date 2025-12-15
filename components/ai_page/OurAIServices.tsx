@@ -19,10 +19,11 @@ const OurAIServices: React.FC = () => {
                 <div className="text-center mb-16">
                     <span className="text-brand-primary font-bold uppercase tracking-widest text-sm mb-2 block">Capabilities</span>
                     <h2 className="text-4xl font-bold font-heading text-brand-dark">
-                        Intelligent Solutions
+                        Empower your business with artificial intelligence
                     </h2>
                     <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
-                        From strategic consulting to full-scale engineering, we deliver end-to-end AI capabilities.
+                        Artificial Intelligence is reshaping industries, and businesses that embrace it now are the ones leading tomorrow. Logic-Unit helps organizations unlock the power of automation, analytics, and intelligent decision-making through modern, reliable, and scalable AI development services.
+                        As a trusted AI development company, we design solutions that reduce costs, streamline workflows, and create smarter digital experiences. Whether you’re building an intelligent product, automating complex tasks, or enhancing customer interactions, our team is ready to support your journey.
                     </p>
                 </div>
 

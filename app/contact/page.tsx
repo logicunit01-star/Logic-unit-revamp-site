@@ -1,43 +1,36 @@
 'use client';
 
 import React from 'react';
-import ContactHeroForm from '@/components/contact_page/ContactHeroForm';
+import ContactForm from '@/components/sections/ContactForm';
+import Partners from '@/components/sections/Partners';
+import Testimonials from '@/components/sections/Testimonials';
+import CaseStudies from '@/components/sections/CaseStudies';
 import OurOffices from '@/components/contact_page/OurOffices';
-import WhatOurClientsSay from '@/components/contact_page/WhatOurClientsSay';
-import SuccessStories from '@/components/contact_page/SuccessStories';
-import { TRUSTED_BY_LOGOS } from '@/constants';
-
-const TrustedByBar: React.FC = () => (
-  <div className="bg-brand-bg-secondary border-y border-gray-200 py-16">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-10">
-        <span className="text-brand-primary font-bold uppercase tracking-widest text-xs">Recognized Excellence</span>
-      </div>
-      <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20">
-        {TRUSTED_BY_LOGOS.map(logo => (
-          <div key={logo.name} className="flex justify-center px-4 group">
-            <img
-              src={logo.url}
-              alt={logo.name}
-              className="max-h-12 object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-);
-
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="bg-brand-bg-main">
-      <ContactHeroForm />
-      <TrustedByBar />
+    <>
+      {/* 
+        ContactForm acts as the Hero here. 
+        It has its own padding (py-24) which serves well.
+        We wrap it or just place it. 
+        Since ContactForm has bg-white, and the header might be transparent or white, 
+        we might want to ensure spacing is correct. 
+        Homepage Hero has pt-28. ContactForm has py-24. 
+        We'll just add a spacer div if needed or rely on the form.
+      */}
+      <div className="pt-20 lg:pt-28">
+        <ContactForm />
+      </div>
+
+      <Partners />
+
+      {/* Our Offices - we can keep this unique component but it might need style checks. 
+          For now, we include it as it provides specific value. */}
       <OurOffices />
-      <WhatOurClientsSay />
-      <SuccessStories />
-    </div>
+
+      <Testimonials />
+    </>
   );
 };
 

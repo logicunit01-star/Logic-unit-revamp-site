@@ -11,7 +11,7 @@ const WhyUs: React.FC = () => {
                     <div>
                         <h4 className="inline-block mb-6 px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary font-semibold text-sm tracking-wider uppercase">Why Businesses Choose</h4>
                         <h2 className="text-4xl font-bold font-heading text-brand-dark mb-8 leading-tight">
-                            Our Custom Software <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Development Company</span>
+                            Customized Software <br />Solutions for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Industries</span>
                         </h2>
                         <p className="text-lg text-brand-gray leading-relaxed mb-8 font-light">
                             In a rapidly evolving digital landscape, stability, expertise, and vision are paramount. We don't just build software; we architect the systems that power your business future.

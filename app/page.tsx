@@ -41,7 +41,7 @@ export default function Page() {
       <Technologies />
       <Insights />
       <ContactForm />
-      <FAQ />
+      {/* <FAQ /> */}
       <CTA
         title="Let's Create Something Amazing Together"
         subtitle="Contact Logic-unit, a leading custom software development agency, for bespoke software development solutions today."

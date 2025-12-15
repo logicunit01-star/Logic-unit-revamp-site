@@ -1,15 +1,28 @@
+'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { FAQS } from '@/constants';
 
-const FAQ: React.FC = () => {
+
+interface FAQProps {
+    faqs: industryFaq[];
+}
+interface industryFaq {
+    id: number;
+    question: string;
+    answer: string;
+}
+const FAQ: React.FC<FAQProps> = ({
+    faqs
+}) => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const toggleFAQ = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+
+    console.log("faqmyn=ene", faqs);
     return (
         <section className="bg-brand-bg-main py-24 border-t border-gray-200">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
@@ -27,7 +40,7 @@ const FAQ: React.FC = () => {
 
                     <div className="md:col-span-8">
                         <div className="divide-y divide-gray-200">
-                            {FAQS.map((faq, index) => (
+                            {faqs.map((faq, index) => (
                                 <div key={index} className="py-6 first:pt-0 last:pb-0">
                                     <button
                                         onClick={() => toggleFAQ(index)}

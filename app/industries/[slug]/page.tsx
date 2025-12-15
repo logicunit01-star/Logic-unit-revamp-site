@@ -24,6 +24,7 @@ const IndustryDetailPage: React.FC = () => {
   const slug = params?.slug as string;
   const industryData = INDUSTRIES_PAGE_DATA.find(i => i.industrySlug === slug);
 
+  console
   if (!industryData) {
     return <div className="py-32 text-center text-2xl">Industry Not Found</div>;
   }
@@ -113,7 +114,7 @@ const IndustryDetailPage: React.FC = () => {
         <ContactForm />
       </div>
 
-      <FAQ />
+      {/* <FAQ /> */}
     </div>
   );
 };
