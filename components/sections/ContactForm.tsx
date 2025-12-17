@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 interface FormData {
     fullName: string;
-    companyName: string; // internal state still uses companyName
+    companyName: string;
     businessEmail: string;
     phoneNumber: string;
     industry: string;
@@ -36,16 +38,12 @@ const ContactForm: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [touched, setTouched] = useState<Record<string, boolean>>({});
+    const [file, setFile] = useState<File | null>(null);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
 
-        if (name === 'phoneNumber') {
-            const numbersOnly = value.replace(/[^0-9]/g, '');
-            setFormData(prev => ({ ...prev, [name]: numbersOnly }));
-        } else {
-            setFormData(prev => ({ ...prev, [name]: value }));
-        }
+        setFormData(prev => ({ ...prev, [name]: value }));
 
         if (errors[name as keyof FormErrors]) {
             setErrors(prev => ({ ...prev, [name]: undefined }));
@@ -56,6 +54,12 @@ const ContactForm: React.FC = () => {
         const { name } = e.target;
         setTouched(prev => ({ ...prev, [name]: true }));
         validateField(name, formData[name as keyof FormData]);
+    };
+
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setFile(e.target.files[0]);
+        }
     };
 
     const validateField = (name: string, value: string) => {
@@ -74,7 +78,7 @@ const ContactForm: React.FC = () => {
                 else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) error = 'Invalid email format';
                 break;
             case 'phoneNumber':
-                if (value && value.length < 10) error = 'Phone number must be at least 10 digits';
+                if (value && value.replace(/\D/g, '').length < 10) error = 'Phone number must be at least 10 digits';
                 break;
             case 'industry':
                 if (!value) error = 'Please select an industry';
@@ -101,7 +105,7 @@ const ContactForm: React.FC = () => {
             newErrors.businessEmail = 'Invalid email format';
         }
 
-        if (formData.phoneNumber && formData.phoneNumber.length < 10) {
+        if (formData.phoneNumber && formData.phoneNumber.replace(/\D/g, '').length < 10) {
             newErrors.phoneNumber = 'Phone number must be at least 10 digits';
         }
 
@@ -130,31 +134,40 @@ const ContactForm: React.FC = () => {
         setIsSubmitting(true);
 
         try {
-            // Prepare API payload with "data" wrapper
             const payload = {
-                data: {
-                    fullName: formData.fullName,
-                    companyOrganization: formData.companyName, // key changed for API
-                    businessEmail: formData.businessEmail,
-                    phoneNumber: formData.phoneNumber,
-                    industry: formData.industry,
-                    projectType: formData.projectType,
-                    description: formData.description
-                }
+                fullName: formData.fullName,
+                companyOrganization: formData.companyName,
+                businessEmail: formData.businessEmail,
+                phoneNumber: formData.phoneNumber,
+                industry: formData.industry,
+                projectType: formData.projectType,
+                description: formData.description
             };
 
-            const response = await fetch('https://backend.logic-unit.com/api/form-submissions', {
+            // Create FormData for the proxy
+            const formDataToSend = new FormData();
+            formDataToSend.append('data', JSON.stringify(payload));
+
+            if (file) {
+                console.log('Including file:', file.name);
+                formDataToSend.append('files.doc-attached', file);
+            }
+
+            console.log('Sending to proxy...');
+
+            const response = await fetch('/api/form-submit', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer fa0b3cdd402f181af1e4cb4b32f01541d42e4b18b2aca3800e449ca84f2a85e34e1dd026864b23175da8f9f3e44a4be2df3a5103c242ac0ce2e808c24539613b211266a285dc75f1100e640dccbc21e5a65522f9408a6f840ab9253d9f62574d4f8b2881f05f59087279e5d0bfd70af9a0934f820957c2b4d52bd22542cb8b38'
-                },
-                body: JSON.stringify(payload)
+                body: formDataToSend
             });
 
             if (!response.ok) {
-                throw new Error('Failed to submit form');
+                const errorData = await response.json();
+                console.error('Submission failed:', errorData);
+                throw new Error(errorData.error?.message || `Server Error: ${response.status}`);
             }
+
+            const result = await response.json();
+            console.log('Submission successful:', result);
 
             setSubmitSuccess(true);
 
@@ -168,12 +181,14 @@ const ContactForm: React.FC = () => {
                     projectType: '',
                     description: ''
                 });
+                setFile(null);
                 setSubmitSuccess(false);
                 setTouched({});
             }, 3000);
-        } catch (error) {
-            console.error(error);
-            alert('Something went wrong. Please try again.');
+
+        } catch (error: any) {
+            console.error('Submission error:', error);
+            alert(`Submission Failed: ${error.message}`);
         } finally {
             setIsSubmitting(false);
         }
@@ -278,16 +293,14 @@ const ContactForm: React.FC = () => {
                             {/* Row 3 - Phone */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div>
-                                    <input
-                                        type="tel"
-                                        name="phoneNumber"
+                                    <PhoneInput
+                                        country={'us'}
                                         value={formData.phoneNumber}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
+                                        onChange={(phone) => setFormData(prev => ({ ...prev, phoneNumber: phone }))}
+                                        onBlur={() => validateField('phoneNumber', formData.phoneNumber)}
+                                        inputClass={`w-full px-0 py-3 border-b-2 ${touched.phoneNumber && errors.phoneNumber ? 'border-red-500' : 'border-gray-300'} bg-transparent focus:outline-none focus:border-brand-primary`}
+                                        containerClass="w-full"
                                         placeholder="Phone Number (Optional)"
-                                        maxLength={15}
-                                        className={`block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 ${touched.phoneNumber && errors.phoneNumber ? 'border-red-500' : 'border-gray-300'
-                                            } focus:outline-none focus:ring-0 focus:border-brand-primary placeholder:text-gray-500`}
                                     />
                                     {touched.phoneNumber && errors.phoneNumber && (
                                         <p className="mt-1 text-sm text-red-500">{errors.phoneNumber}</p>
@@ -358,6 +371,18 @@ const ContactForm: React.FC = () => {
                                     placeholder="Project Brief or Key Objectives..."
                                     className="block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary peer resize-none placeholder:text-gray-500"
                                 />
+                            </div>
+
+                            {/* File Upload */}
+                            <div className="mt-4">
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Attach File (Optional)</label>
+                                <input
+                                    type="file"
+                                    onChange={handleFileChange}
+                                    accept=".pdf,.doc,.docx"
+                                    className="block w-full text-gray-700 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-brand-primary"
+                                />
+                                {file && <p className="mt-1 text-sm text-gray-500">Selected file: {file.name}</p>}
                             </div>
 
                             {/* Submit Button */}

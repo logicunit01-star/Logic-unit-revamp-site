@@ -11,11 +11,13 @@ declare global {
 }
 
 interface IndustryDetailHeroProps {
-    title: string;
+    headingTagline: string;
+    heading: string;
+    headingSpan: string;
     description: string;
 }
 
-const IndustryDetailHero: React.FC<IndustryDetailHeroProps> = ({ title, description }) => {
+const IndustryDetailHero: React.FC<IndustryDetailHeroProps> = ({ headingTagline, heading, headingSpan, description }) => {
     const [currentStudyIndex, setCurrentStudyIndex] = useState(0);
     const containerRef = useRef<HTMLElement>(null);
 
@@ -65,10 +67,13 @@ const IndustryDetailHero: React.FC<IndustryDetailHeroProps> = ({ title, descript
 
                     <div className="lg:col-span-6 hero-content text-center lg:text-left">
                         <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary font-semibold text-sm tracking-wider uppercase">
-                            Industry Focus
+                            {headingTagline}
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-brand-dark leading-tight tracking-tight mb-8">
-                            {title}
+                            {heading}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
+                                {" "}{headingSpan}
+                            </span>
                         </h1>
                         <p className="text-lg text-brand-gray leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
                             {description}

@@ -1,9 +1,18 @@
 import React from 'react';
-import { CLIENT_LOGOS } from '@/constants';
 
 const Partners: React.FC = () => {
-    // Triple the logos for a smoother, longer infinite scroll loop without gaps
-    const extendedLogos = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
+    // Array of logo names
+    const logos = [
+        { name: 'APG', url: '/apg.png' },
+        { name: 'Dunkin Donuts', url: '/dunkin donuts.png' },
+        { name: 'Gift Wift', url: '/gift wift.png' },
+        { name: 'Leopards', url: '/leopards.png' },
+        { name: 'Qatar Airways', url: '/qatar airways.png' },
+        { name: 'SGL', url: '/sgl.png' },
+    ];
+
+    // Triple the logos for smoother infinite scroll
+    const extendedLogos = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
 
     return (
         <section className="py-20 bg-white border-b border-gray-100 overflow-hidden relative">
@@ -26,7 +35,7 @@ const Partners: React.FC = () => {
                             <img
                                 src={logo.url}
                                 alt={logo.name}
-                                className="h-40 md:h-40 w-auto object-contain transform group-hover/logo:scale-105 transition-transform duration-500 !filter-none !grayscale-0 !opacity-100"
+                                className="h-32 md:h-36 lg:h-16 w-auto object-contain transform group-hover/logo:scale-105 transition-transform duration-500"
                             />
                         </div>
                     ))}

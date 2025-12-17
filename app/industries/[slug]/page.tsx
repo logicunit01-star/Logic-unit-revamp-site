@@ -1,8 +1,6 @@
-import React from 'react';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { Metadata } from 'next';
-import { INDUSTRIES_PAGE_DATA, toSlug } from '@/constants';
+import { fetchIndustryChild } from '@/lib/api-industry-child';
 import IndustryDetailHero from '@/components/industries_page/IndustryDetailHero';
 import IndustryChallenges from '@/components/industries_page/IndustryChallenges';
 import IndustryProcess from '@/components/industries_page/IndustryProcess';
@@ -17,6 +15,7 @@ import CTA from '@/components/sections/CTA';
 import Allies from '@/components/sections/Allies';
 import Technologies from '@/components/sections/Technologies';
 import IndustriesGrid from '@/components/industries_page/IndustriesGrid';
+import FAQ from '@/components/sections/FAQ';
 
 interface PageProps {
   params: Promise<{
@@ -26,7 +25,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const industryData = INDUSTRIES_PAGE_DATA.find(i => i.industrySlug === slug);
+  const industryData = await fetchIndustryChild(slug);
 
   if (!industryData) {
     return {
@@ -35,14 +34,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${industryData.name} Software Development | Logic-Unit`,
-    description: industryData.description,
+    title: industryData.metaTitle || `${industryData.heroHeading} | Logic-Unit`,
+    description: industryData.metaDescription || industryData.heroContent,
   };
 }
 
 export default async function IndustryDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const industryData = INDUSTRIES_PAGE_DATA.find(i => i.industrySlug === slug);
+  const industryData = await fetchIndustryChild(slug);
 
   if (!industryData) {
     notFound();
@@ -51,54 +50,68 @@ export default async function IndustryDetailPage({ params }: PageProps) {
   return (
     <div className="bg-brand-bg-main text-brand-dark font-sans">
       <IndustryDetailHero
-        title={industryData.name}
-        description={industryData.description}
+        headingTagline={industryData.heroTagline}
+        heading={industryData.heroHeading}
+        headingSpan={industryData.heroHeadingSpan}
+        description={industryData.heroContent}
       />
 
       <ComplianceSection />
       <Stats />
 
-      {/* New Unique Section: Industry Challenges */}
+      {/* Industry Challenges */}
       {industryData.challenges && (
         <IndustryChallenges
-          industryName={industryData.name}
+          challengesTagline={industryData.challengesTagline}
+          challengesHeading={industryData.challengesHeading}
+          challengesHeadingSpan={industryData.challengesHeadingSpan}
+          challengesContent={industryData.challengesContent}
           challenges={industryData.challenges}
         />
       )}
 
-      {/* <IndustriesGrid
-        tagline={industryData.sectorTagline}
-        heading={industryData.sectorHeading}
-        headingSpan={industryData.sectorHeadingSpan}
-        content={industryData.sectorHeadingContent}
-        industries={industryData.industries.map(ind => ({
-          slug: ind.slug,
-          industryName: ind.name,
-          industrydesrciption: ind.description,
-          subchildindustries: ind.subIndustries.map(sub => ({
-            id: sub.id,
-            featuresubChild: sub.name,
-            subchildSlug: sub.slug
-          }))
-        }))}
-      /> */}
+      {/* Industries Grid (Sub-solutions) */}
+      {industryData.industryGrid && industryData.industryGrid.length > 0 && (
+        <IndustriesGrid
+          tagline={industryData.sectorTagline || 'Solutions'}
+          heading={industryData.sectorHeading || 'Specialized Solutions'}
+          headingSpan={industryData.sectorHeadingSpan || ''}
+          content={industryData.sectorHeadingContent || ''}
+          industries={industryData.industryGrid.map(ind => ({
+            slug: ind.slug,
+            industryName: ind.industryName,
+            industrydesrciption: ind.industryDescription,
+            subchildindustries: []
+          }))}
+        />
+      )}
 
-      {/* New Unique Section: Process */}
-      {industryData.process && (
+      {/* Industry Process */}
+      {industryData.approaches && (
         <IndustryProcess
-          industryName={industryData.name}
-          steps={industryData.process}
+          approachTagline={industryData.approachTagline}
+          approachHeading={industryData.approachHeading}
+          approachHeadingSpan={industryData.approachHeadingSpan}
+          approachContent={industryData.approachContent}
+          approaches={industryData.approaches}
         />
       )}
 
       <Partners />
 
-      <WhyUs />
+      {/* Why Us - Mapped from API "choose" data */}
+      <WhyUs
+        tagline={industryData.whyChooseTagline}
+        heading={industryData.whyChooseHeading}
+        headingSpan={industryData.whyChooseHeadingSpan}
+        content={industryData.whyChooseContent}
+        points={industryData.choose}
+      />
 
       <CTA
-        title={`Ready to Transform Your ${industryData.name} Business?`}
-        subtitle="Let's discuss how our expertise can help you achieve your goals."
-        buttonText="Schedule a Consultation"
+        title="Ready to build future-ready healthcare technology?"
+        subtitle="Let Logic-Unit develop secure, compliant, and custom healthcare software that transforms patient care."
+        buttonText="Start Your Healthcare Project Today"
         href="/contact"
       />
 
@@ -111,7 +124,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
         <ContactForm />
       </div>
 
-      {/* <FAQ /> */}
+      <FAQ faqs={industryData.faqs} />
     </div>
   );
 }

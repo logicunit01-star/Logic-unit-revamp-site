@@ -6,11 +6,14 @@ interface Challenge {
 }
 
 interface IndustryChallengesProps {
-    industryName: string;
+    challengesTagline: string;
+    challengesHeading: string;
+    challengesHeadingSpan: string;
+    challengesContent: string;
     challenges: Challenge[];
 }
 
-const IndustryChallenges: React.FC<IndustryChallengesProps> = ({ industryName, challenges }) => {
+const IndustryChallenges: React.FC<IndustryChallengesProps> = ({ challengesTagline, challengesHeading, challengesHeadingSpan, challengesContent, challenges }) => {
     return (
         <section className="py-24 bg-brand-dark text-white relative overflow-hidden">
             {/* Background Pattern */}
@@ -22,17 +25,15 @@ const IndustryChallenges: React.FC<IndustryChallengesProps> = ({ industryName, c
                     <div className="lg:col-span-4">
                         <div className="sticky top-32">
                             <h4 className="inline-block mb-4 px-3 py-1 rounded-full bg-brand-primary/20 text-brand-primary text-xs font-bold uppercase tracking-wider border border-brand-primary/20">
-                                Industry Hurdles
+                                {challengesTagline}
                             </h4>
                             <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 leading-tight">
-                                Overcoming <br />
+                                {challengesHeading}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
-                                    {industryName}
-                                </span> <br />
-                                Challenges
-                            </h2>
+                                    {challengesHeadingSpan}
+                                </span>                             </h2>
                             <p className="text-gray-400 text-lg mb-8">
-                                We understand the unique obstacles facing the {industryName} sector. Our solutions are engineered to turn these challenges into competitive advantages.
+                                {challengesContent}
                             </p>
                             <div className="w-20 h-1 bg-brand-primary rounded-full"></div>
                         </div>
