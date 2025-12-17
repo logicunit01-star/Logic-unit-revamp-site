@@ -677,13 +677,13 @@ export const MEGA_MENU_SERVICES = {
 
 export const NAV_LINKS = [
     {
-        name: 'Intelligence',
-        href: '/intelligence',
+        name: 'LU AI',
+        href: '/ai-development',
         isMega: true,
         megaContent: MEGA_MENU_AI,
     },
     {
-        name: 'Capabilities',
+        name: 'Services',
         href: '/services',
         isMega: true,
         megaContent: MEGA_MENU_SERVICES,
@@ -723,7 +723,7 @@ export const NAV_LINKS = [
 
 export const FOOTER_LINKS = {
     services: [
-        { name: 'Intelligent Automation', href: '/intelligence' },
+        { name: 'LU AI', href: '/ai-development' },
         { name: 'Enterprise Systems', href: '/services/erp-enterprise-systems' },
         { name: 'Cloud Architecture', href: '/services/cloud-infrastructure' },
         { name: 'SaaS Engineering', href: '/services/web-applications-saas-platforms' },

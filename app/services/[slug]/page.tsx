@@ -16,7 +16,7 @@ const ServiceBreadcrumb: React.FC<{ title: string }> = ({ title }) => (
     <ol className="flex items-center space-x-2 text-sm text-brand-dark/60">
       <li><Link href="/" className="hover:text-brand-primary">Home</Link></li>
       <li><span className="text-gray-400">/</span></li>
-      <li><Link href="/services" className="hover:text-brand-primary">Capabilities</Link></li>
+      <li><Link href="/services" className="hover:text-brand-primary">Services</Link></li>
       <li><span className="text-gray-400">/</span></li>
       <li className="font-medium text-brand-dark truncate max-w-[200px] md:max-w-none">{title}</li>
     </ol>

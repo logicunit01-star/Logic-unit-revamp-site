@@ -88,6 +88,12 @@
       "namedRegex": "^/about(?:/)?$"
     },
     {
+      "page": "/ai-development",
+      "regex": "^/ai\\-development(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ai\\-development(?:/)?$"
+    },
+    {
       "page": "/case-studies",
       "regex": "^/case\\-studies(?:/)?$",
       "routeKeys": {},
@@ -116,12 +122,6 @@
       "regex": "^/insights(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/insights(?:/)?$"
-    },
-    {
-      "page": "/intelligence",
-      "regex": "^/intelligence(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/intelligence(?:/)?$"
     },
     {
       "page": "/privacy",

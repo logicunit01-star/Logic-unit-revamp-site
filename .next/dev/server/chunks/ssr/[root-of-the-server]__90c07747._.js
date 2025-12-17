@@ -1822,13 +1822,13 @@ const MEGA_MENU_SERVICES = {
 };
 const NAV_LINKS = [
     {
-        name: 'Intelligence',
-        href: '/intelligence',
+        name: 'LU AI',
+        href: '/ai-development',
         isMega: true,
         megaContent: MEGA_MENU_AI
     },
     {
-        name: 'Capabilities',
+        name: 'Services',
         href: '/services',
         isMega: true,
         megaContent: MEGA_MENU_SERVICES
@@ -1880,8 +1880,8 @@ const NAV_LINKS = [
 const FOOTER_LINKS = {
     services: [
         {
-            name: 'Intelligent Automation',
-            href: '/intelligence'
+            name: 'LU AI',
+            href: '/ai-development'
         },
         {
             name: 'Enterprise Systems',
