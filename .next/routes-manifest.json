@@ -94,6 +94,12 @@
       "namedRegex": "^/ai\\-development(?:/)?$"
     },
     {
+      "page": "/api/form-submit",
+      "regex": "^/api/form\\-submit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/form\\-submit(?:/)?$"
+    },
+    {
       "page": "/case-studies",
       "regex": "^/case\\-studies(?:/)?$",
       "routeKeys": {},

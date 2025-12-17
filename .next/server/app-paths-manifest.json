@@ -3,6 +3,7 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/about/page": "app/about/page.js",
   "/ai-development/page": "app/ai-development/page.js",
+  "/api/form-submit/route": "app/api/form-submit/route.js",
   "/case-studies/page": "app/case-studies/page.js",
   "/clients/page": "app/clients/page.js",
   "/contact/page": "app/contact/page.js",
