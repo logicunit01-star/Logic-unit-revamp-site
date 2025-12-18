@@ -39,7 +39,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/_not-found",
       "dataRoute": "/_not-found.rsc",
       "prefetchDataRoute": null,
@@ -64,7 +65,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about",
       "dataRoute": "/about.rsc",
       "prefetchDataRoute": null,
@@ -89,7 +91,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/ai-development",
       "dataRoute": "/ai-development.rsc",
       "prefetchDataRoute": null,
@@ -114,7 +117,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/case-studies",
       "dataRoute": "/case-studies.rsc",
       "prefetchDataRoute": null,
@@ -139,7 +143,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/clients",
       "dataRoute": "/clients.rsc",
       "prefetchDataRoute": null,
@@ -164,7 +169,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/contact",
       "dataRoute": "/contact.rsc",
       "prefetchDataRoute": null,
@@ -189,7 +195,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/",
       "dataRoute": "/index.rsc",
       "prefetchDataRoute": null,
@@ -214,7 +221,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/privacy",
       "dataRoute": "/privacy.rsc",
       "prefetchDataRoute": null,
@@ -239,7 +247,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/services",
       "dataRoute": "/services.rsc",
       "prefetchDataRoute": null,
@@ -264,7 +273,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/sitemap",
       "dataRoute": "/sitemap.rsc",
       "prefetchDataRoute": null,
@@ -289,7 +299,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/terms",
       "dataRoute": "/terms.rsc",
       "prefetchDataRoute": null,
@@ -314,7 +325,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/test",
       "dataRoute": "/test.rsc",
       "prefetchDataRoute": null,
@@ -331,8 +343,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "4d09ed24dc25d090e6658e2bdb3ac3db",
-    "previewModeSigningKey": "32594d71031d9095d20e3a8df1c63ca88fb8d9772aff340eae386763e5bbcce6",
-    "previewModeEncryptionKey": "e20246f4e78cc89bf0ebc1a4ec86ac8d3fd781c2547075949994bda3351e52ab"
+    "previewModeId": "92fa9332d7e9e974a70384db964dddf2",
+    "previewModeSigningKey": "02c4d4c4608d357925314b40e1205931c7cf19146a3bf4fd8adf81b86a37f353",
+    "previewModeEncryptionKey": "21cab346199973ea8694543cc890170e8c0de28dd0c40f2f566524ac5b4c4de0"
   }
 }

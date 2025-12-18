@@ -117,22 +117,23 @@ const Hero: React.FC = () => {
                                 </button>
                             </div>
                         </div>
-
-                        <div className="absolute -left-12 top-20 bg-white p-6 rounded-xl shadow-xl shadow-gray-200/50 border border-gray-100 max-w-xs hidden xl:block animate-pulse-slow">
-                            <div className="flex items-center gap-4 mb-3">
-                                <div className="w-10 h-10 rounded-full bg-brand-secondary/10 flex items-center justify-center text-brand-secondary">
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <Link href="/contact">
+                            <div className="absolute -left-12 top-20 bg-white p-6 rounded-xl shadow-xl shadow-gray-200/50 border border-gray-100 max-w-xs hidden xl:block animate-pulse-slow">
+                                <div className="flex items-center gap-4 mb-3">
+                                    <div className="w-10 h-10 rounded-full bg-brand-secondary/10 flex items-center justify-center text-brand-secondary">
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-bold text-brand-dark">Talk to AI expert</p>
+                                        <p className="text-xs text-gray-500">To Gain Efficiency</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p className="text-sm font-bold text-brand-dark">Efficiency Gain</p>
-                                    <p className="text-xs text-gray-500">Real-time optimization</p>
+                                <p className="text-2xl font-bold text-brand-primary font-heading">+300%</p>
+                                <div className="w-full bg-gray-100 h-1.5 rounded-full mt-3 overflow-hidden">
+                                    <div className="bg-brand-secondary h-full w-3/4 rounded-full"></div>
                                 </div>
                             </div>
-                            <p className="text-2xl font-bold text-brand-primary font-heading">+300%</p>
-                            <div className="w-full bg-gray-100 h-1.5 rounded-full mt-3 overflow-hidden">
-                                <div className="bg-brand-secondary h-full w-3/4 rounded-full"></div>
-                            </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -141,3 +142,6 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
+
+

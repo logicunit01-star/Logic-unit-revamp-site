@@ -53,9 +53,9 @@ const Insights: React.FC = () => {
                                         alt={post.title}
                                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                                     />
-                                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-dark text-xs font-bold px-3 py-1.5 uppercase tracking-wide">
+                                    <span className="absolute top-4 left-4 bg-brand-secondary text-white text-xs font-bold px-2 py-1 rounded shadow-sm">
                                         {post.category?.name}
-                                    </div>
+                                    </span>
                                 </div>
                                 <div className="flex flex-col flex-grow">
                                     <span className="text-xs font-bold text-brand-gray mb-2 block">{post.date}</span>

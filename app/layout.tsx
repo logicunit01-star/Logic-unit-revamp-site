@@ -32,18 +32,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+import { fetchIndustryNavigation } from '@/lib/api-industry-child';
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const industryLinks = await fetchIndustryNavigation();
+
   return (
     <html lang="en">
       <head>
         <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet" />
       </head>
       <body className="antialiased text-brand-dark bg-brand-bg-main font-sans flex flex-col min-h-screen" suppressHydrationWarning={true}>
-        <Header />
+        <Header industryLinks={industryLinks} />
         <main className="flex-grow">
           {children}
         </main>

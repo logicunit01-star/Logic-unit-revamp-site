@@ -38,7 +38,6 @@ const ContactForm: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [touched, setTouched] = useState<Record<string, boolean>>({});
-    const [file, setFile] = useState<File | null>(null);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -54,12 +53,6 @@ const ContactForm: React.FC = () => {
         const { name } = e.target;
         setTouched(prev => ({ ...prev, [name]: true }));
         validateField(name, formData[name as keyof FormData]);
-    };
-
-    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setFile(e.target.files[0]);
-        }
     };
 
     const validateField = (name: string, value: string) => {
@@ -148,11 +141,6 @@ const ContactForm: React.FC = () => {
             const formDataToSend = new FormData();
             formDataToSend.append('data', JSON.stringify(payload));
 
-            if (file) {
-                console.log('Including file:', file.name);
-                formDataToSend.append('files.doc-attached', file);
-            }
-
             console.log('Sending to proxy...');
 
             const response = await fetch('/api/form-submit', {
@@ -181,7 +169,6 @@ const ContactForm: React.FC = () => {
                     projectType: '',
                     description: ''
                 });
-                setFile(null);
                 setSubmitSuccess(false);
                 setTouched({});
             }, 3000);
@@ -271,7 +258,7 @@ const ContactForm: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Row 2 - Email */}
+                            {/* Row 2 - Email & Phone */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div>
                                     <input
@@ -288,19 +275,19 @@ const ContactForm: React.FC = () => {
                                         <p className="mt-1 text-sm text-red-500">{errors.businessEmail}</p>
                                     )}
                                 </div>
-                            </div>
 
-                            {/* Row 3 - Phone */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div>
                                     <PhoneInput
                                         country={'us'}
                                         value={formData.phoneNumber}
                                         onChange={(phone) => setFormData(prev => ({ ...prev, phoneNumber: phone }))}
                                         onBlur={() => validateField('phoneNumber', formData.phoneNumber)}
-                                        inputClass={`w-full px-0 py-3 border-b-2 ${touched.phoneNumber && errors.phoneNumber ? 'border-red-500' : 'border-gray-300'} bg-transparent focus:outline-none focus:border-brand-primary`}
+                                        inputClass={`!w-full !h-[50px] !pl-12 !pr-0 !py-3 !border-t-0 !border-l-0 !border-r-0 !border-b-2 ${touched.phoneNumber && errors.phoneNumber ? '!border-red-500' : '!border-gray-300'} !bg-transparent !rounded-none focus:!border-brand-primary !text-brand-dark focus:!outline-none focus:!ring-0 !text-base`}
                                         containerClass="w-full"
+                                        buttonStyle={{ border: 'none', background: 'transparent', paddingLeft: '0px', bottom: '2px' }}
+                                        dropdownStyle={{ width: '300px' }}
                                         placeholder="Phone Number (Optional)"
+                                        disableDropdown={false}
                                     />
                                     {touched.phoneNumber && errors.phoneNumber && (
                                         <p className="mt-1 text-sm text-red-500">{errors.phoneNumber}</p>
@@ -371,18 +358,6 @@ const ContactForm: React.FC = () => {
                                     placeholder="Project Brief or Key Objectives..."
                                     className="block w-full px-0 py-3 text-brand-dark bg-transparent border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary peer resize-none placeholder:text-gray-500"
                                 />
-                            </div>
-
-                            {/* File Upload */}
-                            <div className="mt-4">
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Attach File (Optional)</label>
-                                <input
-                                    type="file"
-                                    onChange={handleFileChange}
-                                    accept=".pdf,.doc,.docx"
-                                    className="block w-full text-gray-700 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-brand-primary"
-                                />
-                                {file && <p className="mt-1 text-sm text-gray-500">Selected file: {file.name}</p>}
                             </div>
 
                             {/* Submit Button */}

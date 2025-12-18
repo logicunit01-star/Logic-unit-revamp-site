@@ -11,7 +11,12 @@ const ChevronDownIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-const Header: React.FC = () => {
+
+interface HeaderProps {
+    industryLinks?: { name: string; slug: string }[];
+}
+
+const Header: React.FC<HeaderProps> = ({ industryLinks = [] }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState<(typeof NAV_LINKS[0]) | null>(null);
     const [activeMobileMenu, setActiveMobileMenu] = useState('main');
@@ -20,6 +25,52 @@ const Header: React.FC = () => {
 
     const headerRef = useRef<HTMLElement>(null);
     const [headerHeight, setHeaderHeight] = useState(0);
+
+    // Merge industry links into NAV_LINKS
+    const dynamicNavLinks = React.useMemo(() => {
+        const links = [...NAV_LINKS]; // Create a shallow copy
+        const industryIndex = links.findIndex(l => l.name === 'Industries');
+
+        if (industryIndex !== -1 && industryLinks.length > 0) {
+            // Split industries into 2 columns for the mega menu
+            const halfPoint = Math.ceil(industryLinks.length / 2);
+            const col1 = industryLinks.slice(0, halfPoint);
+            const col2 = industryLinks.slice(halfPoint);
+
+            links[industryIndex] = {
+                ...links[industryIndex],
+                isMega: true,
+                dropdownContent: undefined, // Remove simple dropdown
+                megaContent: {
+                    main: [
+                        {
+                            title: 'Sectors',
+                            path: '',
+                            slug: 'industries-list-1',
+                            items: col1.map(ind => ({ name: ind.name, path: `/industries/${ind.slug}`, slug: ind.slug }))
+                        },
+                        {
+                            title: '', // Empty title for spacing/continuation
+                            path: '',
+                            slug: 'industries-list-2',
+                            items: col2.map(ind => ({ name: ind.name, path: `/industries/${ind.slug}`, slug: ind.slug }))
+                        }
+                    ],
+                    side: {
+                        title: 'Innovation',
+                        items: [],
+                        ctaBox: {
+                            title: 'Deploy AI Agents',
+                            description: 'Revolutionize your sector with autonomous AI workforce integration.',
+                            buttonText: 'Initialize Agent',
+                            href: '/contact'
+                        }
+                    }
+                } as any
+            };
+        }
+        return links;
+    }, [industryLinks]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -138,7 +189,7 @@ const Header: React.FC = () => {
                     </div>
 
                     <div className="hidden lg:flex items-center space-x-1">
-                        {NAV_LINKS.map((link) => (
+                        {dynamicNavLinks.map((link) => (
                             <div
                                 key={link.name}
                                 className="relative group"
@@ -319,7 +370,7 @@ const Header: React.FC = () => {
                             } overflow-y-auto`}
                     >
                         <div className="p-4 space-y-2 pb-24">
-                            {NAV_LINKS.map((link) => (
+                            {dynamicNavLinks.map((link) => (
                                 <Fragment key={link.name}>
                                     {link.isMega || link.dropdownContent ? (
                                         <button
@@ -351,7 +402,7 @@ const Header: React.FC = () => {
                     </div>
 
                     {/* Sub Menus */}
-                    {NAV_LINKS.filter(l => l.isMega || l.dropdownContent).map(link => (
+                    {dynamicNavLinks.filter(l => l.isMega || l.dropdownContent).map(link => (
                         <div
                             key={`${link.name}-submenu`}
                             className={`absolute inset-0 transition-transform duration-300 ease-in-out overflow-y-auto bg-white ${activeMobileMenu === link.name ? 'translate-x-0' : 'translate-x-full'

@@ -18,6 +18,9 @@ export interface IndustryChildData {
     heroContent: string;
     metaTitle: string;
     metaDescription: string;
+    ctaHeading: string;
+    ctaContent: string;
+    ctabtnText: string;
 
     // Challenges
     challengesTagline: string;
@@ -128,6 +131,9 @@ function mapIndustryChild(item: any): IndustryChildData {
         heroContent: item.heroContent || '',
         metaTitle: item.metaTitle || '',
         metaDescription: item.metaDescription || '',
+        ctaHeading: item.ctaHeading || '',
+        ctaContent: item.ctaContent || '',
+        ctabtnText: item.ctabtnText || '',
 
         challengesTagline: item.challengesTagline || '',
         challengesHeading: item.challengesHeading || '',
@@ -178,4 +184,39 @@ function mapIndustryChild(item: any): IndustryChildData {
             answer: f.answer || '',
         })) || [],
     };
+}
+
+export async function fetchIndustryNavigation(): Promise<{ name: string; slug: string }[]> {
+    try {
+        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild]=true`;
+        const res = await fetch(url, {
+            headers: FETCH_OPTIONS.headers,
+            next: { revalidate: 3600 }
+        });
+
+        if (!res.ok) return [];
+
+        const json = await res.json();
+        if (!json.data || !Array.isArray(json.data)) return [];
+
+        const industries: { name: string; slug: string }[] = [];
+
+        for (const entry of json.data) {
+            if (entry.industryChild && Array.isArray(entry.industryChild)) {
+                entry.industryChild.forEach((item: any) => {
+                    if (item.slug && item.heroHeadng) { // Using heroHeadng as the name
+                        industries.push({
+                            name: item.heroHeadng,
+                            slug: item.slug
+                        });
+                    }
+                });
+            }
+        }
+
+        return industries;
+    } catch (error) {
+        console.error('Error fetching industry navigation:', error);
+        return [];
+    }
 }

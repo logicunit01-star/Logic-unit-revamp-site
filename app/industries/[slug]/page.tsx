@@ -109,9 +109,9 @@ export default async function IndustryDetailPage({ params }: PageProps) {
       />
 
       <CTA
-        title="Ready to build future-ready healthcare technology?"
-        subtitle="Let Logic-Unit develop secure, compliant, and custom healthcare software that transforms patient care."
-        buttonText="Start Your Healthcare Project Today"
+        title={industryData.ctaHeading}
+        subtitle={industryData.ctaContent}
+        buttonText={industryData.ctabtnText}
         href="/contact"
       />
 

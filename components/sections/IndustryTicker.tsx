@@ -1,5 +1,6 @@
+'use client';
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { HOME_PAGE_INDUSTRIES } from '@/constants';
 
@@ -19,10 +20,74 @@ const getIconPath = (slug: string) => {
 };
 
 const IndustryTicker: React.FC = () => {
-    const industries = [...HOME_PAGE_INDUSTRIES, ...HOME_PAGE_INDUSTRIES];
+    // Tripling the list to ensure smooth infinite scrolling even on wide screens
+    // and to provide a buffer for the reset logic.
+    const industries = [...HOME_PAGE_INDUSTRIES, ...HOME_PAGE_INDUSTRIES, ...HOME_PAGE_INDUSTRIES];
+
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        let animationFrameId: number;
+
+        const animate = () => {
+            if (!isDragging && !isPaused) {
+                if (container.scrollLeft >= (container.scrollWidth / 3) * 2) {
+                    // If we've scrolled past the first two sets, reset to the first set
+                    // to maintain the infinite illusion without jump (assuming sets are identical)
+                    // Actually simpler logic:
+                    // The total width is 3 units.
+                    // We want to loop nicely.
+                    // If we are at Unit 2 start -> Unit 3 start, we can jump back to Unit 1 start.
+                    container.scrollLeft -= container.scrollWidth / 3;
+                } else {
+                    container.scrollLeft += 1; // Auto-scroll speed
+                }
+            }
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        animate();
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [isDragging, isPaused]);
+
+    const handleMouseDown = (e: React.MouseEvent) => {
+        setIsDragging(true);
+        setStartX(e.pageX - containerRef.current!.offsetLeft);
+        setScrollLeft(containerRef.current!.scrollLeft);
+        // Prevent default text selection
+        e.preventDefault();
+    };
+
+    const handleMouseLeave = () => {
+        setIsDragging(false);
+        setIsPaused(false);
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - containerRef.current!.offsetLeft;
+        const walk = (x - startX) * 1.5; // Drag speed multiplier
+        containerRef.current!.scrollLeft = scrollLeft - walk;
+    };
+
+    const handleMouseEnter = () => {
+        setIsPaused(true);
+    };
 
     return (
-        <section className="py-16 bg-brand-bg-secondary border-b border-gray-200 overflow-hidden relative">
+        <section className="py-16 bg-brand-bg-secondary border-b border-gray-200 overflow-hidden relative select-none">
             <div className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-brand-bg-secondary to-transparent z-10 pointer-events-none"></div>
             <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-brand-bg-secondary to-transparent z-10 pointer-events-none"></div>
 
@@ -31,12 +96,25 @@ const IndustryTicker: React.FC = () => {
                 <h2 className="text-2xl font-bold font-heading text-brand-dark">Industries We <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Serve</span></h2>
             </div>
 
-            <div className="flex animate-scroll hover:[animation-play-state:paused]">
+            <div
+                ref={containerRef}
+                className="flex overflow-x-hidden cursor-grab active:cursor-grabbing no-scrollbar"
+                onMouseDown={handleMouseDown}
+                onMouseLeave={handleMouseLeave}
+                onMouseUp={handleMouseUp}
+                onMouseMove={handleMouseMove}
+                onMouseEnter={handleMouseEnter}
+            >
                 {industries.map((industry, index) => (
-                    <div key={`${industry.industrySlug}-${index}`} className="flex-shrink-0 w-[240px] mx-6 group cursor-pointer">
+                    <div key={`${industry.industrySlug}-${index}`} className="flex-shrink-0 w-[240px] mx-6 group">
+                        {/* We use specific onClick handling or Link with logic to prevent accidental clicks while dragging could be added here, 
+                            but standard Link usually handles small drags vs clicks fine. 
+                            If dragging triggers a click, we might need a custom Link wrapper that checks drag distance. 
+                            For now, keep it simple. */}
                         <Link
                             href={`/industries/${industry.industrySlug}`}
-                            className="bg-white border border-gray-200 rounded-lg p-6 flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-lg hover:border-brand-primary group-hover:-translate-y-1 h-40 block"
+                            className="bg-white border border-gray-200 rounded-lg p-6 flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-lg hover:border-brand-primary group-hover:-translate-y-1 h-40 block draggable-false"
+                            draggable={false}
                         >
                             <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-brand-dark group-hover:text-brand-primary transition-colors duration-300">
                                 {getIconPath(industry.industrySlug)}
@@ -53,4 +131,3 @@ const IndustryTicker: React.FC = () => {
 };
 
 export default IndustryTicker;
-

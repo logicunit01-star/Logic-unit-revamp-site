@@ -34,7 +34,7 @@ const Technologies: React.FC = () => {
                             <img
                                 src={tech.url}
                                 alt={`${tech.name} Logo`}
-                                className="h-12 w-12 mb-4 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110"
+                                className="h-12 w-12 mb-4  group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110"
                             />
                             <span className="text-xs font-semibold text-brand-dark/60 group-hover:text-brand-dark transition-colors">{tech.name}</span>
                         </div>

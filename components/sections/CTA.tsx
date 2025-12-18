@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 interface CTAProps {
-    title: string;
-    subtitle: string;
-    buttonText: string;
+    title?: string;
+    subtitle?: string;
+    buttonText?: string;
     imageSrc?: string;
     onButtonClick?: () => void;
     href?: string;
