@@ -1,8 +1,19 @@
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { fetchPosts } from '@/lib/api';
 import { Post } from '@/lib/cms';
+
+const stripHtml = (html: string, limit: number = 150) => {
+    if (!html) return '';
+    // Basic strip tags
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const text = doc.body.textContent || "";
+
+    if (text.length <= limit) return text;
+    return text.substring(0, limit).trim() + '...';
+};
 
 const Insights: React.FC = () => {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -10,9 +21,14 @@ const Insights: React.FC = () => {
 
     useEffect(() => {
         const loadData = async () => {
-            const fetchedPosts = await fetchPosts();
-            setPosts(fetchedPosts.slice(0, 3));
-            setLoading(false);
+            try {
+                const fetchedPosts = await fetchPosts();
+                setPosts(fetchedPosts.slice(0, 3));
+            } catch (error) {
+                console.error("Failed to load insights", error);
+            } finally {
+                setLoading(false);
+            }
         };
         loadData();
     }, []);
@@ -60,7 +76,9 @@ const Insights: React.FC = () => {
                                 <div className="flex flex-col flex-grow">
                                     <span className="text-xs font-bold text-brand-gray mb-2 block">{post.date}</span>
                                     <h3 className="text-xl font-bold text-brand-dark mb-3 font-heading leading-tight group-hover:text-brand-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title }} />
-                                    <p className="text-brand-dark/70 text-sm leading-relaxed mb-4 line-clamp-3" dangerouslySetInnerHTML={{ __html: post.postDescription }} />
+                                    <p className="text-brand-dark/70 text-sm leading-relaxed mb-4 line-clamp-3">
+                                        {post.excerpt}
+                                    </p>
                                     <span className="text-brand-primary font-bold text-sm mt-auto flex items-center gap-2 opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
                                         Read Analysis <span>→</span>
                                     </span>

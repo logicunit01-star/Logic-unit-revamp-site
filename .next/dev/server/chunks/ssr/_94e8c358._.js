@@ -2341,18 +2341,32 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/api.ts [app-ssr] (ecmascript)");
+'use client';
 ;
 ;
 ;
 ;
+const stripHtml = (html, limit = 150)=>{
+    if (!html) return '';
+    // Basic strip tags
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const text = doc.body.textContent || "";
+    if (text.length <= limit) return text;
+    return text.substring(0, limit).trim() + '...';
+};
 const Insights = ()=>{
     const [posts, setPosts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const loadData = async ()=>{
-            const fetchedPosts = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchPosts"])();
-            setPosts(fetchedPosts.slice(0, 3));
-            setLoading(false);
+            try {
+                const fetchedPosts = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchPosts"])();
+                setPosts(fetchedPosts.slice(0, 3));
+            } catch (error) {
+                console.error("Failed to load insights", error);
+            } finally{
+                setLoading(false);
+            }
         };
         loadData();
     }, []);
@@ -2373,7 +2387,7 @@ const Insights = ()=>{
                                     children: "Thought Leadership"
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/Insights.tsx",
-                                    lineNumber: 25,
+                                    lineNumber: 41,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2382,7 +2396,7 @@ const Insights = ()=>{
                                         "Strategic ",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                             fileName: "[project]/components/sections/Insights.tsx",
-                                            lineNumber: 26,
+                                            lineNumber: 42,
                                             columnNumber: 113
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2390,19 +2404,19 @@ const Insights = ()=>{
                                             children: "Insights"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/Insights.tsx",
-                                            lineNumber: 26,
+                                            lineNumber: 42,
                                             columnNumber: 119
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/Insights.tsx",
-                                    lineNumber: 26,
+                                    lineNumber: 42,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/sections/Insights.tsx",
-                            lineNumber: 24,
+                            lineNumber: 40,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2411,13 +2425,13 @@ const Insights = ()=>{
                             children: "View All Articles"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/Insights.tsx",
-                            lineNumber: 28,
+                            lineNumber: 44,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/sections/Insights.tsx",
-                    lineNumber: 23,
+                    lineNumber: 39,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2430,12 +2444,12 @@ const Insights = ()=>{
                             className: "h-96 bg-white rounded-lg animate-pulse"
                         }, i, false, {
                             fileName: "[project]/components/sections/Insights.tsx",
-                            lineNumber: 39,
+                            lineNumber: 55,
                             columnNumber: 29
                         }, ("TURBOPACK compile-time value", void 0)))
                 }, void 0, false, {
                     fileName: "[project]/components/sections/Insights.tsx",
-                    lineNumber: 37,
+                    lineNumber: 53,
                     columnNumber: 21
                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "grid grid-cols-1 md:grid-cols-3 gap-8",
@@ -2452,7 +2466,7 @@ const Insights = ()=>{
                                             className: "w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/Insights.tsx",
-                                            lineNumber: 51,
+                                            lineNumber: 67,
                                             columnNumber: 37
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2460,13 +2474,13 @@ const Insights = ()=>{
                                             children: post.category?.name
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/Insights.tsx",
-                                            lineNumber: 56,
+                                            lineNumber: 72,
                                             columnNumber: 37
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/Insights.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 66,
                                     columnNumber: 33
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2477,7 +2491,7 @@ const Insights = ()=>{
                                             children: post.date
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/Insights.tsx",
-                                            lineNumber: 61,
+                                            lineNumber: 77,
                                             columnNumber: 37
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2487,17 +2501,15 @@ const Insights = ()=>{
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/Insights.tsx",
-                                            lineNumber: 62,
+                                            lineNumber: 78,
                                             columnNumber: 37
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-brand-dark/70 text-sm leading-relaxed mb-4 line-clamp-3",
-                                            dangerouslySetInnerHTML: {
-                                                __html: post.postDescription
-                                            }
+                                            children: post.excerpt
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/Insights.tsx",
-                                            lineNumber: 63,
+                                            lineNumber: 79,
                                             columnNumber: 37
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2508,30 +2520,30 @@ const Insights = ()=>{
                                                     children: "→"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sections/Insights.tsx",
-                                                    lineNumber: 65,
+                                                    lineNumber: 83,
                                                     columnNumber: 55
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/sections/Insights.tsx",
-                                            lineNumber: 64,
+                                            lineNumber: 82,
                                             columnNumber: 37
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/Insights.tsx",
-                                    lineNumber: 60,
+                                    lineNumber: 76,
                                     columnNumber: 33
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, post.slug, true, {
                             fileName: "[project]/components/sections/Insights.tsx",
-                            lineNumber: 45,
+                            lineNumber: 61,
                             columnNumber: 29
                         }, ("TURBOPACK compile-time value", void 0)))
                 }, void 0, false, {
                     fileName: "[project]/components/sections/Insights.tsx",
-                    lineNumber: 43,
+                    lineNumber: 59,
                     columnNumber: 21
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2542,23 +2554,23 @@ const Insights = ()=>{
                         children: "View All Articles"
                     }, void 0, false, {
                         fileName: "[project]/components/sections/Insights.tsx",
-                        lineNumber: 74,
+                        lineNumber: 92,
                         columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/components/sections/Insights.tsx",
-                    lineNumber: 73,
+                    lineNumber: 91,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/sections/Insights.tsx",
-            lineNumber: 22,
+            lineNumber: 38,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/sections/Insights.tsx",
-        lineNumber: 21,
+        lineNumber: 37,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
