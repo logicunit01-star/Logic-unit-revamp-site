@@ -245,25 +245,25 @@ const LocationPinIcon = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module
     }, ("TURBOPACK compile-time value", void 0));
 const STATS = [
     {
-        value: '25+',
+        value: '14+',
         label: 'Years of Excellence'
     },
     {
-        value: '100+',
+        value: '150+',
         label: 'Global Experts'
     },
     {
-        value: '1.5k',
+        value: '700+',
         label: 'Success Stories'
     },
     {
-        value: '98%',
+        value: '92%',
         label: 'Client Retention'
     }
 ];
 const ABOUT_PAGE_STATS = [
     {
-        value: '25+',
+        value: '14+',
         label: 'years of expertise'
     },
     {
@@ -271,11 +271,11 @@ const ABOUT_PAGE_STATS = [
         label: 'IT Professionals'
     },
     {
-        value: '1500+',
+        value: '700+',
         label: 'Projects Success'
     },
     {
-        value: '25+',
+        value: '20+',
         label: 'Industries covered'
     }
 ];

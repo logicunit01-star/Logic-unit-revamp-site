@@ -214,25 +214,25 @@ const LocationPinIcon = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module
 _c4 = LocationPinIcon;
 const STATS = [
     {
-        value: '25+',
+        value: '14+',
         label: 'Years of Excellence'
     },
     {
-        value: '100+',
+        value: '150+',
         label: 'Global Experts'
     },
     {
-        value: '1.5k',
+        value: '700+',
         label: 'Success Stories'
     },
     {
-        value: '98%',
+        value: '92%',
         label: 'Client Retention'
     }
 ];
 const ABOUT_PAGE_STATS = [
     {
-        value: '25+',
+        value: '14+',
         label: 'years of expertise'
     },
     {
@@ -240,11 +240,11 @@ const ABOUT_PAGE_STATS = [
         label: 'IT Professionals'
     },
     {
-        value: '1500+',
+        value: '700+',
         label: 'Projects Success'
     },
     {
-        value: '25+',
+        value: '20+',
         label: 'Industries covered'
     }
 ];
@@ -2326,8 +2326,19 @@ const Header = ({ industryLinks = [] })=>{
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: link.megaContent.side.ctaBox.href || '/contact',
-                                    className: "inline-flex items-center gap-2 text-brand-primary font-bold text-sm hover:gap-3 transition-all"
-                                }, void 0, false, {
+                                    className: "inline-flex items-center gap-2 text-brand-primary font-bold text-sm hover:gap-3 transition-all",
+                                    children: [
+                                        link.megaContent.side.ctaBox.buttonText,
+                                        " ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            children: "→"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/layout/Header.tsx",
+                                            lineNumber: 160,
+                                            columnNumber: 97
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/components/layout/Header.tsx",
                                     lineNumber: 159,
                                     columnNumber: 33

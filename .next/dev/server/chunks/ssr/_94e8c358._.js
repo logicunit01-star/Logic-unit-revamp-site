@@ -1628,7 +1628,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const allies = [
     {
         name: 'Analyze Quran',
-        description: 'Deep textual analysis',
+        description: 'Ai APP to study and analyze the Quran',
         logo: 'https://analyzequran.com/wp-content/uploads/2023/06/analyze-quran-logo.png'
     },
     {
@@ -1637,14 +1637,14 @@ const allies = [
         logo: 'https://titanmms.com/wp-content/uploads/2019/11/titan-y.png'
     },
     {
-        name: 'Hulm POS',
-        description: 'Point of sale solutions',
+        name: 'HULM Solutions',
+        description: 'CRM & ERP solutions',
         logo: 'https://hulmsolutions.com/wp-content/uploads/2024/03/Hulmlogo.svg'
     },
     {
-        name: 'P@SHA',
-        description: 'Pakistan Software Houses Association for IT and ITeS.',
-        logo: 'https://www.pasha.org.pk/wp-content/uploads/2023/02/pasha-logo.png'
+        name: 'Bike Tour Pro',
+        description: 'Bike Touring Management Software',
+        logo: 'https://biketourpro.com/wp-content/uploads/2023/07/fav-icon.png'
     }
 ];
 const Allies = ()=>{
@@ -1724,7 +1724,7 @@ const Allies = ()=>{
                             className: "group flex flex-col items-center justify-center p-8 transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-gray-100 rounded-xl border border-transparent hover:border-gray-100",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "h-20 w-full flex items-center justify-center mb-6 opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500",
+                                    className: "h-20 w-full flex items-center justify-center mb-6 group-hover:opacity-100 transition-all duration-500",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                         src: ally.logo,
                                         alt: `${ally.name} logo`,

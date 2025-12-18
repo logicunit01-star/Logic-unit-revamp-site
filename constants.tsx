@@ -39,17 +39,17 @@ export const LocationPinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 // --- DATA CONSTANTS ---
 
 export const STATS = [
-    { value: '25+', label: 'Years of Excellence' },
-    { value: '100+', label: 'Global Experts' },
-    { value: '1.5k', label: 'Success Stories' },
-    { value: '98%', label: 'Client Retention' }
+    { value: '14+', label: 'Years of Excellence' },
+    { value: '150+', label: 'Global Experts' },
+    { value: '700+', label: 'Success Stories' },
+    { value: '92%', label: 'Client Retention' }
 ];
 
 export const ABOUT_PAGE_STATS = [
-    { value: '25+', label: 'years of expertise' },
+    { value: '14+', label: 'years of expertise' },
     { value: '150+', label: 'IT Professionals' },
-    { value: '1500+', label: 'Projects Success' },
-    { value: '25+', label: 'Industries covered' }
+    { value: '700+', label: 'Projects Success' },
+    { value: '20+', label: 'Industries covered' }
 ];
 
 export const WHY_US_POINTS = [
