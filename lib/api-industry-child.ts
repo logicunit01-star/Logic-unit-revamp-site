@@ -67,7 +67,11 @@ export interface IndustryChildData {
         slug: string;
         industryName: string;
         industryDescription: string;
-        subIndustries: any[]; // Kept for compatibility if needed
+        subIndustries: {
+            id: number;
+            name: string;
+            slug: string;
+        }[];
     }[];
 
     // FAQ
@@ -81,9 +85,13 @@ export interface IndustryChildData {
 export async function fetchIndustryChild(slug: string): Promise<IndustryChildData | null> {
     try {
         // Construct the URL with all populations
-        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild][populate]=challenges&populate[industryChild][populate]=approaches&populate[industryChild][populate]=choose&populate[industryChild][populate]=industryFaq&populate[industryChild][populate]=industryGrid`;
+        // Added deep population for subchildindustries
+        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild][populate][challenges]=true&populate[industryChild][populate][approaches]=true&populate[industryChild][populate][choose]=true&populate[industryChild][populate][industryFaq]=true&populate[industryChild][populate][industryGrid][populate]=subchildindustries`;
 
-        const res = await fetch(url, FETCH_OPTIONS);
+        const res = await fetch(url, {
+            headers: FETCH_OPTIONS.headers,
+            next: { revalidate: 3600 }
+        });
 
         if (!res.ok) {
             console.error('Failed to fetch industry children:', res.status, res.statusText);
@@ -96,10 +104,7 @@ export async function fetchIndustryChild(slug: string): Promise<IndustryChildDat
             return null;
         }
 
-        // The API returns a list of "industry-children" entries (likely just one container)
-        // containing a list of actual industryChild items.
-        // We need to iterate through all data entries and their industryChild arrays to find the matching slug.
-
+        // The API returns a list of "industry-children" entries
         let foundItem: any = null;
 
         for (const entry of json.data) {
@@ -175,7 +180,11 @@ function mapIndustryChild(item: any): IndustryChildData {
             slug: g.slug || '',
             industryName: g.industryName || '',
             industryDescription: g.industrydesrciption || '',
-            subIndustries: [], // Flat list in API, mapping to empty sub
+            subIndustries: g.subchildindustries?.map((s: any) => ({
+                id: s.id,
+                name: s.featuresubChild || '',
+                slug: s.subchildSlug || ''
+            })) || [],
         })) || [],
 
         faqs: item.industryFaq?.map((f: any, index: number) => ({
@@ -186,28 +195,73 @@ function mapIndustryChild(item: any): IndustryChildData {
     };
 }
 
-export async function fetchIndustryNavigation(): Promise<{ name: string; slug: string }[]> {
+export async function fetchIndustryNavigation(): Promise<{
+    name: string;
+    slug: string;
+    subIndustries: { name: string; slug: string }[];
+}[]> {
     try {
-        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild]=true`;
+        // Fetch with deeper population to get industryGrid and subchildindustries
+        // Using explicit population for subchildindustries
+        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild][populate][industryGrid][populate][subchildindustries]=*`;
+
         const res = await fetch(url, {
             headers: FETCH_OPTIONS.headers,
-            next: { revalidate: 3600 }
+            next: { revalidate: 0 }
         });
 
-        if (!res.ok) return [];
+        if (!res.ok) {
+            console.error('Failed to fetch industry navigation:', res.status);
+            return [];
+        }
 
         const json = await res.json();
         if (!json.data || !Array.isArray(json.data)) return [];
 
-        const industries: { name: string; slug: string }[] = [];
+        const industries: { name: string; slug: string; subIndustries: { name: string; slug: string }[] }[] = [];
 
         for (const entry of json.data) {
             if (entry.industryChild && Array.isArray(entry.industryChild)) {
                 entry.industryChild.forEach((item: any) => {
-                    if (item.slug && item.heroHeadng) { // Using heroHeadng as the name
+                    if (item.slug && item.heroHeadng) {
+                        const subIndustries: { name: string; slug: string }[] = [];
+
+                        // Check for both industryGrid and industriesGrid (defensive)
+                        const grid = item.industryGrid || item.industriesGrid;
+
+                        if (grid && Array.isArray(grid)) {
+                            const allSubIndustries: { name: string; slug: string }[] = [];
+
+                            grid.forEach((gridItem: any) => {
+                                const subchilds = gridItem.subchildindustries || gridItem.subchildIndustries;
+                                if (subchilds && Array.isArray(subchilds)) {
+                                    subchilds.forEach((sub: any) => {
+                                        // Try various field names for the title and slug
+                                        const name = sub.featuresubChild || sub.featureSubChild || sub.title || sub.name;
+                                        const slug = sub.subchildSlug || sub.subchildslug || sub.slug;
+
+                                        if (name && slug) {
+                                            allSubIndustries.push({
+                                                name: name,
+                                                slug: slug
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+
+                            // Remove duplicates by slug
+                            const uniqueSubIndustries = allSubIndustries.filter((sub, index, self) =>
+                                index === self.findIndex((t) => t.slug === sub.slug)
+                            );
+
+                            subIndustries.push(...uniqueSubIndustries.slice(0, 4));
+                        }
+
                         industries.push({
                             name: item.heroHeadng,
-                            slug: item.slug
+                            slug: item.slug,
+                            subIndustries
                         });
                     }
                 });
@@ -220,3 +274,5 @@ export async function fetchIndustryNavigation(): Promise<{ name: string; slug: s
         return [];
     }
 }
+
+

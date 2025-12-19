@@ -12,8 +12,9 @@ const ChevronDownIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 
+
 interface HeaderProps {
-    industryLinks?: { name: string; slug: string }[];
+    industryLinks?: { name: string; slug: string; subIndustries: { name: string; slug: string }[] }[];
 }
 
 const Header: React.FC<HeaderProps> = ({ industryLinks = [] }) => {
@@ -28,37 +29,37 @@ const Header: React.FC<HeaderProps> = ({ industryLinks = [] }) => {
 
     // Merge industry links into NAV_LINKS
     const dynamicNavLinks = React.useMemo(() => {
-        const links = [...NAV_LINKS]; // Create a shallow copy
+        const links = [...NAV_LINKS];
         const industryIndex = links.findIndex(l => l.name === 'Industries');
 
         if (industryIndex !== -1 && industryLinks.length > 0) {
-            // Split industries into 2 columns for the mega menu
-            const halfPoint = Math.ceil(industryLinks.length / 2);
-            const col1 = industryLinks.slice(0, halfPoint);
-            const col2 = industryLinks.slice(halfPoint);
+            // Limit to first 10 industries
+            const limitedIndustries = industryLinks.slice(0, 10);
 
             links[industryIndex] = {
                 ...links[industryIndex],
                 isMega: true,
-                dropdownContent: undefined, // Remove simple dropdown
+                dropdownContent: undefined,
                 megaContent: {
-                    main: [
-                        {
-                            title: 'Sectors',
-                            path: '',
-                            slug: 'industries-list-1',
-                            items: col1.map(ind => ({ name: ind.name, path: `/industries/${ind.slug}`, slug: ind.slug }))
-                        },
-                        {
-                            title: '', // Empty title for spacing/continuation
-                            path: '',
-                            slug: 'industries-list-2',
-                            items: col2.map(ind => ({ name: ind.name, path: `/industries/${ind.slug}`, slug: ind.slug }))
-                        }
-                    ],
+                    main: limitedIndustries.map(ind => ({
+                        title: ind.name,
+                        path: `/industries/${ind.slug}`,
+                        slug: ind.slug,
+                        items: (ind.subIndustries || []).map(sub => ({
+                            name: sub.name,
+                            path: `/industries/${ind.slug}/${sub.slug}`,
+                            slug: sub.slug
+                        }))
+                    })),
                     side: {
-                        title: 'Innovation',
-                        items: [],
+                        title: 'Explore More',
+                        items: [
+                            {
+                                name: 'View All Industries',
+                                href: '/industries',
+                                slug: 'all-industries'
+                            }
+                        ],
                         ctaBox: {
                             title: 'Deploy AI Agents',
                             description: 'Revolutionize your sector with autonomous AI workforce integration.',
@@ -69,6 +70,7 @@ const Header: React.FC<HeaderProps> = ({ industryLinks = [] }) => {
                 } as any
             };
         }
+
         return links;
     }, [industryLinks]);
 
@@ -278,20 +280,22 @@ const Header: React.FC<HeaderProps> = ({ industryLinks = [] }) => {
                                         <>
                                             <div className={`${mainColSpan} p-10`}>
                                                 <div className={`grid ${isSmallMenu ? 'grid-cols-2 gap-x-16' : 'grid-cols-4 gap-x-8'} gap-y-10`}>
-                                                    {activeMenu.megaContent.main?.map(category => (
-                                                        <div key={category.title}>
-                                                            {(category as any).path ? (
-                                                                <Link
-                                                                    href={(category as any).path}
-                                                                    className="font-bold text-brand-dark mb-4 text-xs uppercase tracking-widest border-b border-gray-100 pb-2 hover:text-brand-primary transition-colors flex items-center group"
-                                                                >
-                                                                    {category.title}
-                                                                    <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-                                                                </Link>
-                                                            ) : (
-                                                                <h3 className="font-bold text-brand-gray mb-4 text-xs uppercase tracking-widest border-b border-gray-100 pb-2 cursor-default">
-                                                                    {category.title}
-                                                                </h3>
+                                                    {activeMenu.megaContent.main?.map((category, index) => (
+                                                        <div key={category.slug || index}>
+                                                            {category.title && (
+                                                                (category as any).path ? (
+                                                                    <Link
+                                                                        href={(category as any).path}
+                                                                        className="font-bold text-brand-dark mb-4 text-xs uppercase tracking-widest border-b border-gray-100 pb-2 hover:text-brand-primary transition-colors flex items-center group"
+                                                                    >
+                                                                        {category.title}
+                                                                        <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                                                    </Link>
+                                                                ) : (
+                                                                    <h3 className="font-bold text-brand-gray mb-4 text-xs uppercase tracking-widest border-b border-gray-100 pb-2 cursor-default">
+                                                                        {category.title}
+                                                                    </h3>
+                                                                )
                                                             )}
                                                             <ul className="space-y-2.5">
                                                                 {category.items.map(item => (

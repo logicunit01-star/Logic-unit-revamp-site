@@ -415,35 +415,35 @@ const WHY_CHOOSE_US_DATA = [
 const HOME_PAGE_INDUSTRIES = [
     {
         name: 'Healthcare',
-        industrySlug: 'healthcare'
+        industrySlug: 'healthcare-software-development'
     },
     {
         name: 'FinTech',
-        industrySlug: 'fintech'
+        industrySlug: 'fintech-software-development'
     },
     {
         name: 'Banking',
-        industrySlug: 'banking'
+        industrySlug: 'banking-software-development'
     },
     {
         name: 'Insurance',
-        industrySlug: 'insurance'
+        industrySlug: 'insurance-software-development'
     },
     {
         name: 'Retail',
-        industrySlug: 'retail'
+        industrySlug: 'retail-software-development'
     },
     {
         name: 'Logistics',
-        industrySlug: 'transportation-logistics'
+        industrySlug: 'logistics-software-development'
     },
     {
         name: 'Manufacturing',
-        industrySlug: 'manufacturing'
+        industrySlug: 'manufacturing-software-development'
     },
     {
         name: 'Real Estate',
-        industrySlug: 'real-estate'
+        industrySlug: 'real-estate-software-development'
     }
 ];
 const SERVICES_PAGE_INDUSTRIES = [
@@ -1933,23 +1933,23 @@ const FOOTER_LINKS = {
     industries: [
         {
             name: 'Healthcare',
-            href: '/industries/healthcare'
+            href: '/industries/healthcare-software-development'
         },
         {
-            name: 'FinTech',
-            href: '/industries/fintech'
+            name: 'Logistics',
+            href: '/industries/logistics-software-development'
         },
         {
-            name: 'Retail & Logistics',
-            href: '/industries/retail'
+            name: 'Insurance',
+            href: '/industries/insurance-software-development'
         },
         {
-            name: 'Energy & Utilities',
-            href: '/industries/oil-gas'
+            name: 'Real Estate',
+            href: '/industries/real-estate-software-development'
         },
         {
             name: 'Manufacturing',
-            href: '/industries/manufacturing'
+            href: '/industries/manufacturing-software-development'
         }
     ],
     resources: [
@@ -2532,8 +2532,14 @@ const FETCH_OPTIONS = {
 async function fetchIndustryChild(slug) {
     try {
         // Construct the URL with all populations
-        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild][populate]=challenges&populate[industryChild][populate]=approaches&populate[industryChild][populate]=choose&populate[industryChild][populate]=industryFaq&populate[industryChild][populate]=industryGrid`;
-        const res = await fetch(url, FETCH_OPTIONS);
+        // Added deep population for subchildindustries
+        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild][populate][challenges]=true&populate[industryChild][populate][approaches]=true&populate[industryChild][populate][choose]=true&populate[industryChild][populate][industryFaq]=true&populate[industryChild][populate][industryGrid][populate]=subchildindustries`;
+        const res = await fetch(url, {
+            headers: FETCH_OPTIONS.headers,
+            next: {
+                revalidate: 3600
+            }
+        });
         if (!res.ok) {
             console.error('Failed to fetch industry children:', res.status, res.statusText);
             return null;
@@ -2542,9 +2548,7 @@ async function fetchIndustryChild(slug) {
         if (!json.data || !Array.isArray(json.data) || json.data.length === 0) {
             return null;
         }
-        // The API returns a list of "industry-children" entries (likely just one container)
-        // containing a list of actual industryChild items.
-        // We need to iterate through all data entries and their industryChild arrays to find the matching slug.
+        // The API returns a list of "industry-children" entries
         let foundItem = null;
         for (const entry of json.data){
             if (entry.industryChild && Array.isArray(entry.industryChild)) {
@@ -2610,7 +2614,11 @@ function mapIndustryChild(item) {
                 slug: g.slug || '',
                 industryName: g.industryName || '',
                 industryDescription: g.industrydesrciption || '',
-                subIndustries: []
+                subIndustries: g.subchildindustries?.map((s)=>({
+                        id: s.id,
+                        name: s.featuresubChild || '',
+                        slug: s.subchildSlug || ''
+                    })) || []
             })) || [],
         faqs: item.industryFaq?.map((f, index)=>({
                 id: f.id || index,
@@ -2621,14 +2629,19 @@ function mapIndustryChild(item) {
 }
 async function fetchIndustryNavigation() {
     try {
-        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild]=true`;
+        // Fetch with deeper population to get industryGrid and subchildindustries
+        // Using explicit population for subchildindustries
+        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild][populate][industryGrid][populate][subchildindustries]=*`;
         const res = await fetch(url, {
             headers: FETCH_OPTIONS.headers,
             next: {
-                revalidate: 3600
+                revalidate: 0
             }
         });
-        if (!res.ok) return [];
+        if (!res.ok) {
+            console.error('Failed to fetch industry navigation:', res.status);
+            return [];
+        }
         const json = await res.json();
         if (!json.data || !Array.isArray(json.data)) return [];
         const industries = [];
@@ -2636,9 +2649,35 @@ async function fetchIndustryNavigation() {
             if (entry.industryChild && Array.isArray(entry.industryChild)) {
                 entry.industryChild.forEach((item)=>{
                     if (item.slug && item.heroHeadng) {
+                        const subIndustries = [];
+                        // Check for both industryGrid and industriesGrid (defensive)
+                        const grid = item.industryGrid || item.industriesGrid;
+                        if (grid && Array.isArray(grid)) {
+                            const allSubIndustries = [];
+                            grid.forEach((gridItem)=>{
+                                const subchilds = gridItem.subchildindustries || gridItem.subchildIndustries;
+                                if (subchilds && Array.isArray(subchilds)) {
+                                    subchilds.forEach((sub)=>{
+                                        // Try various field names for the title and slug
+                                        const name = sub.featuresubChild || sub.featureSubChild || sub.title || sub.name;
+                                        const slug = sub.subchildSlug || sub.subchildslug || sub.slug;
+                                        if (name && slug) {
+                                            allSubIndustries.push({
+                                                name: name,
+                                                slug: slug
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                            // Remove duplicates by slug
+                            const uniqueSubIndustries = allSubIndustries.filter((sub, index, self)=>index === self.findIndex((t)=>t.slug === sub.slug));
+                            subIndustries.push(...uniqueSubIndustries.slice(0, 4));
+                        }
                         industries.push({
                             name: item.heroHeadng,
-                            slug: item.slug
+                            slug: item.slug,
+                            subIndustries
                         });
                     }
                 });

@@ -127,25 +127,27 @@ const ContactForm: React.FC = () => {
         setIsSubmitting(true);
 
         try {
+            // Strapi expects data to be wrapped in a "data" object
             const payload = {
-                fullName: formData.fullName,
-                companyOrganization: formData.companyName,
-                businessEmail: formData.businessEmail,
-                phoneNumber: formData.phoneNumber,
-                industry: formData.industry,
-                projectType: formData.projectType,
-                description: formData.description
+                data: {
+                    fullName: formData.fullName,
+                    companyOrganization: formData.companyName,
+                    businessEmail: formData.businessEmail,
+                    phoneNumber: formData.phoneNumber,
+                    industry: formData.industry,
+                    projectType: formData.projectType,
+                    description: formData.description
+                }
             };
 
-            // Create FormData for the proxy
-            const formDataToSend = new FormData();
-            formDataToSend.append('data', JSON.stringify(payload));
-
-            console.log('Sending to proxy...');
+            console.log('Sending payload:', payload);
 
             const response = await fetch('/api/form-submit', {
                 method: 'POST',
-                body: formDataToSend
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload)
             });
 
             if (!response.ok) {

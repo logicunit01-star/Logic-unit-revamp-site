@@ -124,14 +124,14 @@ export const WHY_CHOOSE_US_DATA = [
 ];
 
 export const HOME_PAGE_INDUSTRIES = [
-    { name: 'Healthcare', industrySlug: 'healthcare' },
-    { name: 'FinTech', industrySlug: 'fintech' },
-    { name: 'Banking', industrySlug: 'banking' },
-    { name: 'Insurance', industrySlug: 'insurance' },
-    { name: 'Retail', industrySlug: 'retail' },
-    { name: 'Logistics', industrySlug: 'transportation-logistics' },
-    { name: 'Manufacturing', industrySlug: 'manufacturing' },
-    { name: 'Real Estate', industrySlug: 'real-estate' }
+    { name: 'Healthcare', industrySlug: 'healthcare-software-development' },
+    { name: 'FinTech', industrySlug: 'fintech-software-development' },
+    { name: 'Banking', industrySlug: 'banking-software-development' },
+    { name: 'Insurance', industrySlug: 'insurance-software-development' },
+    { name: 'Retail', industrySlug: 'retail-software-development' },
+    { name: 'Logistics', industrySlug: 'logistics-software-development' },
+    { name: 'Manufacturing', industrySlug: 'manufacturing-software-development' },
+    { name: 'Real Estate', industrySlug: 'real-estate-software-development' }
 ];
 
 export const SERVICES_PAGE_INDUSTRIES = [
@@ -736,11 +736,11 @@ export const FOOTER_LINKS = {
         { name: 'Strategic Contact', href: '/contact' },
     ],
     industries: [
-        { name: 'Healthcare', href: '/industries/healthcare' },
-        { name: 'FinTech', href: '/industries/fintech' },
-        { name: 'Retail & Logistics', href: '/industries/retail' },
-        { name: 'Energy & Utilities', href: '/industries/oil-gas' },
-        { name: 'Manufacturing', href: '/industries/manufacturing' },
+        { name: 'Healthcare', href: '/industries/healthcare-software-development' },
+        { name: 'Logistics', href: '/industries/logistics-software-development' },
+        { name: 'Insurance', href: '/industries/insurance-software-development' },
+        { name: 'Real Estate', href: '/industries/real-estate-software-development' },
+        { name: 'Manufacturing', href: '/industries/manufacturing-software-development' },
     ],
     resources: [
         { name: 'Impact Stories', href: '/case-studies' },
