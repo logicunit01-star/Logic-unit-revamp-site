@@ -3,7 +3,7 @@
 import React from 'react';
 import ClientsHero from '@/components/clients_page/ClientsHero';
 import ClientsNav from '@/components/clients_page/ClientsNav';
-import OurPartnersSlider from '@/components/clients_page/OurPartnersSlider';
+import Partners from '@/components/sections/Partners';
 import OurClientsGrid from '@/components/clients_page/OurClientsGrid';
 import SuccessStoriesSlider from '@/components/clients_page/SuccessStoriesSlider';
 import WhyChooseUs from '@/components/clients_page/WhyChooseUs';
@@ -14,7 +14,7 @@ const ClientsPage: React.FC = () => {
     <div className="bg-white">
       <ClientsHero />
       <ClientsNav />
-      <OurPartnersSlider />
+      <Partners />
       <OurClientsGrid />
       <SuccessStoriesSlider />
       <WhyChooseUs />

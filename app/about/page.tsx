@@ -3,7 +3,7 @@
 import React from 'react';
 import AboutHero from '@/components/about_page/AboutHero';
 import AboutNav from '@/components/about_page/AboutNav';
-import CompaniesEmpowered from '@/components/service_page/CompaniesEmpowered';
+import Partners from '@/components/sections/Partners';
 import AboutIntro from '@/components/about_page/AboutIntro';
 import FootprintOfExcellence from '@/components/about_page/FootprintOfExcellence';
 import MissionVision from '@/components/about_page/MissionVision';
@@ -16,7 +16,7 @@ const AboutPage: React.FC = () => {
     <div className="bg-white">
       <AboutHero />
       <AboutNav />
-      <CompaniesEmpowered />
+      <Partners />
       <AboutIntro />
       <FootprintOfExcellence />
       <MissionVision />

@@ -1,15 +1,6 @@
 {
   "/about/page": "app/about/page.js",
-  "/api/form-submit/route": "app/api/form-submit/route.js",
   "/case-studies/page": "app/case-studies/page.js",
   "/clients/page": "app/clients/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/industries/[slug]/page": "app/industries/[slug]/page.js",
-  "/industries/page": "app/industries/page.js",
-  "/page": "app/page.js",
-  "/privacy/page": "app/privacy/page.js",
-  "/services/[slug]/page": "app/services/[slug]/page.js",
-  "/services/page": "app/services/page.js",
-  "/sitemap/page": "app/sitemap/page.js",
-  "/terms/page": "app/terms/page.js"
+  "/page": "app/page.js"
 }

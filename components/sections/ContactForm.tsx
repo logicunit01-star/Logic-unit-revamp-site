@@ -177,7 +177,11 @@ const ContactForm: React.FC = () => {
 
         } catch (error: any) {
             console.error('Submission error:', error);
-            alert(`Submission Failed: ${error.message}`);
+            // If the error message is long (like HTML), truncate it or show a summary
+            const displayError = error.message.length > 200
+                ? error.message.substring(0, 200) + '...'
+                : error.message;
+            alert(`Submission Failed: ${displayError}`);
         } finally {
             setIsSubmitting(false);
         }

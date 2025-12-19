@@ -7,18 +7,27 @@ export async function POST(req: NextRequest) {
             '95fa44ee2347128838dbecf04d64661a83587cff79f2adcf9b53b4d5f6674c2763f72e31547f516f117fcb9d3b10285eb54a8224570f3cb23ce973074ab175158d726c7b9fa63278ac6f78eb8454e3e0f91596d838e22205d3f849869d7532d7fc60ca2f94e200471f32281652bea37820e8d54c30d14c356e85802b9f692955';
 
         // Parse JSON body
-        const body = await req.json();
-
-        console.log('Received payload:', body);
+        let body;
+        try {
+            body = await req.json();
+            console.log('Received payload:', JSON.stringify(body, null, 2));
+        } catch (e: any) {
+            console.error('Failed to parse request JSON:', e.message);
+            return NextResponse.json(
+                { error: { message: 'Invalid request body' } },
+                { status: 400 }
+            );
+        }
 
         if (!body.data) {
             return NextResponse.json(
-                { error: { message: 'Missing data field' } },
+                { error: { message: 'Missing data field in payload' } },
                 { status: 400 }
             );
         }
 
         // Send to Strapi
+        console.log('Forwarding to Strapi:', `${STRAPI_URL}/api/form-submissions`);
         const strapiResponse = await fetch(
             `${STRAPI_URL}/api/form-submissions`,
             {
@@ -26,6 +35,7 @@ export async function POST(req: NextRequest) {
                 headers: {
                     'Authorization': `Bearer ${STRAPI_TOKEN}`,
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json',
                 },
                 body: JSON.stringify(body),
             }
@@ -34,14 +44,32 @@ export async function POST(req: NextRequest) {
         const responseText = await strapiResponse.text();
 
         if (!strapiResponse.ok) {
-            console.error('Strapi error:', responseText);
+            console.error(`Strapi error (${strapiResponse.status}):`, responseText);
             return NextResponse.json(
-                { error: { message: responseText } },
+                {
+                    error: {
+                        message: responseText || 'Unknown error from backend',
+                        status: strapiResponse.status
+                    }
+                },
                 { status: strapiResponse.status }
             );
         }
 
-        return NextResponse.json(JSON.parse(responseText), { status: 200 });
+        // Try to parse as JSON, but handle case where it's not
+        try {
+            const result = JSON.parse(responseText);
+            return NextResponse.json(result, { status: 200 });
+        } catch (e: any) {
+            console.warn('Strapi response was not valid JSON:', responseText);
+            return NextResponse.json(
+                {
+                    message: 'Success, but response was not JSON',
+                    rawResponse: responseText
+                },
+                { status: 200 }
+            );
+        }
 
     } catch (error: any) {
         console.error('API Route Error:', error);
