@@ -1311,7 +1311,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d
 ;
 ;
 ;
-const WhyUs = ({ tagline = "Why Businesses Choose", heading = "Customized Software", headingSpan = "Industries", content = "In a rapidly evolving digital landscape, stability, expertise, and vision are paramount. We don't just build software; we architect the systems that power your business future.", points = __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["WHY_US_POINTS"] })=>{
+const WhyUs = ({ tagline = "Why Businesses Choose", heading = "Our Custom Software", headingSpan = "Development Company", content = "In a rapidly evolving digital landscape, stability, expertise, and vision are paramount. We don't just build software; we architect the systems that power your business future.", points = __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["WHY_US_POINTS"] })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         className: "py-24 bg-white",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1770,27 +1770,33 @@ __turbopack_context__.s([
     ()=>__TURBOPACK__default__export__
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
+;
 ;
 const allies = [
     {
         name: 'Analyze Quran',
         description: 'Ai APP to study and analyze the Quran',
-        logo: 'https://analyzequran.com/wp-content/uploads/2023/06/analyze-quran-logo.png'
+        logo: 'https://analyzequran.com/wp-content/uploads/2023/06/analyze-quran-logo.png',
+        link: 'https://analyzequran.com'
     },
     {
         name: 'Titan CMS',
         description: 'Enterprise content management',
-        logo: 'https://titanmms.com/wp-content/uploads/2019/11/titan-y.png'
+        logo: 'https://titanmms.com/wp-content/uploads/2019/11/titan-y.png',
+        link: 'https://titanmms.com'
     },
     {
         name: 'HULM Solutions',
         description: 'CRM & ERP solutions',
-        logo: 'https://hulmsolutions.com/wp-content/uploads/2024/03/Hulmlogo.svg'
+        logo: 'https://hulmsolutions.com/wp-content/uploads/2024/03/Hulmlogo.svg',
+        link: 'https://hulmsolutions.com'
     },
     {
         name: 'Bike Tour Pro',
         description: 'Bike Touring Management Software',
-        logo: 'https://biketourpro.com/wp-content/uploads/2023/07/fav-icon.png'
+        logo: 'https://biketourpro.com/wp-content/uploads/2023/07/fav-icon.png',
+        link: 'https://biketourpro.com'
     }
 ];
 const Allies = ()=>{
@@ -1866,7 +1872,8 @@ const Allies = ()=>{
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 items-center",
-                    children: allies.map((ally, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    children: allies.map((ally, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            href: ally.link,
                             className: "group flex flex-col items-center justify-center p-8 transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-gray-100 rounded-xl border border-transparent hover:border-gray-100",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1877,12 +1884,12 @@ const Allies = ()=>{
                                         className: "max-h-full max-w-[160px] object-contain"
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/Allies.tsx",
-                                        lineNumber: 29,
+                                        lineNumber: 30,
                                         columnNumber: 33
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/Allies.tsx",
-                                    lineNumber: 28,
+                                    lineNumber: 29,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1890,7 +1897,7 @@ const Allies = ()=>{
                                     children: ally.name
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/Allies.tsx",
-                                    lineNumber: 31,
+                                    lineNumber: 32,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1898,18 +1905,18 @@ const Allies = ()=>{
                                     children: ally.description
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/Allies.tsx",
-                                    lineNumber: 32,
+                                    lineNumber: 33,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, index, true, {
                             fileName: "[project]/components/sections/Allies.tsx",
-                            lineNumber: 27,
+                            lineNumber: 28,
                             columnNumber: 25
                         }, ("TURBOPACK compile-time value", void 0)))
                 }, void 0, false, {
                     fileName: "[project]/components/sections/Allies.tsx",
-                    lineNumber: 25,
+                    lineNumber: 26,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
@@ -1949,22 +1956,64 @@ var _s = __turbopack_context__.k.signature();
 ;
 const testimonials = [
     {
-        quote: "Logic-Unit didn't just deliver software; they delivered a competitive advantage. Their strategic foresight and engineering precision have been pivotal to our digital transformation.",
-        name: "John Doe",
-        title: "CEO, Tech Solutions",
-        avatar: "https://picsum.photos/seed/avatar1/100"
+        quote: "Logic Unit rebuilt our CRM from the ground up. Lead tracking, automation, reporting — everything works exactly how sales teams actually operate. Zero bloat, just results.",
+        name: "Chris Umeh",
+        title: "Chief Technology Officer (CTO)",
+        avatar: "/Chris-Umeh.jpg"
     },
     {
-        quote: "In a market flooded with vendors, Logic-Unit stands out as a true partner. Their ability to navigate complex regulatory landscapes while innovating is unmatched.",
-        name: "Jane Smith",
-        title: "CTO, Innovate Corp",
-        avatar: "https://picsum.photos/seed/avatar2/100"
+        quote: "We worked with Logic Unit on ERP customization and complex API integrations. Their understanding of financial workflows and system security was impressive.",
+        name: "Glynis Shulters",
+        title: "Chief Information Officer (CIO",
+        avatar: "/Glynis-Shulters.png"
     },
     {
-        quote: "The scalability of the systems they architected allowed us to expand into three new global markets without a single operational hiccup.",
-        name: "Sam Wilson",
-        title: "VP of Engineering, Global Logistics",
-        avatar: "https://picsum.photos/seed/avatar3/100"
+        quote: "Logic Unit developed ERP modules that streamlined our logistics and warehouse operations. Performance and data accuracy improved significantly.",
+        name: "Silvan Mundorf",
+        title: "Head of Engineering",
+        avatar: "/Silvan-Mundorf.jpg"
+    },
+    {
+        quote: "From planning to deployment, Logic Unit handled our SaaS platform with professionalism. They communicated clearly and delivered exactly what was promised.",
+        name: "Gemma Louise",
+        title: "Director of Technology",
+        avatar: "/Gemma-Louise.jpeg"
+    },
+    {
+        quote: "Logic Unit built a CRM system tailored to our sales pipeline. Reporting accuracy improved and our sales team adopted it immediately.",
+        name: "Troy Tilton",
+        title: "VP of Digital Transformation",
+        avatar: "/Troy-Tilton.jpg"
+    },
+    {
+        quote: "They replaced several disconnected tools with a unified ERP solution. Logic Unit understands business processes, not just code.",
+        name: "Stefanie Clay",
+        title: "Head of Operations",
+        avatar: "/Stefanie-Clay.jpeg"
+    },
+    {
+        quote: "Logic Unit delivered a secure enterprise application integrating finance, HR, and operations. The system is stable and scalable.",
+        name: "Paul Berntsen",
+        title: "IT Director",
+        avatar: "/Paul-Berntsen.jpg"
+    },
+    {
+        quote: "Logic Unit built and maintains our CRM and automation workflows. They think strategically and execute with discipline.",
+        name: "Chelcie Plowright",
+        title: "Managing Director",
+        avatar: "/Chelcie-Plowright.png"
+    },
+    {
+        quote: "Our cloud-based ERP was delivered with strong performance and security. Logic Unit proved to be a dependable long-term technology partner.",
+        name: "Andreas Philip",
+        title: "Product Director",
+        avatar: "/Andreas-Philip.jpg"
+    },
+    {
+        quote: "Logic Unit modernized our legacy system into a clean, modern web application without any downtime. Their process was structured and efficient.",
+        name: "Dakota cummings",
+        title: "Head of Enterprise Systems",
+        avatar: "/Dakota-Cummings.png"
     }
 ];
 const Testimonials = ()=>{
@@ -1984,14 +2033,14 @@ const Testimonials = ()=>{
                 className: "absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"
             }, void 0, false, {
                 fileName: "[project]/components/sections/Testimonials.tsx",
-                lineNumber: 43,
+                lineNumber: 86,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute bottom-0 left-0 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"
             }, void 0, false, {
                 fileName: "[project]/components/sections/Testimonials.tsx",
-                lineNumber: 44,
+                lineNumber: 87,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2005,7 +2054,7 @@ const Testimonials = ()=>{
                                 children: "Testimonials"
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/Testimonials.tsx",
-                                lineNumber: 48,
+                                lineNumber: 91,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2013,13 +2062,13 @@ const Testimonials = ()=>{
                                 children: "What Our Partners Say About Us"
                             }, void 0, false, {
                                 fileName: "[project]/components/sections/Testimonials.tsx",
-                                lineNumber: 49,
+                                lineNumber: 92,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sections/Testimonials.tsx",
-                        lineNumber: 47,
+                        lineNumber: 90,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2032,7 +2081,7 @@ const Testimonials = ()=>{
                                     children: '"'
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/Testimonials.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 98,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2043,7 +2092,7 @@ const Testimonials = ()=>{
                                             children: quote
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/Testimonials.tsx",
-                                            lineNumber: 58,
+                                            lineNumber: 101,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2058,7 +2107,7 @@ const Testimonials = ()=>{
                                                             className: "w-16 h-16 rounded-full border-2 border-brand-secondary p-0.5 object-cover"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/sections/Testimonials.tsx",
-                                                            lineNumber: 64,
+                                                            lineNumber: 107,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2068,7 +2117,7 @@ const Testimonials = ()=>{
                                                                     children: name
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/sections/Testimonials.tsx",
-                                                                    lineNumber: 66,
+                                                                    lineNumber: 109,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2076,19 +2125,19 @@ const Testimonials = ()=>{
                                                                     children: title
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/sections/Testimonials.tsx",
-                                                                    lineNumber: 67,
+                                                                    lineNumber: 110,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/sections/Testimonials.tsx",
-                                                            lineNumber: 65,
+                                                            lineNumber: 108,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/sections/Testimonials.tsx",
-                                                    lineNumber: 63,
+                                                    lineNumber: 106,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2101,12 +2150,12 @@ const Testimonials = ()=>{
                                                                 className: "w-5 h-5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/Testimonials.tsx",
-                                                                lineNumber: 73,
+                                                                lineNumber: 116,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/sections/Testimonials.tsx",
-                                                            lineNumber: 72,
+                                                            lineNumber: 115,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2116,53 +2165,53 @@ const Testimonials = ()=>{
                                                                 className: "w-5 h-5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/sections/Testimonials.tsx",
-                                                                lineNumber: 76,
+                                                                lineNumber: 119,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/sections/Testimonials.tsx",
-                                                            lineNumber: 75,
+                                                            lineNumber: 118,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/sections/Testimonials.tsx",
-                                                    lineNumber: 71,
+                                                    lineNumber: 114,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/sections/Testimonials.tsx",
-                                            lineNumber: 62,
+                                            lineNumber: 105,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sections/Testimonials.tsx",
-                                    lineNumber: 57,
+                                    lineNumber: 100,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/sections/Testimonials.tsx",
-                            lineNumber: 53,
+                            lineNumber: 96,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/components/sections/Testimonials.tsx",
-                        lineNumber: 52,
+                        lineNumber: 95,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/Testimonials.tsx",
-                lineNumber: 46,
+                lineNumber: 89,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/components/sections/Testimonials.tsx",
-        lineNumber: 41,
+        lineNumber: 84,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -3744,32 +3793,32 @@ function Page() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Hero$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 25,
+                lineNumber: 26,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$IndustryTicker$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 26,
+                lineNumber: 27,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Stats$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 27,
+                lineNumber: 28,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Partners$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 28,
+                lineNumber: 29,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Services$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 29,
+                lineNumber: 30,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$WhyUs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 30,
+                lineNumber: 31,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$CTA$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -3780,37 +3829,37 @@ function Page() {
                 onButtonClick: ()=>router.push('/contact')
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 31,
+                lineNumber: 32,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$CaseStudies$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 38,
+                lineNumber: 39,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Allies$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 39,
+                lineNumber: 40,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Testimonials$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Technologies$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 41,
+                lineNumber: 42,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Insights$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 42,
+                lineNumber: 43,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$ContactForm$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 43,
+                lineNumber: 44,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$CTA$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -3820,7 +3869,7 @@ function Page() {
                 onButtonClick: ()=>router.push('/contact')
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 45,
+                lineNumber: 46,
                 columnNumber: 7
             }, this)
         ]

@@ -6,23 +6,66 @@ import { CLIENT_LOGOS, ChevronLeftIcon, ChevronRightIcon } from '@/constants';
 
 const testimonials = [
   {
-    quote: "Logic-Unit didn't just deliver software; they delivered a competitive advantage. Their strategic foresight and engineering precision have been pivotal to our digital transformation.",
-    name: "John Doe",
-    title: "CEO, Tech Solutions",
-    avatar: "https://picsum.photos/seed/avatar1/100"
+    quote: "Logic Unit rebuilt our CRM from the ground up. Lead tracking, automation, reporting — everything works exactly how sales teams actually operate. Zero bloat, just results.",
+    name: "Chris Umeh",
+    title: "Chief Technology Officer (CTO)",
+    avatar: "/Chris-Umeh.jpg"
   },
   {
-    quote: "In a market flooded with vendors, Logic-Unit stands out as a true partner. Their ability to navigate complex regulatory landscapes while innovating is unmatched.",
-    name: "Jane Smith",
-    title: "CTO, Innovate Corp",
-    avatar: "https://picsum.photos/seed/avatar2/100"
+    quote: "We worked with Logic Unit on ERP customization and complex API integrations. Their understanding of financial workflows and system security was impressive.",
+    name: "Glynis Shulters",
+    title: "Chief Information Officer (CIO",
+    avatar: "/Glynis-Shulters.png"
   },
   {
-    quote: "The scalability of the systems they architected allowed us to expand into three new global markets without a single operational hiccup.",
-    name: "Sam Wilson",
-    title: "VP of Engineering, Global Logistics",
-    avatar: "https://picsum.photos/seed/avatar3/100"
+    quote: "Logic Unit developed ERP modules that streamlined our logistics and warehouse operations. Performance and data accuracy improved significantly.",
+    name: "Silvan Mundorf",
+    title: "Head of Engineering",
+    avatar: "/Silvan-Mundorf.jpg"
+  },
+  {
+    quote: "From planning to deployment, Logic Unit handled our SaaS platform with professionalism. They communicated clearly and delivered exactly what was promised.",
+    name: "Gemma Louise",
+    title: "Director of Technology",
+    avatar: "/Gemma-Louise.jpeg"
+  },
+  {
+    quote: "Logic Unit built a CRM system tailored to our sales pipeline. Reporting accuracy improved and our sales team adopted it immediately.",
+    name: "Troy Tilton",
+    title: "VP of Digital Transformation",
+    avatar: "/Troy-Tilton.jpg"
+  },
+  {
+    quote: "They replaced several disconnected tools with a unified ERP solution. Logic Unit understands business processes, not just code.",
+    name: "Stefanie Clay",
+    title: "Head of Operations",
+    avatar: "/Stefanie-Clay.jpeg"
+  },
+  {
+    quote: "Logic Unit delivered a secure enterprise application integrating finance, HR, and operations. The system is stable and scalable.",
+    name: "Paul Berntsen",
+    title: "IT Director",
+    avatar: "/Paul-Berntsen.jpg"
+  },
+  {
+    quote: "Logic Unit built and maintains our CRM and automation workflows. They think strategically and execute with discipline.",
+    name: "Chelcie Plowright",
+    title: "Managing Director",
+    avatar: "/Chelcie-Plowright.png"
+  },
+  {
+    quote: "Our cloud-based ERP was delivered with strong performance and security. Logic Unit proved to be a dependable long-term technology partner.",
+    name: "Andreas Philip",
+    title: "Product Director",
+    avatar: "/Andreas-Philip.jpg"
+  },
+  {
+    quote: "Logic Unit modernized our legacy system into a clean, modern web application without any downtime. Their process was structured and efficient.",
+    name: "Dakota cummings",
+    title: "Head of Enterprise Systems",
+    avatar: "/Dakota-Cummings.png"
   }
+
 ];
 
 const Testimonials: React.FC = () => {

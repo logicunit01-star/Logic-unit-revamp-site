@@ -51,6 +51,10 @@ __turbopack_context__.s([
     ()=>AI_PAGE_FAQS,
     "AI_PAGE_SERVICES",
     ()=>AI_PAGE_SERVICES,
+    "CAREERS_BENEFITS",
+    ()=>CAREERS_BENEFITS,
+    "CAREERS_POSITIONS",
+    ()=>CAREERS_POSITIONS,
     "CASE_STUDIES",
     ()=>CASE_STUDIES,
     "CLIENT_LOGOS",
@@ -124,8 +128,8 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 ;
-const LOGO_URL = 'https://logic-unit.com/wp-content/uploads/2019/06/cropped-logic-unit-logo.png';
-const LOGO_URL_WHITE = 'https://logic-unit.com/wp-content/uploads/2019/04/logic-unit-w.png';
+const LOGO_URL = '/LULogo.png';
+const LOGO_URL_WHITE = '/LULogo.png';
 const MailIcon = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
@@ -298,29 +302,91 @@ const WHY_US_POINTS = [
     }
 ];
 const FAQS = [
+    // General
     {
         question: "What does Logic-unit do as a custom software development company?",
-        answer: "Logic-unit builds tailored digital solutions, including custom software, AI systems, ERP, CRM, mobile apps, SaaS platforms, and cloud infrastructure for business growth"
+        answer: "Logic-unit builds tailored digital solutions, including custom software, AI systems, ERP, CRM, mobile apps, SaaS platforms, and cloud infrastructure for business growth."
     },
     {
-        question: "Q2. What is custom software development?",
-        answer: "Custom software development is the process of designing and building software specifically for a business unique requirements instead of using off-the-shelf tools."
-    },
-    {
-        question: "Q3. How to choose a custom software development company?",
+        question: "How to choose a custom software development company?",
         answer: "Choose a company like Logic-unit with proven experience, strong technical skills, a clear development process, solid security practices, and a portfolio of successful custom software projects."
     },
     {
-        question: "Can Logic-unit integrate AI and automation into my existing system?",
-        answer: "Yes. Logic-unit integrates AI automation, chatbots, predictive analytics, and intelligent workflows into ERP, CRM, and web platforms without disrupting operations."
+        question: "What industries do you specialize in?",
+        answer: "We have deep expertise in Healthcare, Fintech, Logistics, Retail, Manufacturing, and Real Estate, but our agile approach allows us to adapt to any sector."
     },
     {
-        question: "Are Logic-unit software and apps scalable for business growth?",
-        answer: "Yes. All Logic-unit solutions are built with scalability, cloud readiness, and high performance to support growing data, users, and operations."
+        question: "Do you work with startups or only enterprises?",
+        answer: "We work with both. We have specialized 'MVP to Scale' programs for startups and robust enterprise modernization frameworks for large corporations."
+    },
+    // Services & Technical
+    {
+        question: "What technologies do you use?",
+        answer: "We use a modern stack including React, Next.js, Node.js, Python/Django, .NET, AWS, Azure, and Google Cloud, ensuring we pick the right tool for the job."
     },
     {
-        question: "How does Logic-unit ensure quality and security in software solutions?",
-        answer: "Logic-unit follows secure coding standards, performs detailed QA testing, applies encryption, and uses cloud-grade security measures to keep your software safe and reliable."
+        question: "Can you modernize our legacy software?",
+        answer: "Yes. We specialize in legacy modernization, refactoring outdated systems into modern, scalable cloud-native architectures without disrupting business operations."
+    },
+    {
+        question: "Do you offer mobile app development?",
+        answer: "Absolutely. We build native iOS and Android apps as well as cross-platform solutions using React Native and Flutter for varied business needs."
+    },
+    {
+        question: "What is your quality assurance process?",
+        answer: "We employ a rigorous QA process including automated testing, manual user acceptance testing (UAT), security scanning, and performance profiling before any release."
+    },
+    // AI & Innovation
+    {
+        question: "Can Logic-unit integrate AI into my existing system?",
+        answer: "Yes. We integrate AI automation, chatbots, predictive analytics, and intelligent workflows into ERP, CRM, and web platforms seamlessly."
+    },
+    {
+        question: "Do you build custom AI models?",
+        answer: "We build and fine-tune custom machine learning models for specific business use cases, such as fraud detection, demand forecasting, and personalized recommendation engines."
+    },
+    // Project Management
+    {
+        question: "How do you manage projects and communication?",
+        answer: "We use Agile methodologies (Scrum/Kanban) with weekly sprints, regular demos, and shared tools like Jira and Slack to ensure complete transparency."
+    },
+    {
+        question: "Will I have a dedicated team?",
+        answer: "Yes. We assign a dedicated squad to your project, typically consisting of a Project Manager, Tech Lead, Developers, QA, and UI/UX Designers who focus solely on your success."
+    },
+    {
+        question: "How long does a typical project take?",
+        answer: "Timelines vary by complexity. An MVP might take 3-4 months, while a full enterprise transformation could take 6-12 months. We provide detailed estimates during the discovery phase."
+    },
+    // Security & IP
+    {
+        question: "Who owns the code after the project?",
+        answer: "You do. Upon project completion and final payment, you retain 100% ownership of all source code, design assets, and intellectual property."
+    },
+    {
+        question: "How do you ensure data security?",
+        answer: "We follow industry-standard security protocols (OWASP), encrypt data at rest and in transit, and strictly adhere to compliance regulations like HIPAA and GDPR where applicable."
+    },
+    {
+        question: "Do you sign Non-Disclosure Agreements (NDAs)?",
+        answer: "Yes. We sign NDAs before any initial consultation to ensure your idea and business data remain completely confidential."
+    },
+    // Support & Pricing
+    {
+        question: "What is your pricing model?",
+        answer: "We offer flexible engagement models: Time & Material for evolving projects, Fixed Price for well-defined scopes, and Dedicated Teams for long-term collaboration."
+    },
+    {
+        question: "Do you provide post-launch support?",
+        answer: "Yes. We offer various support and maintenance packages (SLAs) including 24/7 monitoring, bug fixes, and feature enhancements to keep your software running smoothly."
+    },
+    {
+        question: "Can you help with cloud migration?",
+        answer: "We are experts in cloud migration, helping businesses move their on-premise infrastructure to AWS, Azure, or Google Cloud for better scalability and cost-efficiency."
+    },
+    {
+        question: "How do we get started?",
+        answer: "Simply fill out our contact form or book a consultation call. We'll set up a discovery meeting to understand your needs and propose a tailored roadmap."
     }
 ];
 const CASE_STUDIES = [
@@ -488,12 +554,14 @@ const CORE_CAPABILITIES = [
 ];
 const DELIVERY_MODELS = [
     {
-        title: 'Dedicated Team',
-        description: 'Full-time team integrated with your processes.'
+        title: 'Software Development Outsourcing',
+        description: 'End-to-end project management and delivery. We take full responsibility for the development lifecycle, allowing you to focus on your core business.',
+        icon: '🌍'
     },
     {
-        title: 'Fixed Price',
-        description: 'Defined scope and budget for clear deliverables.'
+        title: 'Dedicated Development Team Augmentation',
+        description: 'Scale your internal capability instantly. We provide top-tier developers who integrate seamlessly with your existing team and workflows.',
+        icon: '🤝'
     }
 ];
 const PROCESS_STEPS = [
@@ -611,6 +679,62 @@ const CONTACT_TESTIMONIALS_DATA = [
         quote: 'Highly recommended.',
         logo: 'https://logic-unit.com/wp-content/uploads/2019/04/AGP-1-150x150.png',
         avatar: 'https://picsum.photos/seed/john/100'
+    }
+];
+const CAREERS_POSITIONS = [
+    {
+        id: 1,
+        title: 'Senior Full Stack Engineer',
+        department: 'Engineering',
+        location: 'Remote / Karachi',
+        type: 'Full-time',
+        experience: '5+ Years'
+    },
+    {
+        id: 2,
+        title: 'React Native Developer',
+        department: 'Mobile Engineering',
+        location: 'Remote / Karachi',
+        type: 'Full-time',
+        experience: '3+ Years'
+    },
+    {
+        id: 3,
+        title: 'Project Manager',
+        department: 'Operations',
+        location: 'Remote / Karachi',
+        type: 'Full-time',
+        experience: '4+ Years'
+    },
+    {
+        id: 4,
+        title: 'UI/UX Designer',
+        department: 'Design',
+        location: 'Remote / Houston',
+        type: 'Full-time',
+        experience: '3+ Years'
+    }
+];
+const CAREERS_BENEFITS = [
+    {
+        title: 'Modern Tech Stack',
+        description: 'Work with the latest technologies including AI, Next.js, and Cloud-native architectures.',
+        icon: '💻'
+    },
+    {
+        title: 'Flexible Work',
+        description: 'Enjoy a healthy work-life balance with flexible hours and remote work options.',
+        icon: '🏠'
+    },
+    {
+        title: 'Continuous Growth',
+        description: 'Ongoing learning opportunities, certifications, and mentorship from industry veterans.',
+        icon: '📈'
+    },
+    {
+        title: 'Global Impact',
+        description: 'Build solutions for world-class enterprises and impact millions of users globally.',
+        icon: '🌍'
     }
 ];
 // HELPER TO GENERATE INDUSTRY CONTENT
@@ -1853,10 +1977,6 @@ const NAV_LINKS = [
             {
                 name: 'Our Story',
                 href: '/about'
-            },
-            {
-                name: 'Careers',
-                href: '/about'
             }
         ]
     },
@@ -1896,38 +2016,34 @@ const FOOTER_LINKS = {
             href: '/ai-development'
         },
         {
-            name: 'Enterprise Systems',
+            name: 'ERP-Enterprise-Systems',
             href: '/services/erp-enterprise-systems'
         },
         {
-            name: 'Cloud Architecture',
-            href: '/services/cloud-infrastructure'
-        },
-        {
-            name: 'SaaS Engineering',
+            name: 'Web-Applications-SaaS-Platforms',
             href: '/services/web-applications-saas-platforms'
         },
         {
-            name: 'Mobility Solutions',
-            href: '/services/bespoke-mobile-apps-engineering'
+            name: 'Cloud-Infrastructure',
+            href: '/services/cloud-infrastructure'
+        },
+        {
+            name: 'CRM-Customer-Platforms',
+            href: '/services/crm-customer-platforms'
+        },
+        {
+            name: 'Consultancy-Support',
+            href: '/services/consultancy-support'
+        },
+        {
+            name: 'Bespoke-Software-Development',
+            href: '/services/bespoke-software-development'
         }
     ],
     company: [
         {
             name: 'Corporate Profile',
             href: '/about'
-        },
-        {
-            name: 'Our Team',
-            href: '/about'
-        },
-        {
-            name: 'Careers',
-            href: '/about'
-        },
-        {
-            name: 'Strategic Contact',
-            href: '/contact'
         }
     ],
     industries: [
@@ -1950,6 +2066,26 @@ const FOOTER_LINKS = {
         {
             name: 'Manufacturing',
             href: '/industries/manufacturing-software-development'
+        },
+        {
+            name: 'Retail',
+            href: '/industries/retail-software-development'
+        },
+        {
+            name: 'Fintech',
+            href: '/industries/fintech-software-development'
+        },
+        {
+            name: 'Lending',
+            href: '/industries/lending-software-development'
+        },
+        {
+            name: 'Logistics',
+            href: '/industries/logistics-software-development'
+        },
+        {
+            name: 'Banking',
+            href: '/industries/banking-software-development'
         }
     ],
     resources: [
@@ -1963,14 +2099,14 @@ const FOOTER_LINKS = {
         },
         {
             name: 'FAQs',
-            href: '/contact'
+            href: '/faqs'
         }
     ]
 };
 const SOCIAL_LINKS = [
     {
         name: 'Facebook',
-        href: '#',
+        href: 'https://www.facebook.com/thelogicunit/',
         icon: (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 fill: "currentColor",
                 viewBox: "0 0 24 24",
@@ -1981,18 +2117,18 @@ const SOCIAL_LINKS = [
                     clipRule: "evenodd"
                 }, void 0, false, {
                     fileName: "[project]/constants.tsx",
-                    lineNumber: 753,
-                    columnNumber: 114
+                    lineNumber: 853,
+                    columnNumber: 151
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/constants.tsx",
-                lineNumber: 753,
-                columnNumber: 58
+                lineNumber: 853,
+                columnNumber: 95
             }, ("TURBOPACK compile-time value", void 0))
     },
     {
         name: 'Twitter',
-        href: '#',
+        href: 'https://x.com/logic_unit',
         icon: (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 fill: "currentColor",
                 viewBox: "0 0 24 24",
@@ -2001,18 +2137,18 @@ const SOCIAL_LINKS = [
                     d: "M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
                 }, void 0, false, {
                     fileName: "[project]/constants.tsx",
-                    lineNumber: 754,
-                    columnNumber: 113
+                    lineNumber: 854,
+                    columnNumber: 136
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/constants.tsx",
-                lineNumber: 754,
-                columnNumber: 57
+                lineNumber: 854,
+                columnNumber: 80
             }, ("TURBOPACK compile-time value", void 0))
     },
     {
         name: 'LinkedIn',
-        href: '#',
+        href: 'https://pk.linkedin.com/company/logicunit',
         icon: (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 fill: "currentColor",
                 viewBox: "0 0 24 24",
@@ -2021,13 +2157,13 @@ const SOCIAL_LINKS = [
                     d: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                 }, void 0, false, {
                     fileName: "[project]/constants.tsx",
-                    lineNumber: 755,
-                    columnNumber: 114
+                    lineNumber: 855,
+                    columnNumber: 154
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/constants.tsx",
-                lineNumber: 755,
-                columnNumber: 58
+                lineNumber: 855,
+                columnNumber: 98
             }, ("TURBOPACK compile-time value", void 0))
     }
 ];
@@ -2125,12 +2261,12 @@ const Footer = ()=>{
                                         className: "h-8 md:h-10 opacity-90"
                                     }, void 0, false, {
                                         fileName: "[project]/components/layout/Footer.tsx",
-                                        lineNumber: 14,
+                                        lineNumber: 13,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 13,
+                                    lineNumber: 12,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2138,7 +2274,7 @@ const Footer = ()=>{
                                     children: "Architecting the digital future for global enterprises. We deliver resilient, scalable, and secure technology ecosystems."
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 16,
+                                    lineNumber: 15,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2151,7 +2287,7 @@ const Footer = ()=>{
                                                     className: "w-5 h-5 mr-3 mt-0.5 text-brand-secondary flex-shrink-0"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/layout/Footer.tsx",
-                                                    lineNumber: 22,
+                                                    lineNumber: 21,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2161,7 +2297,7 @@ const Footer = ()=>{
                                                             children: "Houston, USA"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/layout/Footer.tsx",
-                                                            lineNumber: 24,
+                                                            lineNumber: 23,
                                                             columnNumber: 37
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2169,19 +2305,19 @@ const Footer = ()=>{
                                                             children: "Global Headquarters"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/layout/Footer.tsx",
-                                                            lineNumber: 25,
+                                                            lineNumber: 24,
                                                             columnNumber: 37
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/layout/Footer.tsx",
-                                                    lineNumber: 23,
+                                                    lineNumber: 22,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/layout/Footer.tsx",
-                                            lineNumber: 21,
+                                            lineNumber: 20,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2191,7 +2327,7 @@ const Footer = ()=>{
                                                     className: "w-5 h-5 mr-3 mt-0.5 text-brand-secondary flex-shrink-0"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/layout/Footer.tsx",
-                                                    lineNumber: 29,
+                                                    lineNumber: 28,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2201,7 +2337,7 @@ const Footer = ()=>{
                                                             children: "Karachi, PK"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/layout/Footer.tsx",
-                                                            lineNumber: 31,
+                                                            lineNumber: 30,
                                                             columnNumber: 37
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2209,19 +2345,19 @@ const Footer = ()=>{
                                                             children: "Development Center"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/layout/Footer.tsx",
-                                                            lineNumber: 32,
+                                                            lineNumber: 31,
                                                             columnNumber: 37
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/layout/Footer.tsx",
-                                                    lineNumber: 30,
+                                                    lineNumber: 29,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/layout/Footer.tsx",
-                                            lineNumber: 28,
+                                            lineNumber: 27,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2231,7 +2367,7 @@ const Footer = ()=>{
                                                     className: "w-5 h-5 mr-3 mt-0.5 text-brand-secondary flex-shrink-0"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/layout/Footer.tsx",
-                                                    lineNumber: 36,
+                                                    lineNumber: 35,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2240,19 +2376,19 @@ const Footer = ()=>{
                                                     children: "info@logic-unit.com"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/layout/Footer.tsx",
-                                                    lineNumber: 37,
+                                                    lineNumber: 36,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/layout/Footer.tsx",
-                                            lineNumber: 35,
+                                            lineNumber: 34,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 20,
+                                    lineNumber: 19,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2265,23 +2401,23 @@ const Footer = ()=>{
                                                 className: "w-5 h-5"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/layout/Footer.tsx",
-                                                lineNumber: 44,
+                                                lineNumber: 43,
                                                 columnNumber: 37
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, link.name, false, {
                                             fileName: "[project]/components/layout/Footer.tsx",
-                                            lineNumber: 43,
+                                            lineNumber: 42,
                                             columnNumber: 33
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 41,
+                                    lineNumber: 40,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/layout/Footer.tsx",
-                            lineNumber: 12,
+                            lineNumber: 11,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2291,7 +2427,7 @@ const Footer = ()=>{
                                     children: "Services"
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 51,
+                                    lineNumber: 50,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -2303,23 +2439,23 @@ const Footer = ()=>{
                                                 children: link.name
                                             }, void 0, false, {
                                                 fileName: "[project]/components/layout/Footer.tsx",
-                                                lineNumber: 55,
+                                                lineNumber: 54,
                                                 columnNumber: 37
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, link.name, false, {
                                             fileName: "[project]/components/layout/Footer.tsx",
-                                            lineNumber: 54,
+                                            lineNumber: 53,
                                             columnNumber: 33
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 51,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/layout/Footer.tsx",
-                            lineNumber: 50,
+                            lineNumber: 49,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2329,7 +2465,7 @@ const Footer = ()=>{
                                     children: "Industries"
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 61,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -2341,23 +2477,23 @@ const Footer = ()=>{
                                                 children: link.name
                                             }, void 0, false, {
                                                 fileName: "[project]/components/layout/Footer.tsx",
-                                                lineNumber: 66,
+                                                lineNumber: 65,
                                                 columnNumber: 37
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, link.name, false, {
                                             fileName: "[project]/components/layout/Footer.tsx",
-                                            lineNumber: 65,
+                                            lineNumber: 64,
                                             columnNumber: 33
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 63,
+                                    lineNumber: 62,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/layout/Footer.tsx",
-                            lineNumber: 61,
+                            lineNumber: 60,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2367,7 +2503,7 @@ const Footer = ()=>{
                                     children: "Company"
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 73,
+                                    lineNumber: 72,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -2379,23 +2515,23 @@ const Footer = ()=>{
                                                 children: link.name
                                             }, void 0, false, {
                                                 fileName: "[project]/components/layout/Footer.tsx",
-                                                lineNumber: 77,
+                                                lineNumber: 76,
                                                 columnNumber: 37
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, link.name, false, {
                                             fileName: "[project]/components/layout/Footer.tsx",
-                                            lineNumber: 76,
+                                            lineNumber: 75,
                                             columnNumber: 33
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 74,
+                                    lineNumber: 73,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/layout/Footer.tsx",
-                            lineNumber: 72,
+                            lineNumber: 71,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2405,7 +2541,7 @@ const Footer = ()=>{
                                     children: "Resources"
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 84,
+                                    lineNumber: 83,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -2417,29 +2553,29 @@ const Footer = ()=>{
                                                 children: link.name
                                             }, void 0, false, {
                                                 fileName: "[project]/components/layout/Footer.tsx",
-                                                lineNumber: 88,
+                                                lineNumber: 87,
                                                 columnNumber: 37
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, link.name, false, {
                                             fileName: "[project]/components/layout/Footer.tsx",
-                                            lineNumber: 87,
+                                            lineNumber: 86,
                                             columnNumber: 33
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 85,
+                                    lineNumber: 84,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/layout/Footer.tsx",
-                            lineNumber: 83,
+                            lineNumber: 82,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/layout/Footer.tsx",
-                    lineNumber: 10,
+                    lineNumber: 9,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2453,7 +2589,7 @@ const Footer = ()=>{
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/layout/Footer.tsx",
-                            lineNumber: 96,
+                            lineNumber: 95,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2465,7 +2601,7 @@ const Footer = ()=>{
                                     children: "Privacy Policy"
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 98,
+                                    lineNumber: 97,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -2474,7 +2610,7 @@ const Footer = ()=>{
                                     children: "Terms of Service"
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 99,
+                                    lineNumber: 98,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -2483,30 +2619,30 @@ const Footer = ()=>{
                                     children: "Sitemap"
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Footer.tsx",
-                                    lineNumber: 100,
+                                    lineNumber: 99,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/layout/Footer.tsx",
-                            lineNumber: 97,
+                            lineNumber: 96,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/layout/Footer.tsx",
-                    lineNumber: 95,
+                    lineNumber: 94,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/layout/Footer.tsx",
-            lineNumber: 9,
+            lineNumber: 8,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/layout/Footer.tsx",
-        lineNumber: 8,
+        lineNumber: 7,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -2516,6 +2652,8 @@ const __TURBOPACK__default__export__ = Footer;
 "use strict";
 
 __turbopack_context__.s([
+    "fetchAllIndustriesFaqs",
+    ()=>fetchAllIndustriesFaqs,
     "fetchIndustryChild",
     ()=>fetchIndustryChild,
     "fetchIndustryNavigation",
@@ -2526,8 +2664,7 @@ const TOKEN = '0f1b55c82d07f1d75be733dd09018748432a536d1e5e1bb235cd7d7e55536bc3c
 const FETCH_OPTIONS = {
     headers: {
         Authorization: `Bearer ${TOKEN}`
-    },
-    cache: 'no-store'
+    }
 };
 async function fetchIndustryChild(slug) {
     try {
@@ -2578,6 +2715,7 @@ function mapIndustryChild(item) {
         ctaHeading: item.ctaHeading || '',
         ctaContent: item.ctaContent || '',
         ctabtnText: item.ctabtnText || '',
+        navName: item.navName || '',
         challengesTagline: item.challengesTagline || '',
         challengesHeading: item.challengesHeading || '',
         challengesHeadingSpan: item.challengesheadingSpan || '',
@@ -2635,7 +2773,7 @@ async function fetchIndustryNavigation() {
         const res = await fetch(url, {
             headers: FETCH_OPTIONS.headers,
             next: {
-                revalidate: 0
+                revalidate: 3600
             }
         });
         if (!res.ok) {
@@ -2675,7 +2813,7 @@ async function fetchIndustryNavigation() {
                             subIndustries.push(...uniqueSubIndustries.slice(0, 4));
                         }
                         industries.push({
-                            name: item.heroHeadng,
+                            name: item.navName,
                             slug: item.slug,
                             subIndustries
                         });
@@ -2686,6 +2824,44 @@ async function fetchIndustryNavigation() {
         return industries;
     } catch (error) {
         console.error('Error fetching industry navigation:', error);
+        return [];
+    }
+}
+async function fetchAllIndustriesFaqs() {
+    try {
+        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild][populate][industryFaq]=true`;
+        const res = await fetch(url, {
+            headers: FETCH_OPTIONS.headers,
+            next: {
+                revalidate: 3600
+            }
+        });
+        if (!res.ok) {
+            console.error('Failed to fetch industry FAQs:', res.status);
+            return [];
+        }
+        const json = await res.json();
+        if (!json.data || !Array.isArray(json.data)) return [];
+        const industryFaqs = [];
+        for (const entry of json.data){
+            if (entry.industryChild && Array.isArray(entry.industryChild)) {
+                entry.industryChild.forEach((item)=>{
+                    if (item.navName && item.industryFaq && item.industryFaq.length > 0) {
+                        industryFaqs.push({
+                            name: item.navName,
+                            slug: item.slug,
+                            faqs: item.industryFaq.map((f)=>({
+                                    question: f.question,
+                                    answer: f.answer
+                                }))
+                        });
+                    }
+                });
+            }
+        }
+        return industryFaqs;
+    } catch (error) {
+        console.error('Error fetching industry FAQs:', error);
         return [];
     }
 }
@@ -2745,6 +2921,11 @@ const metadata = {
         card: 'summary_large_image',
         title: 'Logic-Unit | Architecting the Digital Future',
         description: 'Expert full-stack architecture and digital solutions for modern enterprises.'
+    },
+    icons: {
+        icon: '/LuFavicon.png',
+        shortcut: '/LuFavicon.png',
+        apple: '/LuFavicon.png'
     }
 };
 ;
@@ -2759,12 +2940,12 @@ async function RootLayout({ children }) {
                     rel: "stylesheet"
                 }, void 0, false, {
                     fileName: "[project]/app/layout.tsx",
-                    lineNumber: 47,
+                    lineNumber: 52,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/layout.tsx",
-                lineNumber: 46,
+                lineNumber: 51,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("body", {
@@ -2775,7 +2956,7 @@ async function RootLayout({ children }) {
                         industryLinks: industryLinks
                     }, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 50,
+                        lineNumber: 55,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -2783,12 +2964,12 @@ async function RootLayout({ children }) {
                         children: children
                     }, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 51,
+                        lineNumber: 56,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$layout$2f$Footer$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 54,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$script$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -2796,7 +2977,7 @@ async function RootLayout({ children }) {
                         strategy: "afterInteractive"
                     }, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 57,
+                        lineNumber: 62,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$script$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -2804,19 +2985,19 @@ async function RootLayout({ children }) {
                         strategy: "afterInteractive"
                     }, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 61,
+                        lineNumber: 66,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/layout.tsx",
-                lineNumber: 49,
+                lineNumber: 54,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/layout.tsx",
-        lineNumber: 45,
+        lineNumber: 50,
         columnNumber: 5
     }, this);
 }

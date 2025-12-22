@@ -301,7 +301,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d
 ;
 ;
 ;
-const WhyUs = ({ tagline = "Why Businesses Choose", heading = "Customized Software", headingSpan = "Industries", content = "In a rapidly evolving digital landscape, stability, expertise, and vision are paramount. We don't just build software; we architect the systems that power your business future.", points = __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["WHY_US_POINTS"] })=>{
+const WhyUs = ({ tagline = "Why Businesses Choose", heading = "Our Custom Software", headingSpan = "Development Company", content = "In a rapidly evolving digital landscape, stability, expertise, and vision are paramount. We don't just build software; we architect the systems that power your business future.", points = __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["WHY_US_POINTS"] })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         className: "py-24 bg-white",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {

@@ -18,8 +18,8 @@ interface WhyUsProps {
 
 const WhyUs: React.FC<WhyUsProps> = ({
     tagline = "Why Businesses Choose",
-    heading = "Customized Software",
-    headingSpan = "Industries",
+    heading = "Our Custom Software",
+    headingSpan = "Development Company",
     content = "In a rapidly evolving digital landscape, stability, expertise, and vision are paramount. We don't just build software; we architect the systems that power your business future.",
     points = WHY_US_POINTS
 }) => {

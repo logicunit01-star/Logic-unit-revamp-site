@@ -689,7 +689,7 @@ function SitemapPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: "/industries/healthcare",
+                                                    href: "/industries/healthcare-software-development",
                                                     className: "text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -714,7 +714,7 @@ function SitemapPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: "/industries/fintech",
+                                                    href: "/industries/fintech-software-development",
                                                     className: "text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -739,7 +739,7 @@ function SitemapPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: "/industries/banking",
+                                                    href: "/industries/banking-software-development",
                                                     className: "text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -764,7 +764,7 @@ function SitemapPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: "/industries/retail",
+                                                    href: "/industries/retail-software-development",
                                                     className: "text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -789,7 +789,7 @@ function SitemapPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: "/industries/manufacturing",
+                                                    href: "/industries/manufacturing-software-development",
                                                     className: "text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -814,7 +814,7 @@ function SitemapPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: "/industries/transportation-logistics",
+                                                    href: "/industries/logistics-software-development",
                                                     className: "text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1247,7 +1247,7 @@ function SitemapPage() {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: "/privacy-policy",
+                                                    href: "/privacy",
                                                     className: "text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1272,7 +1272,7 @@ function SitemapPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: "/terms-of-service",
+                                                    href: "/terms",
                                                     className: "text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1293,31 +1293,6 @@ function SitemapPage() {
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
                                                 lineNumber: 327,
-                                                columnNumber: 33
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: "/sitemap",
-                                                    className: "text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
-                                                            children: "→"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 335,
-                                                            columnNumber: 41
-                                                        }, this),
-                                                        "Sitemap"
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 334,
-                                                    columnNumber: 37
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 333,
                                                 columnNumber: 33
                                             }, this)
                                         ]
@@ -1343,14 +1318,14 @@ function SitemapPage() {
                                                 children: "☁️"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 345,
+                                                lineNumber: 340,
                                                 columnNumber: 33
                                             }, this),
                                             "Cloud & DevOps"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/sitemap/page.tsx",
-                                        lineNumber: 344,
+                                        lineNumber: 339,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1366,19 +1341,19 @@ function SitemapPage() {
                                                             children: "→"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 351,
+                                                            lineNumber: 346,
                                                             columnNumber: 41
                                                         }, this),
                                                         "Cloud Architecture"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 350,
+                                                    lineNumber: 345,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 349,
+                                                lineNumber: 344,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -1391,19 +1366,19 @@ function SitemapPage() {
                                                             children: "→"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 357,
+                                                            lineNumber: 352,
                                                             columnNumber: 41
                                                         }, this),
                                                         "DevOps & CI/CD"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 356,
+                                                    lineNumber: 351,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 355,
+                                                lineNumber: 350,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -1416,19 +1391,19 @@ function SitemapPage() {
                                                             children: "→"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 363,
+                                                            lineNumber: 358,
                                                             columnNumber: 41
                                                         }, this),
                                                         "Containerization"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 362,
+                                                    lineNumber: 357,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 361,
+                                                lineNumber: 356,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -1441,31 +1416,31 @@ function SitemapPage() {
                                                             children: "→"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 369,
+                                                            lineNumber: 364,
                                                             columnNumber: 41
                                                         }, this),
                                                         "Cloud Security"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 368,
+                                                    lineNumber: 363,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 367,
+                                                lineNumber: 362,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/sitemap/page.tsx",
-                                        lineNumber: 348,
+                                        lineNumber: 343,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/sitemap/page.tsx",
-                                lineNumber: 343,
+                                lineNumber: 338,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1479,14 +1454,14 @@ function SitemapPage() {
                                                 children: "🌐"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 379,
+                                                lineNumber: 374,
                                                 columnNumber: 33
                                             }, this),
                                             "CMS & Web"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/sitemap/page.tsx",
-                                        lineNumber: 378,
+                                        lineNumber: 373,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1502,19 +1477,19 @@ function SitemapPage() {
                                                             children: "→"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 385,
+                                                            lineNumber: 380,
                                                             columnNumber: 41
                                                         }, this),
                                                         "CMS & Web Rebuilds"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 384,
+                                                    lineNumber: 379,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 383,
+                                                lineNumber: 378,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -1527,19 +1502,19 @@ function SitemapPage() {
                                                             children: "→"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 391,
+                                                            lineNumber: 386,
                                                             columnNumber: 41
                                                         }, this),
                                                         "Headless CMS"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 390,
+                                                    lineNumber: 385,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 389,
+                                                lineNumber: 384,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -1552,19 +1527,19 @@ function SitemapPage() {
                                                             children: "→"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 397,
+                                                            lineNumber: 392,
                                                             columnNumber: 41
                                                         }, this),
                                                         "Shopify Development"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 396,
+                                                    lineNumber: 391,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 395,
+                                                lineNumber: 390,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -1577,19 +1552,19 @@ function SitemapPage() {
                                                             children: "→"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 403,
+                                                            lineNumber: 398,
                                                             columnNumber: 41
                                                         }, this),
                                                         "Webflow Development"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 402,
+                                                    lineNumber: 397,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 401,
+                                                lineNumber: 396,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -1602,31 +1577,31 @@ function SitemapPage() {
                                                             children: "→"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sitemap/page.tsx",
-                                                            lineNumber: 409,
+                                                            lineNumber: 404,
                                                             columnNumber: 41
                                                         }, this),
                                                         "Custom Websites"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sitemap/page.tsx",
-                                                    lineNumber: 408,
+                                                    lineNumber: 403,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sitemap/page.tsx",
-                                                lineNumber: 407,
+                                                lineNumber: 402,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/sitemap/page.tsx",
-                                        lineNumber: 382,
+                                        lineNumber: 377,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/sitemap/page.tsx",
-                                lineNumber: 377,
+                                lineNumber: 372,
                                 columnNumber: 25
                             }, this)
                         ]
@@ -1643,47 +1618,6 @@ function SitemapPage() {
             }, void 0, false, {
                 fileName: "[project]/app/sitemap/page.tsx",
                 lineNumber: 28,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-brand-primary to-brand-secondary",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "container mx-auto max-w-4xl text-center",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-3xl md:text-4xl font-bold text-white mb-6",
-                            children: "Can't Find What You're Looking For?"
-                        }, void 0, false, {
-                            fileName: "[project]/app/sitemap/page.tsx",
-                            lineNumber: 423,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-xl text-white/90 mb-8 max-w-2xl mx-auto",
-                            children: "Our team is here to help. Contact us to discuss your specific needs."
-                        }, void 0, false, {
-                            fileName: "[project]/app/sitemap/page.tsx",
-                            lineNumber: 426,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                            href: "/contact",
-                            className: "inline-block bg-white text-brand-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1",
-                            children: "Contact Us"
-                        }, void 0, false, {
-                            fileName: "[project]/app/sitemap/page.tsx",
-                            lineNumber: 429,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/app/sitemap/page.tsx",
-                    lineNumber: 422,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/sitemap/page.tsx",
-                lineNumber: 421,
                 columnNumber: 13
             }, this)
         ]

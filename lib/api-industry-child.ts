@@ -6,7 +6,6 @@ const FETCH_OPTIONS = {
     headers: {
         Authorization: `Bearer ${TOKEN}`,
     },
-    cache: 'no-store' as RequestCache,
 };
 
 export interface IndustryChildData {
@@ -21,6 +20,7 @@ export interface IndustryChildData {
     ctaHeading: string;
     ctaContent: string;
     ctabtnText: string;
+    navName: string;
 
     // Challenges
     challengesTagline: string;
@@ -139,6 +139,7 @@ function mapIndustryChild(item: any): IndustryChildData {
         ctaHeading: item.ctaHeading || '',
         ctaContent: item.ctaContent || '',
         ctabtnText: item.ctabtnText || '',
+        navName: item.navName || '',
 
         challengesTagline: item.challengesTagline || '',
         challengesHeading: item.challengesHeading || '',
@@ -207,7 +208,7 @@ export async function fetchIndustryNavigation(): Promise<{
 
         const res = await fetch(url, {
             headers: FETCH_OPTIONS.headers,
-            next: { revalidate: 0 }
+            next: { revalidate: 3600 }
         });
 
         if (!res.ok) {
@@ -259,7 +260,7 @@ export async function fetchIndustryNavigation(): Promise<{
                         }
 
                         industries.push({
-                            name: item.heroHeadng,
+                            name: item.navName,
                             slug: item.slug,
                             subIndustries
                         });
@@ -276,3 +277,49 @@ export async function fetchIndustryNavigation(): Promise<{
 }
 
 
+export async function fetchAllIndustriesFaqs(): Promise<{
+    name: string;
+    slug: string;
+    faqs: { question: string; answer: string }[];
+}[]> {
+    try {
+        const url = `${STRAPI_URL}/api/industry-children?populate[industryChild][populate][industryFaq]=true`;
+
+        const res = await fetch(url, {
+            headers: FETCH_OPTIONS.headers,
+            next: { revalidate: 3600 }
+        });
+
+        if (!res.ok) {
+            console.error('Failed to fetch industry FAQs:', res.status);
+            return [];
+        }
+
+        const json = await res.json();
+        if (!json.data || !Array.isArray(json.data)) return [];
+
+        const industryFaqs: { name: string; slug: string; faqs: { question: string; answer: string }[] }[] = [];
+
+        for (const entry of json.data) {
+            if (entry.industryChild && Array.isArray(entry.industryChild)) {
+                entry.industryChild.forEach((item: any) => {
+                    if (item.navName && item.industryFaq && item.industryFaq.length > 0) {
+                        industryFaqs.push({
+                            name: item.navName,
+                            slug: item.slug,
+                            faqs: item.industryFaq.map((f: any) => ({
+                                question: f.question,
+                                answer: f.answer
+                            }))
+                        });
+                    }
+                });
+            }
+        }
+
+        return industryFaqs;
+    } catch (error) {
+        console.error('Error fetching industry FAQs:', error);
+        return [];
+    }
+}

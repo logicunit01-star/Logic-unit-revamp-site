@@ -9,20 +9,28 @@ import FootprintOfExcellence from '@/components/about_page/FootprintOfExcellence
 import MissionVision from '@/components/about_page/MissionVision';
 import TechnologyExcellence from '@/components/about_page/TechnologyExcellence';
 import OurTeam from '@/components/about_page/OurTeam';
-import BuildTogetherCTA from '@/components/service_page/BuildTogetherCTA';
+import CTA from '@/components/sections/CTA';
+import Stats from '@/components/sections/Stats';
+import { useRouter } from 'next/navigation';
 
 const AboutPage: React.FC = () => {
+  const router = useRouter();
   return (
     <div className="bg-white">
       <AboutHero />
-      <AboutNav />
+      {/* <AboutNav /> */}
       <Partners />
       <AboutIntro />
-      <FootprintOfExcellence />
+      <Stats />
       <MissionVision />
       <TechnologyExcellence />
       <OurTeam />
-      <BuildTogetherCTA />
+      <CTA
+        title="Let's Build What's Next, Together"
+        subtitle="Whether you're reimagining your ERP, automating workflows, or launching an AI platform — we'll help you bring it to life."
+        buttonText="Schedule A Free Consultation"
+        onButtonClick={() => router.push('/contact')}
+      />
     </div>
   );
 };

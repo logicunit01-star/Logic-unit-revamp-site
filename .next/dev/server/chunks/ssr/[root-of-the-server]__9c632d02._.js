@@ -711,7 +711,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d
 ;
 ;
 ;
-const WhyUs = ({ tagline = "Why Businesses Choose", heading = "Customized Software", headingSpan = "Industries", content = "In a rapidly evolving digital landscape, stability, expertise, and vision are paramount. We don't just build software; we architect the systems that power your business future.", points = __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["WHY_US_POINTS"] })=>{
+const WhyUs = ({ tagline = "Why Businesses Choose", heading = "Our Custom Software", headingSpan = "Development Company", content = "In a rapidly evolving digital landscape, stability, expertise, and vision are paramount. We don't just build software; we architect the systems that power your business future.", points = __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["WHY_US_POINTS"] })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         className: "py-24 bg-white",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -940,27 +940,33 @@ __turbopack_context__.s([
     ()=>__TURBOPACK__default__export__
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.react-server.js [app-rsc] (ecmascript)");
+;
 ;
 const allies = [
     {
         name: 'Analyze Quran',
         description: 'Ai APP to study and analyze the Quran',
-        logo: 'https://analyzequran.com/wp-content/uploads/2023/06/analyze-quran-logo.png'
+        logo: 'https://analyzequran.com/wp-content/uploads/2023/06/analyze-quran-logo.png',
+        link: 'https://analyzequran.com'
     },
     {
         name: 'Titan CMS',
         description: 'Enterprise content management',
-        logo: 'https://titanmms.com/wp-content/uploads/2019/11/titan-y.png'
+        logo: 'https://titanmms.com/wp-content/uploads/2019/11/titan-y.png',
+        link: 'https://titanmms.com'
     },
     {
         name: 'HULM Solutions',
         description: 'CRM & ERP solutions',
-        logo: 'https://hulmsolutions.com/wp-content/uploads/2024/03/Hulmlogo.svg'
+        logo: 'https://hulmsolutions.com/wp-content/uploads/2024/03/Hulmlogo.svg',
+        link: 'https://hulmsolutions.com'
     },
     {
         name: 'Bike Tour Pro',
         description: 'Bike Touring Management Software',
-        logo: 'https://biketourpro.com/wp-content/uploads/2023/07/fav-icon.png'
+        logo: 'https://biketourpro.com/wp-content/uploads/2023/07/fav-icon.png',
+        link: 'https://biketourpro.com'
     }
 ];
 const Allies = ()=>{
@@ -1036,7 +1042,8 @@ const Allies = ()=>{
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 items-center",
-                    children: allies.map((ally, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    children: allies.map((ally, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                            href: ally.link,
                             className: "group flex flex-col items-center justify-center p-8 transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-gray-100 rounded-xl border border-transparent hover:border-gray-100",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1047,12 +1054,12 @@ const Allies = ()=>{
                                         className: "max-h-full max-w-[160px] object-contain"
                                     }, void 0, false, {
                                         fileName: "[project]/components/sections/Allies.tsx",
-                                        lineNumber: 29,
+                                        lineNumber: 30,
                                         columnNumber: 33
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/Allies.tsx",
-                                    lineNumber: 28,
+                                    lineNumber: 29,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1060,7 +1067,7 @@ const Allies = ()=>{
                                     children: ally.name
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/Allies.tsx",
-                                    lineNumber: 31,
+                                    lineNumber: 32,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1068,18 +1075,18 @@ const Allies = ()=>{
                                     children: ally.description
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/Allies.tsx",
-                                    lineNumber: 32,
+                                    lineNumber: 33,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, index, true, {
                             fileName: "[project]/components/sections/Allies.tsx",
-                            lineNumber: 27,
+                            lineNumber: 28,
                             columnNumber: 25
                         }, ("TURBOPACK compile-time value", void 0)))
                 }, void 0, false, {
                     fileName: "[project]/components/sections/Allies.tsx",
-                    lineNumber: 25,
+                    lineNumber: 26,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]

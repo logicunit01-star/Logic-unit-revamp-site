@@ -6,11 +6,11 @@ const MissionVision: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="order-2 lg:order-1">
-                        <div className="inline-block mb-4 px-3 py-1 rounded-full bg-brand-secondary/10 text-brand-secondary text-xs font-bold uppercase tracking-widest">
+                        <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary font-semibold text-sm tracking-wider uppercase">
                             Values & Future
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold font-heading text-brand-dark mb-6 leading-tight">
-                            Our Mission & <span className="text-brand-secondary">Core Vision</span>
+                            Our Mission & <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Core Vision</span>
                         </h2>
                         <div className="space-y-4 text-brand-gray text-lg leading-relaxed">
                             <p>
@@ -35,8 +35,7 @@ const MissionVision: React.FC = () => {
                     <div className="order-1 lg:order-2 relative group">
                         <div className="absolute -inset-4 bg-gradient-to-r from-brand-secondary/10 to-brand-primary/10 rounded-2xl blur-2xl group-hover:opacity-100 transition-opacity opacity-70"></div>
                         <div className="relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl aspect-[4/3] flex items-center justify-center overflow-hidden border border-gray-200 shadow-xl">
-                            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-90 group-hover:scale-105 transition-transform duration-700"></div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent"></div>
+                            <div className="absolute inset-0 bg-[url('/vision.jpg')] bg-cover bg-center opacity-90 group-hover:scale-105 transition-transform duration-700"></div>
                         </div>
                     </div>
                 </div>

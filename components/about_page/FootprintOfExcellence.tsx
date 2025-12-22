@@ -11,7 +11,7 @@ const FootprintOfExcellence: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">
-                        Logic-Unit's <span className="text-brand-primary">Footprint of Excellence</span>
+                        Logic-Unit's <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Footprint of Excellence</span>
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
                         Measurable impact delivered through precision engineering and strategic insight.

@@ -1,11 +1,11 @@
 
 import React from 'react';
-
+import Link from 'next/link';
 const allies = [
-    { name: 'Analyze Quran', description: 'Ai APP to study and analyze the Quran', logo: 'https://analyzequran.com/wp-content/uploads/2023/06/analyze-quran-logo.png' },
-    { name: 'Titan CMS', description: 'Enterprise content management', logo: 'https://titanmms.com/wp-content/uploads/2019/11/titan-y.png' },
-    { name: 'HULM Solutions', description: 'CRM & ERP solutions', logo: 'https://hulmsolutions.com/wp-content/uploads/2024/03/Hulmlogo.svg' },
-    { name: 'Bike Tour Pro', description: 'Bike Touring Management Software', logo: 'https://biketourpro.com/wp-content/uploads/2023/07/fav-icon.png' },
+    { name: 'Analyze Quran', description: 'Ai APP to study and analyze the Quran', logo: 'https://analyzequran.com/wp-content/uploads/2023/06/analyze-quran-logo.png', link: 'https://analyzequran.com' },
+    { name: 'Titan CMS', description: 'Enterprise content management', logo: 'https://titanmms.com/wp-content/uploads/2019/11/titan-y.png', link: 'https://titanmms.com' },
+    { name: 'HULM Solutions', description: 'CRM & ERP solutions', logo: 'https://hulmsolutions.com/wp-content/uploads/2024/03/Hulmlogo.svg', link: 'https://hulmsolutions.com' },
+    { name: 'Bike Tour Pro', description: 'Bike Touring Management Software', logo: 'https://biketourpro.com/wp-content/uploads/2023/07/fav-icon.png', link: 'https://biketourpro.com' },
 ];
 
 const Allies: React.FC = () => {
@@ -22,15 +22,16 @@ const Allies: React.FC = () => {
                     </div>
                 </div>
 
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 items-center">
                     {allies.map((ally, index) => (
-                        <div key={index} className="group flex flex-col items-center justify-center p-8 transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-gray-100 rounded-xl border border-transparent hover:border-gray-100">
+                        <Link href={ally.link} key={index} className="group flex flex-col items-center justify-center p-8 transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-gray-100 rounded-xl border border-transparent hover:border-gray-100">
                             <div className="h-20 w-full flex items-center justify-center mb-6 group-hover:opacity-100 transition-all duration-500">
                                 <img src={ally.logo} alt={`${ally.name} logo`} className="max-h-full max-w-[160px] object-contain" />
                             </div>
                             <h3 className="text-lg font-bold text-brand-dark mb-1 font-heading opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">{ally.name}</h3>
                             <p className="text-xs text-brand-gray text-center opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 delay-75">{ally.description}</p>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

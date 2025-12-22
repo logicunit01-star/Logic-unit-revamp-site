@@ -7,6 +7,7 @@ import Stats from '@/components/sections/Stats';
 import Partners from '@/components/sections/Partners';
 import IndustryTicker from '@/components/sections/IndustryTicker';
 import Services from '@/components/sections/Services';
+import DeliveryModels from '@/components/sections/DeliveryModels';
 import WhyUs from '@/components/sections/WhyUs';
 import CTA from '@/components/sections/CTA';
 import CaseStudies from '@/components/sections/CaseStudies';
@@ -27,6 +28,7 @@ export default function Page() {
       <Stats />
       <Partners />
       <Services />
+      <DeliveryModels />
       <WhyUs />
       <CTA
         imageSrc="https://logic-unit.com/wp-content/uploads/2019/07/about-us-1024x512.jpg"

@@ -181,37 +181,37 @@ export default function SitemapPage() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/industries/healthcare" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
+                                    <Link href="/industries/healthcare-software-development" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
                                         <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                         Healthcare
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/industries/fintech" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
+                                    <Link href="/industries/fintech-software-development" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
                                         <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                         FinTech
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/industries/banking" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
+                                    <Link href="/industries/banking-software-development" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
                                         <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                         Banking
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/industries/retail" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
+                                    <Link href="/industries/retail-software-development" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
                                         <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                         Retail
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/industries/manufacturing" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
+                                    <Link href="/industries/manufacturing-software-development" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
                                         <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                         Manufacturing
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/industries/transportation-logistics" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
+                                    <Link href="/industries/logistics-software-development" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
                                         <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                         Logistics
                                     </Link>
@@ -319,23 +319,18 @@ export default function SitemapPage() {
                             </h2>
                             <ul className="space-y-3">
                                 <li>
-                                    <Link href="/privacy-policy" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
+                                    <Link href="/privacy" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
                                         <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                         Privacy Policy
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/terms-of-service" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
+                                    <Link href="/terms" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
                                         <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                         Terms of Service
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link href="/sitemap" className="text-gray-700 hover:text-brand-primary font-medium transition-colors flex items-center group">
-                                        <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-                                        Sitemap
-                                    </Link>
-                                </li>
+
                             </ul>
                         </div>
 
@@ -418,22 +413,7 @@ export default function SitemapPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-brand-primary to-brand-secondary">
-                <div className="container mx-auto max-w-4xl text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Can't Find What You're Looking For?
-                    </h2>
-                    <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                        Our team is here to help. Contact us to discuss your specific needs.
-                    </p>
-                    <a
-                        href="/contact"
-                        className="inline-block bg-white text-brand-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
-                    >
-                        Contact Us
-                    </a>
-                </div>
-            </section>
+
         </main>
     );
 }

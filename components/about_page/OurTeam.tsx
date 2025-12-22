@@ -11,11 +11,11 @@ const OurTeam: React.FC = () => {
                     </div>
 
                     <div>
-                        <div className="inline-block mb-4 px-3 py-1 rounded-full bg-brand-secondary/10 text-brand-secondary text-xs font-bold uppercase tracking-widest">
+                        <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary font-semibold text-sm tracking-wider uppercase">
                             The Talent
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold font-heading text-brand-dark mb-6 leading-tight">
-                            Meet Our <span className="text-brand-secondary">Dedicated Team</span>
+                            Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Dedicated Team</span>
                         </h2>
                         <div className="space-y-4 text-brand-gray text-lg leading-relaxed">
                             <p>

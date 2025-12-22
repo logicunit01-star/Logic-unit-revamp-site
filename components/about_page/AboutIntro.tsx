@@ -9,17 +9,16 @@ const AboutIntro: React.FC = () => {
                         <div className="absolute -inset-4 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 rounded-2xl blur-2xl group-hover:opacity-100 transition-opacity opacity-70"></div>
                         <div className="relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl aspect-[4/3] flex items-center justify-center overflow-hidden border border-gray-200">
                             {/* Placeholder for a real image */}
-                            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-90 group-hover:scale-105 transition-transform duration-700"></div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent"></div>
+                            <div className="absolute inset-0 bg-[url('/our-story.jpg')] bg-cover bg-center opacity-90 group-hover:scale-105 transition-transform duration-700"></div>
                         </div>
                     </div>
 
                     <div>
-                        <div className="inline-block mb-4 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-widest">
+                        <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary font-semibold text-sm tracking-wider uppercase">
                             Our Story
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold font-heading text-brand-dark mb-6 leading-tight">
-                            Pioneering Digital <span className="text-brand-primary">Excellence</span>
+                            Pioneering Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Excellence</span>
                         </h2>
                         <div className="space-y-4 text-brand-gray text-lg leading-relaxed">
                             <p>

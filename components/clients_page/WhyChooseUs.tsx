@@ -7,7 +7,7 @@ const WhyChooseUs: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold font-heading text-brand-dark mb-6">
-                        Why Clients <span className="text-brand-primary">Choose Us</span>
+                        Why Clients <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Choose Us</span>
                     </h2>
                     <p className="text-brand-gray text-lg max-w-2xl mx-auto leading-relaxed">
                         We deliver strategic value through expertise, innovation, and a commitment to your long-term success.

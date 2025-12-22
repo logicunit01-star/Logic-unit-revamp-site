@@ -100,6 +100,24 @@
       "namedRegex": "^/api/form\\-submit(?:/)?$"
     },
     {
+      "page": "/careers",
+      "regex": "^/careers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/careers(?:/)?$"
+    },
+    {
+      "page": "/careers/apply",
+      "regex": "^/careers/apply(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/careers/apply(?:/)?$"
+    },
+    {
+      "page": "/careers/general",
+      "regex": "^/careers/general(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/careers/general(?:/)?$"
+    },
+    {
       "page": "/case-studies",
       "regex": "^/case\\-studies(?:/)?$",
       "routeKeys": {},
@@ -116,6 +134,12 @@
       "regex": "^/contact(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/faqs",
+      "regex": "^/faqs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/faqs(?:/)?$"
     },
     {
       "page": "/industries",

@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     title: 'Logic-Unit | Architecting the Digital Future',
     description: 'Expert full-stack architecture and digital solutions for modern enterprises.',
   },
+  icons: {
+    icon: '/LuFavicon.png',
+    shortcut: '/LuFavicon.png',
+    apple: '/LuFavicon.png',
+  },
 };
 
 import { fetchIndustryNavigation } from '@/lib/api-industry-child';

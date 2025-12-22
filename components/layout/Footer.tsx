@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Link from 'next/link';
 import { LOGO_URL_WHITE, FOOTER_LINKS, SOCIAL_LINKS, MailIcon, LocationPinIcon } from '@/constants';
