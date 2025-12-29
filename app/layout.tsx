@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export const metadata: Metadata = {
   title: {
@@ -57,6 +58,7 @@ export default async function RootLayout({
           {children}
         </main>
         <Footer />
+        <ScrollToTop />
 
         {/* GSAP Scripts - loaded after body */}
         <Script

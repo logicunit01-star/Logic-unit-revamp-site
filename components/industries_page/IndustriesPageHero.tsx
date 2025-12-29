@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { CASE_STUDIES, ChevronLeftIcon, ChevronRightIcon } from '@/constants';
 
@@ -108,10 +109,11 @@ const IndustriesPageHero: React.FC<IndustriesPageHeroProps> = ({
                                         : 'opacity-0 scale-105'
                                         }`}
                                 >
-                                    <img
+                                    <Image
                                         src={study.image}
                                         alt={study.title}
-                                        className="w-full h-full object-cover"
+                                        fill
+                                        className="object-cover"
                                     />
 
                                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent" />

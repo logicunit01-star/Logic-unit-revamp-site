@@ -9,6 +9,7 @@ const Partners: React.FC = () => {
         { name: 'Leopards', url: '/leopards.png' },
         { name: 'Qatar Airways', url: '/qatar airways.png' },
         { name: 'SGL', url: '/sgl.png' },
+        { name: 'tajchem', url: '/tajchem.png' },
     ];
 
     // Triple the logos for smoother infinite scroll

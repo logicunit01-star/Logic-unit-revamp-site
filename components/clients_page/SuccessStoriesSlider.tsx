@@ -2,6 +2,7 @@
 
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { CASE_STUDIES, ChevronLeftIcon, ChevronRightIcon } from '../../constants';
 
@@ -19,8 +20,8 @@ const SuccessStoriesSlider: React.FC = () => {
                 <h2 className="text-3xl font-bold font-heading text-brand-dark mb-12">Success <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Stories</span></h2>
                 <div className="relative">
                     <div className="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-md border border-gray-200">
-                        <div className="bg-gray-200 aspect-video rounded-md flex items-center justify-center">
-                            <img src={currentStory.image} alt={currentStory.title} className="w-full h-full object-cover rounded-md" />
+                        <div className="bg-gray-200 aspect-video rounded-md relative overflow-hidden">
+                            <Image src={currentStory.image} alt={currentStory.title} fill className="object-cover" />
                         </div>
                         <div>
                             <h3 className="text-xl font-bold text-brand-dark mb-3">{currentStory.title}</h3>

@@ -38,6 +38,40 @@
       "namedRegex": "^/industries/(?<nxtPslug>[^/]+?)/(?<nxtPsolutionSlug>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/industries copy/industries/[slug]",
+      "regex": "^/industries copy/industries/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/industries copy/industries/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/industries copy/industries/[slug]/[solutionSlug]",
+      "regex": "^/industries copy/industries/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug",
+        "nxtPsolutionSlug": "nxtPsolutionSlug"
+      },
+      "namedRegex": "^/industries copy/industries/(?<nxtPslug>[^/]+?)/(?<nxtPsolutionSlug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/industries copy/[slug]",
+      "regex": "^/industries copy/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/industries copy/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/industries copy/[slug]/[solutionSlug]",
+      "regex": "^/industries copy/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug",
+        "nxtPsolutionSlug": "nxtPsolutionSlug"
+      },
+      "namedRegex": "^/industries copy/(?<nxtPslug>[^/]+?)/(?<nxtPsolutionSlug>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/insights/[slug]",
       "regex": "^/insights/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -146,6 +180,18 @@
       "regex": "^/industries(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/industries(?:/)?$"
+    },
+    {
+      "page": "/industries copy",
+      "regex": "^/industries copy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/industries copy(?:/)?$"
+    },
+    {
+      "page": "/industries copy/industries",
+      "regex": "^/industries copy/industries(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/industries copy/industries(?:/)?$"
     },
     {
       "page": "/insights",
