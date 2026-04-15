@@ -21,6 +21,14 @@
   },
   "dynamicRoutes": [
     {
+      "page": "/case-studies/[slug]",
+      "regex": "^/case\\-studies/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/case\\-studies/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/industries/[slug]",
       "regex": "^/industries/([^/]+?)(?:/)?$",
       "routeKeys": {

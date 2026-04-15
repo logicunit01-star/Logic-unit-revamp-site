@@ -2,7 +2,7 @@
 import React from 'react';
 
 export const LOGO_URL = '/LULogo.png';
-export const LOGO_URL_WHITE = '/LULogo.png';
+export const LOGO_URL_WHITE = '/logoLUlight.png';
 
 // --- ICONS ---
 export const MailIcon = (props: React.SVGProps<SVGSVGElement>) => (

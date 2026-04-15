@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
     try {
-        const STRAPI_URL = 'https://backend.logic-unit.com';
+        const STRAPI_URL = 'http://139.59.8.119:1337';
         const STRAPI_TOKEN =
-            '95fa44ee2347128838dbecf04d64661a83587cff79f2adcf9b53b4d5f6674c2763f72e31547f516f117fcb9d3b10285eb54a8224570f3cb23ce973074ab175158d726c7b9fa63278ac6f78eb8454e3e0f91596d838e22205d3f849869d7532d7fc60ca2f94e200471f32281652bea37820e8d54c30d14c356e85802b9f692955';
+            '692fdfb5f72911e1cb3bc069cc4aa63ec56f076fbcb8b042b094b7013752553878af499631473d9e0c0e63383c702c766f2870640848d5886aa64ae00b04fe5b4e16290f37dc24ad4cf0b64a13d47d41f31af9de3974e01fca47f3659107232e1ae2817dd88fd2e0f5db7b100fdd52de3064d35a25083a820e30f9120a4721e2';
 
         // Parse JSON body
         let body;

@@ -120,7 +120,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Users\\logic-unit\\Desktop\\Logic-unit-site-revamp\\Logic-unit-revamp-site",
+    "outputFileTracingRoot": "C:\\Users\\logic-unit\\Desktop\\current logicunit\\Logic-unit-revamp-site",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -310,11 +310,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.js",
     "turbopack": {
-      "root": "C:\\Users\\logic-unit\\Desktop\\Logic-unit-site-revamp\\Logic-unit-revamp-site"
+      "root": "C:\\Users\\logic-unit\\Desktop\\current logicunit\\Logic-unit-revamp-site"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "C:\\Users\\logic-unit\\Desktop\\Logic-unit-site-revamp\\Logic-unit-revamp-site",
+  "appDir": "C:\\Users\\logic-unit\\Desktop\\current logicunit\\Logic-unit-revamp-site",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",

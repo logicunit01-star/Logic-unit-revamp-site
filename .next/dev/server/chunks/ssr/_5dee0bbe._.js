@@ -129,7 +129,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 ;
 const LOGO_URL = '/LULogo.png';
-const LOGO_URL_WHITE = '/LULogo.png';
+const LOGO_URL_WHITE = '/logoLUlight.png';
 const MailIcon = (props)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
@@ -3110,8 +3110,8 @@ __turbopack_context__.s([
     "fetchIndustryNavigation",
     ()=>fetchIndustryNavigation
 ]);
-const STRAPI_URL = 'https://backend.logic-unit.com';
-const TOKEN = '0f1b55c82d07f1d75be733dd09018748432a536d1e5e1bb235cd7d7e55536bc3c24648e51258ada9ede460e75fcbf84ff1c16b521b691145942fd7971e460f369685bceb9315ded3553bccb9b306633f229fc25fae30229a86f60a9e26ec34793fb09cd50247d8e347f8423cb75a3350c4a40ec2ef1fa018782780365ba540cc';
+const STRAPI_URL = 'http://139.59.8.119:1337';
+const TOKEN = '5480c7e3127312abe8295542a51f525b7e7ade343a94dbca668c911032a5b325918ca30f80052b5ab5ebfb9be1e107f30b193be41017f58fbe5617b5ca1b1f4856f9c7458df7caa442a39f77395dc10818f6f04bce50d8de3eb55390349c83c8c6e76e62cb496d8694b45fa7a40bec452839deefbcdb2ae75e32b1676ad3637e';
 const FETCH_OPTIONS = {
     headers: {
         Authorization: `Bearer ${TOKEN}`

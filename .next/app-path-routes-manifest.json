@@ -7,6 +7,7 @@
   "/careers/apply/page": "/careers/apply",
   "/careers/general/page": "/careers/general",
   "/careers/page": "/careers",
+  "/case-studies/[slug]/page": "/case-studies/[slug]",
   "/case-studies/page": "/case-studies",
   "/clients/page": "/clients",
   "/contact/page": "/contact",

@@ -24,9 +24,9 @@ __turbopack_context__.s([
     "mapStrapiPostToPost",
     ()=>mapStrapiPostToPost
 ]);
-const STRAPI_URL = 'https://backend.logic-unit.com';
-const API_URL = `${STRAPI_URL}/api/articles?populate=*`;
-const AUTH_TOKEN = 'ff6f080426c4a6cffbce2e0cb11d8beff8638180b0d17094e1166813f95291ee6ac515431620d047d922517743c3dbfc6b90600b492ce7130547e2ade343be2872a7b7a10cd43038df969628bd5722214da5ac5de0f51999bcb2536b0d952c4c886d0287ecf7ba5d0fec25f9b68126dd88973b986a61476dd8517fae63ea824d';
+const STRAPI_URL = 'http://139.59.8.119:1337';
+const API_URL = `${STRAPI_URL}/api/articles?populate[category][populate]=*&populate[author][populate]=*&populate[cover][populate]=*&populate[blocks][populate]=*`;
+const AUTH_TOKEN = 'ddc3df2f8ce8b0d5427783c3c015ef431a7e964df6b8f2a4a734b0b1d42c3b1328648768e1a907b9332b70ee7c57b4faab27c1c66db85d6643dca62c671e562673f821ca3b375a9e0df2dbd71039aa05ca076b6024f5a6d82cfb96de0f162eb6dac67bbea11e53e6cda751c290c959443bd4db498749d2f79bc44060e57983fc';
 const fetchOptions = {
     headers: {
         Authorization: `Bearer ${AUTH_TOKEN}`
@@ -149,8 +149,8 @@ const fetchPosts = async ()=>{
 };
 const fetchPostBySlug = async (slug)=>{
     try {
-        // Use deep population to ensure blocks are included
-        const url = `${STRAPI_URL}/api/articles?filters[slug][$eq]=${slug}&populate[0]=cover&populate[1]=author&populate[2]=author.avatar&populate[3]=category&populate[4]=blocks`;
+        // Use deep population to ensure blocks, category, author and cover are included
+        const url = `${STRAPI_URL}/api/articles?filters[slug][$eq]=${slug}&populate[category][populate]=*&populate[author][populate]=*&populate[cover][populate]=*&populate[blocks][populate]=*`;
         const res = await fetch(url, {
             ...fetchOptions,
             cache: 'no-store'

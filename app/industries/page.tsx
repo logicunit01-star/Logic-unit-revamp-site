@@ -13,9 +13,9 @@ import FAQ from '@/components/sections/FAQ';
 import ContactForm from '@/components/sections/ContactForm';
 
 // API Constants
-const STRAPI_URL = 'https://backend.logic-unit.com';
+const STRAPI_URL = 'http://139.59.8.119:1337';
 const INDUSTRY_API_URL = `${STRAPI_URL}/api/industry-pages?populate[industriesGrid][populate][subchildindustries]=*&populate[industryFaq]=*`;
-const AUTH_TOKEN = 'db7858d87261d71dd54774e392d95adababf24505e06545f889e7eb340ab8b78e1d62d82f24d64354c635a14ef20451d0fccb2bad707bbf2987b75d811980f1d65e130312d067d751076b08453c3ca09f033546a7f5746b36be728787cf2ebc695ba06fb42499e73d761788c03d6f417afbded4017be8965d98644e76846e331';
+const AUTH_TOKEN = 'e6efe819afedb8579b6cec7977821dca80e386d0aed1a6aae34c7e1f50fe4152654b67bd7d451bfa7cbc9ae47766c5f36f96e0a257895ffe10e9569fb59982bec97e88792f379388cee3cb99e9d3d8f19e8ea08a25c3fbf2746eb904ebf1f31b227f244a415f2372103bd222753e8598250652ef7c2646c29cb5c11c937e72a9';
 
 const fetchOptions = {
   headers: { Authorization: `Bearer ${AUTH_TOKEN}` },

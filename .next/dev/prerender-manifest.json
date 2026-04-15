@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/case-studies/global-logistics-optimization":{},"/case-studies/fintech-core-modernization":{},"/case-studies/ai-driven-healthcare-analytics":{},"/case-studies/omnichannel-retail-transformation":{},"/case-studies/smart-factory-iot-integration":{},"/case-studies/proptech-portfolio-management":{}},"dynamicRoutes":{"/case-studies/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/case-studies/[slug]","routeRegex":"^\\/case\\-studies\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"179eb64e7f5929f48856beaab8ca2b72","previewModeSigningKey":"1ddcbf4e6bd48b5aca37e97768a5676cd7d9b23b88fe8f76c47471b1bc65c98a","previewModeEncryptionKey":"35a072e37607aba714a36301b8822ee740a25e7e31d10f1730b25e4e2f4f6e47"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "ef50078a1632c1f4446a6d618a929677",
+    "previewModeSigningKey": "f3bb98dbdad07743a624fb05b34762514e8e311b3954bf93be84318ddf996021",
+    "previewModeEncryptionKey": "a2d55d960c5228a81a6ea6dda15a55c98a4a1ec7fe1916110611405175c2bb9b"
+  }
+}

@@ -7,6 +7,7 @@
   "/careers/apply/page": "app/careers/apply/page.js",
   "/careers/general/page": "app/careers/general/page.js",
   "/careers/page": "app/careers/page.js",
+  "/case-studies/[slug]/page": "app/case-studies/[slug]/page.js",
   "/case-studies/page": "app/case-studies/page.js",
   "/clients/page": "app/clients/page.js",
   "/contact/page": "app/contact/page.js",
