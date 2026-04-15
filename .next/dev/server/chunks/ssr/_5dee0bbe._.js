@@ -391,34 +391,449 @@ const FAQS = [
 ];
 const CASE_STUDIES = [
     {
+        slug: 'global-logistics-optimization',
+        client: 'GlobalShip Networks',
+        industry: 'Logistics',
+        duration: '8 Months',
         title: 'Global Logistics Optimization',
         description: 'Re-engineered the entire supply chain visibility platform for a logistics giant, resulting in 30% faster delivery times.',
-        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop'
+        overview: [
+            "GlobalShip Networks is an internationally recognized leader in ocean freight and overland logistics. Operating across 15 time zones with a fleet of over 4,000 active vessels and trucks, their scale of operations is massive.",
+            "However, operating at this scale using legacy systems created extreme friction. Data silos prevented regional managers from seeing the broader supply chain context, and manual data entry led to a rolling cascade of tracking errors that frustrated high-value enterprise clients.",
+            "Logic-Unit was brought in as a strategic digital transformation partner to completely reimagine their visibility stack from the ground up."
+        ],
+        challenge: [
+            "The primary roadblock was a fragmented 15-year-old monolithic architecture. Real-time tracking was essentially non-existent; the system relied on batch updates that could be delayed by up to 12 hours. Communication between ports, vessels, and ground transport was disjointed, often relying on phone calls and spreadsheets.",
+            "Furthermore, routing inefficiencies rooted in static algorithms were costing the company millions in wasted fuel and lost time. They needed an intelligent system capable of ingesting massive amounts of real-time IoT data and running predictive analytics to auto-adjust routes based on weather, port congestion, and fuel levels."
+        ],
+        solution: [
+            "We architected a unified, cloud-native logistics platform leveraging AI-powered route optimization and real-time IoT sensor telemetry from their global fleet. We decoupled their legacy monolith into over 40 discrete microservices communicating via Apache Kafka event streams.",
+            "The crown jewel of the new system was the 'Command Center'—a singular, hyper-responsive pane of glass built in React and WebGL. It allowed dispatchers to visualize the entire global fleet in real-time, click into individual vessels to read IoT telemetry (engine temperature, cargo humidity), and receive automated AI alerts when a logistics chain was at risk of failure."
+        ],
+        process: [
+            {
+                title: 'Discovery & Telemetry Audit',
+                description: 'Cataloged over 15,000 active IoT sensors across the fleet to understand data velocity and structures.'
+            },
+            {
+                title: 'Microservices Architecture',
+                description: 'Designed a highly available Kafka-driven event architecture on AWS capable of processing millions of pings per minute.'
+            },
+            {
+                title: 'AI Model Training',
+                description: 'Trained bespoke ML models on 5 years of historical port congestion and weather data to build predictive routing.'
+            },
+            {
+                title: 'Phased Global Rollout',
+                description: 'Deployed the system region-by-region over 3 months to ensure zero disruption to live operations.'
+            }
+        ],
+        keyFeatures: [
+            'Real-Time Fleet Visualization Dashboard',
+            'Predictive Route Optimization Engine',
+            'Automated Enterprise Client Notifications',
+            'IoT Sensor Telemetry Ingestion'
+        ],
+        testimonial: {
+            quote: "Logic-Unit didn't just build us a software dashboard; they gave us a central nervous system for our entire global operation. The ROI was realized within the first quarter.",
+            author: "Marcus Vance",
+            role: "Chief Operations Officer"
+        },
+        results: [
+            {
+                metric: '30%',
+                label: 'Faster Delivery Times'
+            },
+            {
+                metric: '$4M',
+                label: 'Annual Fuel Savings'
+            },
+            {
+                metric: '99.9%',
+                label: 'Tracking Accuracy'
+            },
+            {
+                metric: '40+',
+                label: 'Microservices Deployed'
+            }
+        ],
+        technologies: [
+            'AWS AutoScaling',
+            'Node.js',
+            'React',
+            'Python',
+            'Apache Kafka',
+            'IoT Edge',
+            'PostgreSQL'
+        ],
+        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop'
     },
     {
+        slug: 'fintech-core-modernization',
+        client: 'NexTrio Bank',
+        industry: 'Finance',
+        duration: '14 Months',
         title: 'FinTech Core Modernization',
         description: 'Migrated a legacy banking system to a microservices architecture, improving transaction speed by 500%.',
-        image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop'
+        overview: [
+            "NexTrio Bank started as a regional cooperative and exploded into a national digital banking leader over just 5 years. With user acquisition drastically outpacing their infrastructure scale, systemic cracks began to show.",
+            "We partnered with their executive technical team to design a modernization roadmap that could swap out the engines of the plane while it was still flying—a true zero-downtime core migration."
+        ],
+        challenge: [
+            "NexTrio was hindered by a 20-year-old monolithic core banking system built on deeply intertwined relational databases. It simply could not scale to meet the API demands of modern mobile banking apps.",
+            "High traffic events (like salary deposit days or holiday shopping weekends) led to frequent timeouts, sluggish transaction processing, and a degraded user experience that was harming their brand reputation."
+        ],
+        solution: [
+            "We executed a zero-downtime migration to a containerized Go-based microservices architecture. By cleanly decoupling payment gateways, ledger management, KYC processing, and user authentication, we built an incredibly resilient banking core.",
+            "We implemented CQRS (Command Query Responsibility Segregation) to ensure incredibly fast read times for mobile app balances, while keeping write operations highly secure and ACID compliant."
+        ],
+        process: [
+            {
+                title: 'Strangler Fig Approach',
+                description: 'Slowly wrapped legacy APIs with new microservices, routing traffic dynamically without breaking the old core.'
+            },
+            {
+                title: 'Ledger Decoupling',
+                description: 'Extracted the financial ledger into a highly performant, distributed database system.'
+            },
+            {
+                title: 'Security Hardening',
+                description: 'Implemented Zero Trust architecture and comprehensive penetration testing on all new endpoints.'
+            }
+        ],
+        keyFeatures: [
+            'Distributed Ledger Processing',
+            'CQRS Implementation for Mobile APIs',
+            'Zero-Downtime Deployment Pipelines',
+            'Automated Fraud Detection Integration'
+        ],
+        testimonial: {
+            quote: "The technical prowess required to replace a live banking core without a single customer noticing is staggering. Logic-Unit delivered flawlessly.",
+            author: "Elena Rodriguez",
+            role: "Chief Technology Officer"
+        },
+        results: [
+            {
+                metric: '500%',
+                label: 'Transaction Speed Increase'
+            },
+            {
+                metric: 'Zero',
+                label: 'Downtime Deployments'
+            },
+            {
+                metric: '2M+',
+                label: 'Concurrent Users Supported'
+            },
+            {
+                metric: '100%',
+                label: 'PCI-DSS Compliance Maintained'
+            }
+        ],
+        technologies: [
+            'Go',
+            'Kubernetes',
+            'PostgreSQL',
+            'Apache Kafka',
+            'Redis',
+            'AWS Fargate',
+            'Terraform'
+        ],
+        image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop'
     },
     {
+        slug: 'ai-driven-healthcare-analytics',
+        client: 'VitalCare Health',
+        industry: 'Healthcare',
+        duration: '6 Months',
         title: 'AI-Driven Healthcare Analytics',
         description: 'Developed a predictive model for patient care that reduced readmission rates by 15% for a hospital network.',
-        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop'
+        overview: [
+            "VitalCare Health operates a network of 12 regional hospitals and over 50 outpatient clinics. With thousands of daily admissions, managing patient outcomes while maintaining operational efficiency is a constant balancing act.",
+            "We developed a predictive analytics suite that seamlessly integrated directly into their existing Electronic Health Records (EHR) system."
+        ],
+        challenge: [
+            "VitalCare found that their patient 30-day readmission rates were steadily climbing above national averages. Doctors lacked the predictive tools needed to identify high-risk patients before they were discharged.",
+            "They were sitting on terabytes of longitudinal patient data, but it was unstructured and effectively useless for real-time clinical decision making at the point of care."
+        ],
+        solution: [
+            "We developed specialized Machine Learning models trained on millions of anonymized, historic EHR records. We built an NLP (Natural Language Processing) pipeline that could read unstructured physician notes and extract risk factors.",
+            "The AI tool flagged high-risk patients directly within the physician's daily dashboard and automatically suggested personalized, preventative post-discharge care protocols based on statistical success rates."
+        ],
+        process: [
+            {
+                title: 'Data Sanitization',
+                description: 'Cleaned and anonymized 10 years of patient data to strictly adhere to HIPAA regulations.'
+            },
+            {
+                title: 'NLP Model Training',
+                description: 'Trained contextual language models to understand complex medical jargon in physician notes.'
+            },
+            {
+                title: 'EHR API Integration',
+                description: 'Built secure HL7/FHIR compliant APIs to push predictions back into the native hospital software.'
+            }
+        ],
+        keyFeatures: [
+            'Predictive Readmission Scoring',
+            'NLP-aided Physician Note Extraction',
+            'Automated Care Protocol Recommendations',
+            'HIPAA Compliant Cloud Architecture'
+        ],
+        testimonial: {
+            quote: "This isn't just software; it's a tool that is actively saving lives and improving patient outcomes every single day across our network.",
+            author: "Dr. Jonathan Hayes",
+            role: "Chief Medical Officer"
+        },
+        results: [
+            {
+                metric: '15%',
+                label: 'Reduction in Readmissions'
+            },
+            {
+                metric: '40hrs',
+                label: 'Saved per Doctor Monthly'
+            },
+            {
+                metric: '100%',
+                label: 'HIPAA Compliant'
+            },
+            {
+                metric: '1.2M',
+                label: 'Patient Records Analyzed'
+            }
+        ],
+        technologies: [
+            'TensorFlow',
+            'Python',
+            'AWS SageMaker',
+            'React',
+            'FastAPI',
+            'HL7/FHIR'
+        ],
+        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop'
     },
     {
+        slug: 'omnichannel-retail-transformation',
+        client: 'Aura Fashion',
+        industry: 'Retail',
+        duration: '10 Months',
         title: 'Omnichannel Retail Transformation',
         description: 'Unified online and offline inventory systems for a major fashion retailer, increasing cross-channel sales by 40%.',
-        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop'
+        overview: [
+            "Aura Fashion is a trendy, high-growth apparel retailer. They have a massive social media presence and aggressively drive traffic to their E-commerce site, while simultaneously maintaining over 200 physical brick-and-mortar stores globally.",
+            "Logic-Unit was tasked with tearing down the digital wall between their physical locations and online storefront."
+        ],
+        challenge: [
+            "Aura Fashion struggled deeply with siloed inventory data. The monolithic E-commerce system was entirely separate from the legacy in-store Point of Sale (POS) infrastructure.",
+            "Online shoppers would frequently purchase out-of-stock items, while physical stores held surplus inventory in backrooms. This chaotic data split resulted in poor customer experiences, canceled orders, and millions in lost revenue potential."
+        ],
+        solution: [
+            "We rolled out a custom Omnichannel ERP integration layer that sat between their Shopify Plus front-end and their 200+ physical POS systems, syncing data in real-time.",
+            "This unified inventory ledger enabled flawless 'Buy Online, Pick Up In Store' (BOPIS) capabilities. We also built a custom React Native mobile app for store associates to quickly pick and pack online orders directly from the store floor."
+        ],
+        process: [
+            {
+                title: 'Legacy POS Integration',
+                description: 'Wrote custom translation layers to extract data from 10-year-old proprietary register software.'
+            },
+            {
+                title: 'Central Inventory Engine',
+                description: 'Built an ultra-fast Redis-backed central ledger for inventory truth.'
+            },
+            {
+                title: 'Associate App Launch',
+                description: 'Designed and deployed a highly intuitive mobile application for store staff.'
+            }
+        ],
+        keyFeatures: [
+            'Real-Time Unified Inventory Ledger',
+            'BOPIS (Buy Online, Pick Up In Store) Module',
+            'React Native Store Associate Application',
+            'Automated Restock Routing'
+        ],
+        testimonial: {
+            quote: "We finally operate as a single, cohesive brand. Our stores and our website now talk to each other seamlessly, and revenue reflects that.",
+            author: "Sarah Jenkins",
+            role: "VP of Digital Commerce"
+        },
+        results: [
+            {
+                metric: '40%',
+                label: 'Cross-channel Sales Growth'
+            },
+            {
+                metric: '0.1s',
+                label: 'Inventory Sync Time'
+            },
+            {
+                metric: '85%',
+                label: 'Increase in BOPIS Orders'
+            },
+            {
+                metric: '98%',
+                label: 'Reduction in Out-of-Stock Cancellations'
+            }
+        ],
+        technologies: [
+            'Shopify Plus',
+            'Custom ERP',
+            'Node.js',
+            'Redis',
+            'React Native',
+            'GraphQL'
+        ],
+        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop'
     },
     {
+        slug: 'smart-factory-iot-integration',
+        client: 'Apex Industrial',
+        industry: 'Manufacturing',
+        duration: '12 Months',
         title: 'Smart Factory IoT Integration',
         description: 'Implemented a predictive maintenance system using IoT sensors for an automotive plant, reducing downtime by 25%.',
-        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop'
+        overview: [
+            "Apex Industrial produces high-precision CNC components for the global automotive sector. With extreme margin pressures, maximizing uptime on their multi-million dollar machinery is the defining factor for profitability.",
+            "We were tasked with bringing 'Industry 4.0' to a 15-year-old assembly line."
+        ],
+        challenge: [
+            "Apex faced millions in losses due to unpredicted machine failures on the assembly line. Maintenance was entirely schedule-based rather than condition-based.",
+            "If a bearing failed between scheduled maintenance windows, it would cause an uncontrolled halt to the entire production line, cascading delays across global supply chains."
+        ],
+        solution: [
+            "We retrofitted their legacy machinery with custom, non-intrusive IoT sensors designed to capture high-frequency vibration, temperature, and torque data.",
+            "We built a ruggedized Edge Computing network on the factory floor to process data locally. An AI-powered layer ran continuous anomaly detection algorithms to alert maintenance teams via mobile notifications weeks before a catastrophic part failure occurred."
+        ],
+        process: [
+            {
+                title: 'Hardware Integration',
+                description: 'Safely attached and calibrated industrial IoT sensors to legacy CNC machines.'
+            },
+            {
+                title: 'Edge Computing Array',
+                description: 'Setup localized servers on the factory floor to process gigabytes of sensor data with minimal latency.'
+            },
+            {
+                title: 'Anomaly Detection Models',
+                description: 'Trained models specifically looking for micro-vibrations indicative of imminent bearing failure.'
+            }
+        ],
+        keyFeatures: [
+            'High-Frequency Vibration Analysis',
+            'Predictive Maintenance AI Engine',
+            'Real-time Factory Floor Dashboard',
+            'Automated SMS/Push Alert System'
+        ],
+        testimonial: {
+            quote: "We don't do repairs anymore. We do targeted interventions. The system literally pays for itself every time it catches a failure before it happens.",
+            author: "David Chen",
+            role: "Plant Manager"
+        },
+        results: [
+            {
+                metric: '25%',
+                label: 'Reduction in Equipment Downtime'
+            },
+            {
+                metric: '30%',
+                label: 'Lower Maintenance Costs'
+            },
+            {
+                metric: '10M+',
+                label: 'Data Points Analyzed Daily'
+            },
+            {
+                metric: '12',
+                label: 'Catastrophic Failures Prevented'
+            }
+        ],
+        technologies: [
+            'C++',
+            'Azure IoT Hub',
+            'Python',
+            'PowerBI',
+            'React',
+            'TensorFlow Edge'
+        ],
+        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop'
     },
     {
+        slug: 'proptech-portfolio-management',
+        client: 'Horizon Holdings',
+        industry: 'Real Estate',
+        duration: '9 Months',
         title: 'PropTech Portfolio Management',
         description: 'Built a centralized asset management platform for a real estate firm, automating tenant onboarding and lease tracking.',
-        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2070&auto=format&fit=crop'
+        overview: [
+            "Horizon Holdings manages a rapid expanding portfolio of multi-family residential units across five states.",
+            "As they transitioned from a mid-size to enterprise-level property management firm, their manual operational processes began to completely buckle under the weight."
+        ],
+        challenge: [
+            "Managing a portfolio of 5,000+ units using disparate spreadsheet systems and legacy desktop software led to widespread errors. Lease renewals were being missed, rent collection was heavily delayed, and operational costs were rocketing as they had to hire more admins.",
+            "Tenants were also frustrated by the lack of digital payment options and a convoluted maintenance request process."
+        ],
+        solution: [
+            "We engineered a bespoke, cloud-native SaaS platform specifically architected for high-volume portfolio management. It featured automated document generation for leases, integrated payment gateways, and aggressive financial reporting.",
+            "We also built a polished, user-friendly tenant mobile app for seamless communication, one-tap rent payments, and photo-based maintenance ticketing."
+        ],
+        process: [
+            {
+                title: 'Workflow Mapping',
+                description: 'Detailed mapping of the entire lease lifecycle from application to move-out.'
+            },
+            {
+                title: 'Platform Engineering',
+                description: 'Built a highly scalable multi-tenant architecture to support thousands of concurrent users.'
+            },
+            {
+                title: 'Tenant Onboarding',
+                description: 'Rolled out the mobile app with a guided digital onboarding process for all 5,000+ units.'
+            }
+        ],
+        keyFeatures: [
+            'Automated Lease Generation Engine',
+            'Integrated Financials & Rent Collection',
+            'Cross-Platform Tenant Mobile App',
+            'Maintenance Ticketing with Geo-Routing'
+        ],
+        testimonial: {
+            quote: "Logic-Unit built us a platform so efficient it felt like we added 20 people to our administrative team overnight.",
+            author: "Alicia Torres",
+            role: "VP of Operations"
+        },
+        results: [
+            {
+                metric: '90%',
+                label: 'Automated Administrative Tasks'
+            },
+            {
+                metric: '15 Days',
+                label: 'Faster Average Rent Collection'
+            },
+            {
+                metric: '100%',
+                label: 'Portfolio Visibility'
+            },
+            {
+                metric: '4.8★',
+                label: 'Tenant App Satisfaction'
+            }
+        ],
+        technologies: [
+            'Next.js',
+            'Django',
+            'PostgreSQL',
+            'Stripe API',
+            'Mapbox',
+            'React Native'
+        ],
+        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2070&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2070&auto=format&fit=crop'
     }
 ];
 const CLIENT_LOGOS = [
@@ -2117,12 +2532,12 @@ const SOCIAL_LINKS = [
                     clipRule: "evenodd"
                 }, void 0, false, {
                     fileName: "[project]/constants.tsx",
-                    lineNumber: 853,
+                    lineNumber: 1095,
                     columnNumber: 151
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/constants.tsx",
-                lineNumber: 853,
+                lineNumber: 1095,
                 columnNumber: 95
             }, ("TURBOPACK compile-time value", void 0))
     },
@@ -2137,12 +2552,12 @@ const SOCIAL_LINKS = [
                     d: "M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
                 }, void 0, false, {
                     fileName: "[project]/constants.tsx",
-                    lineNumber: 854,
+                    lineNumber: 1096,
                     columnNumber: 136
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/constants.tsx",
-                lineNumber: 854,
+                lineNumber: 1096,
                 columnNumber: 80
             }, ("TURBOPACK compile-time value", void 0))
     },
@@ -2157,12 +2572,12 @@ const SOCIAL_LINKS = [
                     d: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                 }, void 0, false, {
                     fileName: "[project]/constants.tsx",
-                    lineNumber: 855,
+                    lineNumber: 1097,
                     columnNumber: 154
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/constants.tsx",
-                lineNumber: 855,
+                lineNumber: 1097,
                 columnNumber: 98
             }, ("TURBOPACK compile-time value", void 0))
     }

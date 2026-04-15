@@ -150,6 +150,10 @@ const Partners = ()=>{
         {
             name: 'SGL',
             url: '/sgl.png'
+        },
+        {
+            name: 'tajchem',
+            url: '/tajchem.png'
         }
     ];
     // Triple the logos for smoother infinite scroll
@@ -171,12 +175,12 @@ const Partners = ()=>{
                     children: "Trusted by Global Industry Leaders"
                 }, void 0, false, {
                     fileName: "[project]/components/sections/Partners.tsx",
-                    lineNumber: 20,
+                    lineNumber: 21,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/sections/Partners.tsx",
-                lineNumber: 19,
+                lineNumber: 20,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -186,14 +190,14 @@ const Partners = ()=>{
                         className: "absolute left-0 top-0 h-full w-32 md:w-64 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"
                     }, void 0, false, {
                         fileName: "[project]/components/sections/Partners.tsx",
-                        lineNumber: 26,
+                        lineNumber: 27,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute right-0 top-0 h-full w-32 md:w-64 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"
                     }, void 0, false, {
                         fileName: "[project]/components/sections/Partners.tsx",
-                        lineNumber: 27,
+                        lineNumber: 28,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -206,29 +210,29 @@ const Partners = ()=>{
                                     className: "h-32 md:h-36 lg:h-16 w-auto object-contain transform group-hover/logo:scale-105 transition-transform duration-500"
                                 }, void 0, false, {
                                     fileName: "[project]/components/sections/Partners.tsx",
-                                    lineNumber: 35,
+                                    lineNumber: 36,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, `${logo.name}-${index}`, false, {
                                 fileName: "[project]/components/sections/Partners.tsx",
-                                lineNumber: 31,
+                                lineNumber: 32,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/components/sections/Partners.tsx",
-                        lineNumber: 29,
+                        lineNumber: 30,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sections/Partners.tsx",
-                lineNumber: 25,
+                lineNumber: 26,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/components/sections/Partners.tsx",
-        lineNumber: 18,
+        lineNumber: 19,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -249,11 +253,13 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$constants$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/constants.tsx [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
+;
 ;
 ;
 ;
@@ -279,13 +285,13 @@ const SuccessStoriesSlider = ()=>{
                             children: "Stories"
                         }, void 0, false, {
                             fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                            lineNumber: 19,
+                            lineNumber: 20,
                             columnNumber: 95
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                    lineNumber: 19,
+                    lineNumber: 20,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -295,19 +301,20 @@ const SuccessStoriesSlider = ()=>{
                             className: "grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-md border border-gray-200",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-gray-200 aspect-video rounded-md flex items-center justify-center",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    className: "bg-gray-200 aspect-video rounded-md relative overflow-hidden",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         src: currentStory.image,
                                         alt: currentStory.title,
-                                        className: "w-full h-full object-cover rounded-md"
+                                        fill: true,
+                                        className: "object-cover"
                                     }, void 0, false, {
                                         fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                                        lineNumber: 23,
+                                        lineNumber: 24,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                                    lineNumber: 22,
+                                    lineNumber: 23,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -317,7 +324,7 @@ const SuccessStoriesSlider = ()=>{
                                             children: currentStory.title
                                         }, void 0, false, {
                                             fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                                            lineNumber: 26,
+                                            lineNumber: 27,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -325,19 +332,19 @@ const SuccessStoriesSlider = ()=>{
                                             children: currentStory.description
                                         }, void 0, false, {
                                             fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                                            lineNumber: 27,
+                                            lineNumber: 28,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                                    lineNumber: 25,
+                                    lineNumber: 26,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                            lineNumber: 21,
+                            lineNumber: 22,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -347,12 +354,12 @@ const SuccessStoriesSlider = ()=>{
                                 className: "w-6 h-6 text-brand-dark"
                             }, void 0, false, {
                                 fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                                lineNumber: 31,
+                                lineNumber: 32,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                            lineNumber: 30,
+                            lineNumber: 31,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -362,18 +369,18 @@ const SuccessStoriesSlider = ()=>{
                                 className: "w-6 h-6 text-brand-dark"
                             }, void 0, false, {
                                 fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                                lineNumber: 34,
+                                lineNumber: 35,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                            lineNumber: 33,
+                            lineNumber: 34,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                    lineNumber: 20,
+                    lineNumber: 21,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -384,23 +391,23 @@ const SuccessStoriesSlider = ()=>{
                         children: "View All Success Stories"
                     }, void 0, false, {
                         fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                        lineNumber: 38,
+                        lineNumber: 39,
                         columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-                    lineNumber: 37,
+                    lineNumber: 38,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-            lineNumber: 18,
+            lineNumber: 19,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/clients_page/SuccessStoriesSlider.tsx",
-        lineNumber: 17,
+        lineNumber: 18,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };

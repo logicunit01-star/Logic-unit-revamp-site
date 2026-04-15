@@ -1,8 +1,12 @@
 {
+  "/about/page": "app/about/page.js",
+  "/ai-development/page": "app/ai-development/page.js",
+  "/case-studies/[slug]/page": "app/case-studies/[slug]/page.js",
+  "/case-studies/page": "app/case-studies/page.js",
+  "/clients/page": "app/clients/page.js",
+  "/contact/page": "app/contact/page.js",
   "/industries/[slug]/page": "app/industries/[slug]/page.js",
   "/industries/page": "app/industries/page.js",
-  "/insights/page": "app/insights/page.js",
   "/page": "app/page.js",
-  "/services/[slug]/page": "app/services/[slug]/page.js",
-  "/services/page": "app/services/page.js"
+  "/services/[slug]/page": "app/services/[slug]/page.js"
 }

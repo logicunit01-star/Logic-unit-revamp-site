@@ -25,6 +25,15 @@ module.exports = {
       },
       borderRadius: {
         base: 'var(--radius-base)',
+      },
+      keyframes: {
+        'slow-pan': {
+          '0%': { objectPosition: 'center top', transform: 'scale(1.05)' },
+          '100%': { objectPosition: 'center bottom', transform: 'scale(1.1)' }
+        }
+      },
+      animation: {
+        'slow-pan': 'slow-pan 30s ease-in-out infinite alternate',
       }
     },
   },
