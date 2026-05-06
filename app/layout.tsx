@@ -5,6 +5,7 @@ import Script from 'next/script';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollToTop from '@/components/ui/ScrollToTop';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: {
@@ -59,6 +60,7 @@ export default async function RootLayout({
         </main>
         <Footer />
         <ScrollToTop />
+        <SpeedInsights />
 
         {/* GSAP Scripts - loaded after body */}
         <Script
