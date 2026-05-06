@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { useRouter } from 'next/navigation';
 import Hero from '@/components/sections/Hero';
 import Stats from '@/components/sections/Stats';
